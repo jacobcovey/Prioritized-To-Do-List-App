@@ -23,23 +23,23 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJB-lo-NZp" id="2KS-gN-kLg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cVc-ux-Bc7">
-                                            <rect key="frame" x="15" y="8" width="340" height="41"/>
+                                            <rect key="frame" x="15" y="8.5" width="340" height="41"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bUS-p9-jmn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="41"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="177.5" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-0e-Bol">
-                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177.5" height="23"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Frequency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CwF-2q-J9w">
-                                                            <rect key="frame" x="0.0" y="23" width="177" height="18"/>
+                                                            <rect key="frame" x="0.0" y="23" width="177.5" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -47,16 +47,16 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="y1J-S0-Lfj">
-                                                    <rect key="frame" x="197" y="0.0" width="93" height="41"/>
+                                                    <rect key="frame" x="197.5" y="0.0" width="92.5" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Current: 0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10S-uo-dsp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="93" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="92.5" height="23"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Goal: 0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vF-Pe-DVG">
-                                                            <rect key="frame" x="0.0" y="23" width="93" height="18"/>
+                                                            <rect key="frame" x="0.0" y="23" width="92.5" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -287,13 +287,20 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="JtE-aG-Ne2">
                                         <rect key="frame" x="0.0" y="283" width="343" height="304"/>
                                         <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="J0u-wV-S4a">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
-                                                <segments>
-                                                    <segment title="Timed"/>
-                                                    <segment title="Check-off"/>
-                                                </segments>
-                                            </segmentedControl>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoQ-ow-DOJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
+                                                <state key="normal" title="Timed"/>
+                                                <connections>
+                                                    <segue destination="BEb-KU-iFt" kind="show" identifier="addTimedTask" id="SDx-5h-Tsz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrQ-az-qzC">
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
+                                                <state key="normal" title="Check-off"/>
+                                                <connections>
+                                                    <segue destination="5Yp-wg-5fp" kind="show" identifier="addCheckOffTask" id="rSY-la-ScR"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -567,16 +574,10 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLG-Q6-Sk7">
                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
                                                 <state key="normal" title="Time"/>
-                                                <connections>
-                                                    <segue destination="BEb-KU-iFt" kind="show" identifier="addTimedTask" id="fpL-Xz-tNk"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVq-ul-Vjd">
                                                 <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
                                                 <state key="normal" title="Check Off"/>
-                                                <connections>
-                                                    <segue destination="5Yp-wg-5fp" kind="show" identifier="addCheckOffTask" id="FL8-zx-jyK"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

@@ -134,7 +134,7 @@ class TasksViewController: UITableViewController {
             for task in taskArray {
                 if task.type == TaskType.Once {
                     if task.currentInt! >= 1 {
-                        TaskBank.sharedInstance.moveTaskToCompleted(task: task)
+                        TaskBank.sharedInstance.removeTaskFromBank(task: task)
                     }
                 } else if task.type == TaskType.CheckOff {
                     if task.currentInt! >= task.goalInt! {

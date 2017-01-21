@@ -13,13 +13,6 @@ class TaskBank {
     static let sharedInstance = TaskBank()
     
     var currentId: Int = 0
-//    var urgent_important = Set<Task> ()
-//    var nonUrgent_important = Set<Task>()
-//    var urgent_nonImportant = Set<Task>()
-//    var nonUrgent_nonImportant = Set<Task>()
-//    var completed = Set<Task>()
-//    var taskSets = [Set<Task>]()
-//    var setNames = ["Important & Urgent", "Important & Nonurgent", "Nonimportant & Urgent", "NonImportant & Nonurgent", "Completed"]
     
     var urgent_important = [Task]()
     var nonUrgent_important = [Task]()
@@ -28,10 +21,9 @@ class TaskBank {
     var completed = [Task]()
     var allTasks = [Task]()
     var taskArrays = [[Task]]()
-    var arrayNames = ["Important & Urgent", "Important & Nonurgent", "Nonimportant & Urgent", "NonImportant & Nonurgent", "Completed"]
+    var arrayNames = ["Important & Urgent", "Important & Not Urgent", "Not Important & Urgent", "Not Important & Not Urgent", "Completed"]
     
     init() {
-//        taskSets = [urgent_important, nonUrgent_important, urgent_nonImportant, nonUrgent_nonImportant, completed]
         taskArrays = [urgent_important, nonUrgent_important, urgent_nonImportant, nonUrgent_nonImportant, completed]
     }
     
@@ -73,6 +65,21 @@ class TaskBank {
             } else if task.important == false && task.urgent == false {
               taskArrays[3] = taskArrays[3].filter{$0 != task}
           }
+        }
+    }
+    
+    func removeTaskFromBank(task: Task) {
+        if !doesExistInCompletedArray(task: task){
+            taskArrays[4] = taskArrays[4].filter{$0 != task}
+        }
+        if task.important == true && task.urgent == true {
+            taskArrays[0] = taskArrays[0].filter{$0 != task}
+        } else if task.important == true && task.urgent == false {
+            taskArrays[1] = taskArrays[1].filter{$0 != task}
+        } else if task.important == false && task.urgent == true {
+            taskArrays[2] = taskArrays[2].filter{$0 != task}
+        } else if task.important == false && task.urgent == false {
+            taskArrays[3] = taskArrays[3].filter{$0 != task}
         }
     }
     
