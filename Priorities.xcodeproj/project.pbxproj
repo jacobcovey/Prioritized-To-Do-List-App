@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		8B0BC3B01E1AE7590029614F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3AF1E1AE7590029614F /* AppDelegate.swift */; };
-		8B0BC3B21E1AE7590029614F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3B11E1AE7590029614F /* ViewController.swift */; };
 		8B0BC3B51E1AE75A0029614F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0BC3B31E1AE75A0029614F /* Main.storyboard */; };
 		8B0BC3B71E1AE75A0029614F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B0BC3B61E1AE75A0029614F /* Assets.xcassets */; };
 		8B0BC3BA1E1AE75A0029614F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0BC3B81E1AE75A0029614F /* LaunchScreen.storyboard */; };
 		8B0BC3C51E1AE75A0029614F /* PrioritiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3C41E1AE75A0029614F /* PrioritiesTests.swift */; };
 		8B0BC3D01E1AE75A0029614F /* PrioritiesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3CF1E1AE75A0029614F /* PrioritiesUITests.swift */; };
+		8B0BC3DE1E1AE83D0029614F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3DD1E1AE83D0029614F /* Task.swift */; };
+		8B0BC3E01E1AEA0E0029614F /* HourMinSec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3DF1E1AEA0E0029614F /* HourMinSec.swift */; };
+		8B0BC3E21E1B0FB10029614F /* TaskBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E11E1B0FB10029614F /* TaskBank.swift */; };
+		8B0BC3E41E1B15EB0029614F /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E31E1B15EB0029614F /* TasksViewController.swift */; };
+		8B0BC3E61E1C460B0029614F /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E51E1C460B0029614F /* AddTaskViewController.swift */; };
+		8B0BC3E81E1C4B540029614F /* AddTimedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E71E1C4B540029614F /* AddTimedViewController.swift */; };
+		8B0BC3EA1E1C4C3D0029614F /* AddCheckOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */; };
+		8B6CA3361E2A86A30036EC67 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CA3351E2A86A30036EC67 /* TaskCell.swift */; };
+		8B76DEE81E2AF2510028C24B /* AddOneTimeTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +44,6 @@
 /* Begin PBXFileReference section */
 		8B0BC3AC1E1AE7590029614F /* Priorities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Priorities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0BC3AF1E1AE7590029614F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8B0BC3B11E1AE7590029614F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8B0BC3B41E1AE75A0029614F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B0BC3B61E1AE75A0029614F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B0BC3B91E1AE75A0029614F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +54,15 @@
 		8B0BC3CB1E1AE75A0029614F /* PrioritiesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrioritiesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0BC3CF1E1AE75A0029614F /* PrioritiesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrioritiesUITests.swift; sourceTree = "<group>"; };
 		8B0BC3D11E1AE75A0029614F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B0BC3DD1E1AE83D0029614F /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		8B0BC3DF1E1AEA0E0029614F /* HourMinSec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourMinSec.swift; sourceTree = "<group>"; };
+		8B0BC3E11E1B0FB10029614F /* TaskBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskBank.swift; sourceTree = "<group>"; };
+		8B0BC3E31E1B15EB0029614F /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		8B0BC3E51E1C460B0029614F /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		8B0BC3E71E1C4B540029614F /* AddTimedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimedViewController.swift; sourceTree = "<group>"; };
+		8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCheckOffViewController.swift; sourceTree = "<group>"; };
+		8B6CA3351E2A86A30036EC67 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneTimeTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +113,21 @@
 		8B0BC3AE1E1AE7590029614F /* Priorities */ = {
 			isa = PBXGroup;
 			children = (
+				8B6CA3371E2A95930036EC67 /* Suppporting FIles */,
 				8B0BC3AF1E1AE7590029614F /* AppDelegate.swift */,
-				8B0BC3B11E1AE7590029614F /* ViewController.swift */,
 				8B0BC3B31E1AE75A0029614F /* Main.storyboard */,
 				8B0BC3B61E1AE75A0029614F /* Assets.xcassets */,
 				8B0BC3B81E1AE75A0029614F /* LaunchScreen.storyboard */,
 				8B0BC3BB1E1AE75A0029614F /* Info.plist */,
+				8B0BC3DD1E1AE83D0029614F /* Task.swift */,
+				8B0BC3DF1E1AEA0E0029614F /* HourMinSec.swift */,
+				8B0BC3E11E1B0FB10029614F /* TaskBank.swift */,
+				8B0BC3E31E1B15EB0029614F /* TasksViewController.swift */,
+				8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */,
+				8B6CA3351E2A86A30036EC67 /* TaskCell.swift */,
+				8B0BC3E51E1C460B0029614F /* AddTaskViewController.swift */,
+				8B0BC3E71E1C4B540029614F /* AddTimedViewController.swift */,
+				8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */,
 			);
 			path = Priorities;
 			sourceTree = "<group>";
@@ -123,6 +148,13 @@
 				8B0BC3D11E1AE75A0029614F /* Info.plist */,
 			);
 			path = PrioritiesUITests;
+			sourceTree = "<group>";
+		};
+		8B6CA3371E2A95930036EC67 /* Suppporting FIles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Suppporting FIles";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +225,7 @@
 				TargetAttributes = {
 					8B0BC3AB1E1AE7590029614F = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = QBY6T6WGMK;
 						ProvisioningStyle = Automatic;
 					};
 					8B0BC3BF1E1AE75A0029614F = {
@@ -259,8 +292,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B0BC3B21E1AE7590029614F /* ViewController.swift in Sources */,
+				8B0BC3E81E1C4B540029614F /* AddTimedViewController.swift in Sources */,
+				8B0BC3E21E1B0FB10029614F /* TaskBank.swift in Sources */,
+				8B0BC3E61E1C460B0029614F /* AddTaskViewController.swift in Sources */,
+				8B0BC3EA1E1C4C3D0029614F /* AddCheckOffViewController.swift in Sources */,
+				8B0BC3DE1E1AE83D0029614F /* Task.swift in Sources */,
+				8B76DEE81E2AF2510028C24B /* AddOneTimeTaskViewController.swift in Sources */,
+				8B0BC3E41E1B15EB0029614F /* TasksViewController.swift in Sources */,
 				8B0BC3B01E1AE7590029614F /* AppDelegate.swift in Sources */,
+				8B6CA3361E2A86A30036EC67 /* TaskCell.swift in Sources */,
+				8B0BC3E01E1AEA0E0029614F /* HourMinSec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QBY6T6WGMK;
 				INFOPLIST_FILE = Priorities/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jpc.Priorities;
@@ -424,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QBY6T6WGMK;
 				INFOPLIST_FILE = Priorities/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jpc.Priorities;
@@ -505,6 +548,7 @@
 				8B0BC3D61E1AE75A0029614F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B0BC3D71E1AE75A0029614F /* Build configuration list for PBXNativeTarget "PrioritiesTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +557,7 @@
 				8B0BC3D91E1AE75A0029614F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B0BC3DA1E1AE75A0029614F /* Build configuration list for PBXNativeTarget "PrioritiesUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +566,7 @@
 				8B0BC3DC1E1AE75A0029614F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

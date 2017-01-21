@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let taskBank = TaskBank()
+        
+        let navController = window!.rootViewController as! UINavigationController
+        let taskController = navController.topViewController as! TasksViewController
+        taskController.taskBank = taskBank
         return true
     }
 

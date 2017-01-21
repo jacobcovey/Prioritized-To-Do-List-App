@@ -6,4 +6,32 @@
 //  Copyright © 2017 Jacob Covey. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class TaskCell: UITableViewCell {
+    
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var frequencyLabel: UILabel!
+    @IBOutlet var currentLabel: UILabel!
+    @IBOutlet var goalLabel: UILabel!
+    @IBOutlet var iconButton: UIButton!
+    var location = [Int]()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        nameLabel.adjustsFontForContentSizeCategory = true
+        frequencyLabel.adjustsFontForContentSizeCategory = true
+        currentLabel.adjustsFontForContentSizeCategory = true
+        goalLabel.adjustsFontForContentSizeCategory = true
+        iconButton.adjustsImageWhenDisabled = true
+    }
+    @IBAction func iconClicked(_ sender: Any) {
+//        let task = TaskBank.sharedInstance.allTasks[iconButton.tag]
+//        if task.type == TaskType.Time {
+//            task.switchClocked()
+//        } else {
+//            task.currentInt = task.currentInt! + 1
+//        }
+    }
+}
