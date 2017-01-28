@@ -231,92 +231,138 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZMt-Nr-EuP">
-                                <rect key="frame" x="16" y="72" width="343" height="587"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uh-kX-6gP">
+                                <rect key="frame" x="5" y="72" width="365" height="593"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVE-lM-8CK">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZMt-Nr-EuP">
+                                        <rect key="frame" x="0.0" y="-60" width="365" height="630"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Task:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-Be-rzq">
-                                                <rect key="frame" x="0.0" y="0.0" width="109.5" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVE-lM-8CK">
+                                                <rect key="frame" x="0.0" y="0.0" width="365" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Task:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-Be-rzq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="109.5" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fll-qm-K8Z">
+                                                        <rect key="frame" x="109.5" y="0.0" width="255.5" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="fll-qm-K8Z" firstAttribute="centerY" secondItem="TVE-lM-8CK" secondAttribute="centerY" id="BzC-8b-Kbw"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tCV-cG-i0D">
+                                                <rect key="frame" x="0.0" y="38" width="365" height="48.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time frame fits this goal best?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNt-JB-DNV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="365" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ko3-04-H5I">
+                                                        <rect key="frame" x="0.0" y="20.5" width="365" height="29"/>
+                                                        <segments>
+                                                            <segment title="Daily"/>
+                                                            <segment title="Weekly"/>
+                                                            <segment title="Monthly"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="segmentedControlAction:" destination="BEb-KU-iFt" eventType="valueChanged" id="Y7X-rW-t04"/>
+                                                            <action selector="setControlAction:" destination="5Yp-wg-5fp" eventType="valueChanged" id="G0B-fS-TBe"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Is this task of a urgent nature? (i.e., get haircut, email boss back, ect.)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dt-xC-ckO">
+                                                <rect key="frame" x="0.0" y="94.5" width="365" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fll-qm-K8Z">
-                                                <rect key="frame" x="109.5" y="0.0" width="233.5" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textField>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="fll-qm-K8Z" firstAttribute="centerY" secondItem="TVE-lM-8CK" secondAttribute="centerY" id="BzC-8b-Kbw"/>
-                                        </constraints>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Is this task of a urgent nature? (i.e., get haircut, email boss back, ect.)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dt-xC-ckO">
-                                        <rect key="frame" x="0.0" y="38" width="343" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l4X-IP-Mps">
-                                        <rect key="frame" x="0.0" y="87" width="345" height="31"/>
-                                        <connections>
-                                            <action selector="urgentToggled:" destination="aN4-Ro-uKu" eventType="valueChanged" id="NXv-ba-GAy"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this task of significant importance? (e.g., if you don't do this will your quality of life suffer?)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5o-BT-rUH">
-                                        <rect key="frame" x="0.0" y="126" width="343" height="61"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B36-0N-WQ8">
-                                        <rect key="frame" x="0.0" y="195" width="345" height="31"/>
-                                        <connections>
-                                            <action selector="importantToggled:" destination="aN4-Ro-uKu" eventType="valueChanged" id="Fa9-aR-Dna"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Method of completion best fits this task?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt1-Eb-0Ps">
-                                        <rect key="frame" x="0.0" y="234" width="343" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="JtE-aG-Ne2">
-                                        <rect key="frame" x="0.0" y="283" width="343" height="304"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoQ-ow-DOJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
-                                                <state key="normal" title="Timed"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l4X-IP-Mps">
+                                                <rect key="frame" x="0.0" y="143.5" width="367" height="31"/>
                                                 <connections>
-                                                    <segue destination="BEb-KU-iFt" kind="show" identifier="addTimedTask" id="SDx-5h-Tsz"/>
+                                                    <action selector="urgentToggled:" destination="aN4-Ro-uKu" eventType="valueChanged" id="NXv-ba-GAy"/>
                                                 </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrQ-az-qzC">
-                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
-                                                <state key="normal" title="Check-off"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this task of significant importance? (e.g., if you don't do this will your quality of life suffer?)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5o-BT-rUH">
+                                                <rect key="frame" x="0.0" y="182.5" width="365" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B36-0N-WQ8">
+                                                <rect key="frame" x="0.0" y="231.5" width="367" height="31"/>
                                                 <connections>
-                                                    <segue destination="5Yp-wg-5fp" kind="show" identifier="addCheckOffTask" id="rSY-la-ScR"/>
+                                                    <action selector="importantToggled:" destination="aN4-Ro-uKu" eventType="valueChanged" id="Fa9-aR-Dna"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Method of completion best fits this task?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt1-Eb-0Ps">
+                                                <rect key="frame" x="0.0" y="270.5" width="365" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="JtE-aG-Ne2">
+                                                <rect key="frame" x="0.0" y="299" width="365" height="28"/>
+                                                <subviews>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="h7Q-iP-2oQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="365" height="29"/>
+                                                        <segments>
+                                                            <segment title="Check Off"/>
+                                                            <segment title="Timed"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ony-fd-OVS">
+                                                <rect key="frame" x="0.0" y="335" width="365" height="257"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many times per peroid would you like to perform this task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDX-kZ-iRl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="365" height="41"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuK-iK-u28">
+                                                        <rect key="frame" x="0.0" y="41" width="365" height="216"/>
+                                                    </pickerView>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d82-0j-8B8">
+                                                <rect key="frame" x="0.0" y="600" width="365" height="30"/>
+                                                <state key="normal" title="Save &amp; Close"/>
+                                                <connections>
+                                                    <action selector="saveAndClose:" destination="5Yp-wg-5fp" eventType="touchUpInside" id="dJz-eZ-WxC"/>
+                                                    <action selector="saveAndClose:" destination="BEb-KU-iFt" eventType="touchUpInside" id="ghE-xK-Fiz"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ZMt-Nr-EuP" secondAttribute="bottom" id="0PY-0z-yAK"/>
+                                    <constraint firstItem="ZMt-Nr-EuP" firstAttribute="leading" secondItem="5uh-kX-6gP" secondAttribute="leading" id="3AC-Wc-WZm"/>
+                                    <constraint firstItem="ZMt-Nr-EuP" firstAttribute="top" secondItem="5uh-kX-6gP" secondAttribute="top" constant="-60" id="ifZ-Am-ESW"/>
+                                    <constraint firstItem="ZMt-Nr-EuP" firstAttribute="width" secondItem="5uh-kX-6gP" secondAttribute="width" id="kYV-gq-7c1"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZMt-Nr-EuP" secondAttribute="trailing" id="nb1-9S-NPq"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ZMt-Nr-EuP" secondAttribute="trailing" id="6fY-Gb-Xlc"/>
-                            <constraint firstItem="Fem-xI-ths" firstAttribute="top" secondItem="ZMt-Nr-EuP" secondAttribute="bottom" constant="8" id="Cee-qT-y5O"/>
-                            <constraint firstItem="ZMt-Nr-EuP" firstAttribute="leading" secondItem="FM7-Xw-0bb" secondAttribute="leadingMargin" id="LYV-30-HOZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ZMt-Nr-EuP" secondAttribute="trailing" id="SXl-Sa-VYg"/>
-                            <constraint firstItem="ZMt-Nr-EuP" firstAttribute="top" secondItem="mQ8-ef-ioo" secondAttribute="bottom" constant="8" id="lYm-bL-6ZR"/>
-                            <constraint firstItem="ZMt-Nr-EuP" firstAttribute="top" secondItem="mQ8-ef-ioo" secondAttribute="bottom" constant="8" id="qn9-es-lDU"/>
-                            <constraint firstItem="Fem-xI-ths" firstAttribute="top" secondItem="ZMt-Nr-EuP" secondAttribute="bottom" constant="8" id="sRm-4E-PEJ"/>
-                            <constraint firstItem="ZMt-Nr-EuP" firstAttribute="leading" secondItem="FM7-Xw-0bb" secondAttribute="leadingMargin" id="xUh-cE-86S"/>
+                            <constraint firstItem="5uh-kX-6gP" firstAttribute="leading" secondItem="FM7-Xw-0bb" secondAttribute="leading" constant="5" id="JeP-bc-XL9"/>
+                            <constraint firstItem="Fem-xI-ths" firstAttribute="top" secondItem="5uh-kX-6gP" secondAttribute="bottom" constant="2" id="UJ4-rR-EZZ"/>
+                            <constraint firstAttribute="trailing" secondItem="5uh-kX-6gP" secondAttribute="trailing" constant="5" id="aim-4j-bCk"/>
+                            <constraint firstItem="5uh-kX-6gP" firstAttribute="top" secondItem="mQ8-ef-ioo" secondAttribute="bottom" constant="8" id="fip-Re-S8D"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="bmb-XY-dlh" appends="YES" id="wX7-1R-sdx"/>
@@ -562,7 +608,7 @@
                                             <action selector="importantSwitchChanged:" destination="cZC-z5-v1g" eventType="valueChanged" id="AcN-jL-MDb"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Method of completion best fits this task?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFy-iH-Ye6">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Methd of completion best fits this task?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFy-iH-Ye6">
                                         <rect key="frame" x="0.0" y="234" width="343" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
