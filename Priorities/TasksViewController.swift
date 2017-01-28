@@ -13,6 +13,7 @@ class TasksViewController: UITableViewController {
     
     var taskBank: TaskBank!
     var counter: Int = 0
+    var newDayCounter: Int = 0
     var timeMovedToBackground: Date?
     
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
@@ -124,6 +125,13 @@ class TasksViewController: UITableViewController {
         if self.counter == 10 {
             self.addSecToAllTimedTasks(seconds: 1)
             self.counter = 0
+            self.newDayCounter += 1
+            if self.newDayCounter == 60 {// one a minute check if it is a new day
+                if TaskBank.sharedInstance.checkIfNewDate() {
+                    TaskBank.sharedInstance.resetForNewDate()
+                }
+                self.newDayCounter = 0
+            }
         }
         self.checkTasksForCompletion()
         tableView.reloadData()

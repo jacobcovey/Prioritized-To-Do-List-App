@@ -8,19 +8,19 @@
 
 import Foundation
 
-enum Frequency {
-    case Daily
-    case Weekly
-    case Monthly
-    case Once
+enum Frequency: Int {
+    case Daily = 0
+    case Weekly = 1
+    case Monthly = 2
+    case Once = 3
 }
-enum TaskType {
-    case Time
-    case CheckOff
-    case Once
+enum TaskType: Int {
+    case Time = 0
+    case CheckOff = 1
+    case Once = 2
 }
 
-class Task: NSObject {
+class Task: NSObject, NSCoding {
     var taskId: Int
     override var hashValue: Int {
         return self.taskId
@@ -39,9 +39,9 @@ class Task: NSObject {
     var currentInt: Int?
     var partialFisrt: Bool
     var partialGoalTime: HourMinSec?
-    var paritalGaolInt: Int?
+    var partialGaolInt: Int?
     var completed: Bool
-    var lastUpdated: Date?
+    var lastUpdated: DayMonthYear?
     
 
     init(title: String, urgent: Bool, important: Bool, frequency: Frequency, type: TaskType, goalTime: HourMinSec?, goalInt: Int?) {
@@ -55,10 +55,10 @@ class Task: NSObject {
         self.type = type
         self.goalTime = goalTime
         self.goalInt = goalInt
+        self.lastUpdated = Task.convertDateToDayMonthYear(date: Date())
         if type == .Time {
             currentTime = HourMinSec(hour: 0, min: 0, sec: 0)
             self.clockedIn = false
-            self.lastUpdated = Date()
         } else {// either checkOff or once
             currentInt = 0
         }
@@ -80,7 +80,7 @@ class Task: NSObject {
                 let weekDay = calendar.component(.weekday, from: date)
                 let percentage: Double = 1 - (Double(weekDay - 1) / 7)
                 if type == .CheckOff {
-                    self.paritalGaolInt = Int( Double(goalInt!) * percentage )
+                    self.partialGaolInt = Int( Double(goalInt!) * percentage )
                 } else if type == .Time {
                     let seconds = self.goalTime?.getTotalSeconds()
                     let partialSeconds: Int = Int( Double(seconds!) * percentage)
@@ -97,7 +97,7 @@ class Task: NSObject {
                 let daysInMonth = calendar.dateComponents([.day], from: interval.start, to: interval.end).day!
                 let percentage: Double = 1 - (Double(day) - 1 / Double(daysInMonth))
                 if type == .CheckOff {
-                    self.paritalGaolInt = Int( Double(goalInt!) * percentage )
+                    self.partialGaolInt = Int( Double(goalInt!) * percentage )
                 } else if type == .Time{
                     let seconds = self.goalTime?.getTotalSeconds()
                     let partialSeconds: Int = Int( Double(seconds!) * percentage)
@@ -108,19 +108,49 @@ class Task: NSObject {
         }
     }
     
-//    func encode(with aCoder: NSCoder) {
-//        aCoder.encode(taskId, forKey: "taskId")
-//        aCoder.encode(hashValue, forKey: "hashValue")
-//        aCoder.encode(title, forKey: "title")
-//        aCoder.encode(urgent, forkey: "urgent")
-//        aCoder.encode(important, forkey: "important")
-//        aCoder.encode(dateCreated, forKey: "dateCreated")
-//        aCoder.encode(frequency, forKey: "frequency")
-//        aCoder.encode(type, forKey: "type")
-//        aCoder.encode(goalTime, forKey: "goalTime")
-//        aCoder.encode(currentTime, forKey: "currentTime")
+    required init?(coder aDecoder: NSCoder) {
+        taskId = aDecoder.decodeInteger(forKey: "taskId")
+        title = aDecoder.decodeObject(forKey: "title") as! String
+        urgent = aDecoder.decodeBool(forKey: "urgent")
+        important = aDecoder.decodeBool(forKey: "important")
+        dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
+        frequency = Frequency(rawValue: aDecoder.decodeInteger(forKey: "frequency"))!
+        type = TaskType(rawValue: aDecoder.decodeInteger(forKey: "type"))!
+        if type == TaskType.Time {
+            goalTime = aDecoder.decodeObject(forKey: "goalTime") as? HourMinSec
+            currentTime = aDecoder.decodeObject(forKey: "currentTime") as? HourMinSec
+            clockedIn = aDecoder.decodeObject(forKey: "clockedIn") as? Bool
+            partialGoalTime = aDecoder.decodeObject(forKey: "partialGoalTime") as? HourMinSec
+        } else {
+            goalInt = aDecoder.decodeObject(forKey: "goalInt") as? Int
+            currentInt = aDecoder.decodeObject(forKey: "currentInt") as? Int
+            partialGaolInt = aDecoder.decodeObject(forKey: "partialGoalInt") as? Int
+        }
+        partialFisrt = aDecoder.decodeBool(forKey: "partialFirst")
+        completed = aDecoder.decodeBool(forKey: "completed")
+        lastUpdated = aDecoder.decodeObject(forKey: "lastUpdated") as? DayMonthYear
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(taskId, forKey: "taskId")
+        aCoder.encode(title, forKey: "title")
+        aCoder.encode(urgent, forKey: "urgent")
+        aCoder.encode(important, forKey: "important")
+        aCoder.encode(dateCreated, forKey: "dateCreated")
+        aCoder.encode(frequency.rawValue, forKey: "frequency")
+        aCoder.encode(type.rawValue, forKey: "type")
+        aCoder.encode(goalTime, forKey: "goalTime")
+        aCoder.encode(currentTime, forKey: "currentTime")
+        aCoder.encode(clockedIn, forKey: "clockedIn")
+        aCoder.encode(goalInt, forKey: "goalInt")
+        aCoder.encode(currentInt, forKey: "currentInt")
+        aCoder.encode(partialFisrt, forKey: "partialFirst")
+        aCoder.encode(partialGoalTime, forKey: "partialGoalTime")
+        aCoder.encode(partialGaolInt, forKey: "partialGoalInt")
+        aCoder.encode(completed, forKey: "completed")
+        aCoder.encode(lastUpdated, forKey: "lastUpdated")
         
-//    }
+    }
     
     func updateCompleted() {
         if self.type == .Time {
@@ -140,6 +170,47 @@ class Task: NSObject {
         } else if self.clockedIn == false {
             self.clockedIn = true
         }
+    }
+    
+    static func convertDateToDayMonthYear(date: Date) -> DayMonthYear {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
+        dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
+        dateFormatter.timeZone = TimeZone.current
+        let localDate = dateFormatter.string(from: date)
+        let dateComps = localDate.components(separatedBy: " ")
+        let day = (dateComps[1].components(separatedBy: ","))[0]
+        let year = (dateComps[2].components(separatedBy: ","))[0]
+        var month = 0
+        switch dateComps[0] {
+        case "Jan":
+            month = 1
+        case "Feb":
+            month = 2
+        case "Mar":
+            month = 3
+        case "Apr":
+            month = 4
+        case "May":
+            month = 5
+        case "Jun":
+            month = 6
+        case "Jul":
+            month = 7
+        case "Aug":
+            month = 8
+        case "Spt":
+            month = 9
+        case "Oct":
+            month = 10
+        case "Nov":
+            month = 11
+        case "Dec":
+            month = 12
+        default:
+            break
+        }
+        return DayMonthYear(day: Int(day)!, month: month, year: Int(year)!)
     }
 }
 

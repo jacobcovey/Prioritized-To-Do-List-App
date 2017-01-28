@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HourMinSec: NSObject {
+class HourMinSec: NSObject, NSCoding {
     var hour: Int
     var min: Int
     var sec: Int
@@ -19,6 +19,20 @@ class HourMinSec: NSObject {
         self.sec = sec
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        hour = aDecoder.decodeInteger(forKey: "hour")
+        min = aDecoder.decodeInteger(forKey: "min")
+        sec = aDecoder.decodeInteger(forKey: "sec")
+        
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(hour, forKey: "hour")
+        aCoder.encode(min, forKey: "min")
+        aCoder.encode(sec, forKey: "sec")
+    }
+    
     func addSeconds(_ seconds: Int){
         var minutes: Int = 0
         var hour: Int = 0
