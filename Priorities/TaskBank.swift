@@ -35,6 +35,7 @@ class TaskBank {
             if self.checkIfNewDate() {
                 self.resetForNewDate()
             }
+            self.currentId = self.findHighestTaskID()
         } else {
             taskArrays = [urgent_important, nonUrgent_important, urgent_nonImportant, nonUrgent_nonImportant, completed]
         }
@@ -147,19 +148,31 @@ class TaskBank {
         }
     }
     
-    func orginizeTasks() {
-        for task in allTasks {
-            if task.important == true && task.urgent == true {
-                taskArrays[0].append(task)
-            } else if task.important == true && task.urgent == false {
-                taskArrays[1].append(task)
-            } else if task.important == false && task.urgent == true {
-                taskArrays[2].append(task)
-            } else if task.important == false && task.urgent == false {
-                taskArrays[3].append(task)
+    func findHighestTaskID() -> Int {
+        var high = 0
+        for arr in self.taskArrays {
+            for task in arr {
+                if task.taskId > high {
+                    high = task.taskId
+                }
             }
         }
+        return high
     }
+    
+//    func orginizeTasks() {
+//        for task in allTasks {
+//            if task.important == true && task.urgent == true {
+//                taskArrays[0].append(task)
+//            } else if task.important == true && task.urgent == false {
+//                taskArrays[1].append(task)
+//            } else if task.important == false && task.urgent == true {
+//                taskArrays[2].append(task)
+//            } else if task.important == false && task.urgent == false {
+//                taskArrays[3].append(task)
+//            }
+//        }
+//    }
     
     func addTaskToBank(task: Task) {
         if task.important == true && task.urgent == true {
@@ -189,7 +202,7 @@ class TaskBank {
     }
     
     func removeTaskFromBank(task: Task) {
-        if !doesExistInCompletedArray(task: task){
+        if doesExistInCompletedArray(task: task){
             taskArrays[4] = taskArrays[4].filter{$0 != task}
         }
         if task.important == true && task.urgent == true {

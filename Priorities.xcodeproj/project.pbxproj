@@ -23,6 +23,8 @@
 		8B6CA3361E2A86A30036EC67 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CA3351E2A86A30036EC67 /* TaskCell.swift */; };
 		8B76DEE81E2AF2510028C24B /* AddOneTimeTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */; };
 		8BDE5DF41E3ADDF90068B153 /* DayMonthYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDE5DF31E3ADDF90068B153 /* DayMonthYear.swift */; };
+		8BFA5C321E3CF83A0049E4C4 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA5C311E3CF83A0049E4C4 /* TaskDetailViewController.swift */; };
+		8BFA5C341E3D72E80049E4C4 /* TimeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA5C331E3D72E80049E4C4 /* TimeSelectorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		8B6CA3351E2A86A30036EC67 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneTimeTaskViewController.swift; sourceTree = "<group>"; };
 		8BDE5DF31E3ADDF90068B153 /* DayMonthYear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayMonthYear.swift; sourceTree = "<group>"; };
+		8BFA5C311E3CF83A0049E4C4 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		8BFA5C331E3D72E80049E4C4 /* TimeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +129,12 @@
 				8B0BC3DF1E1AEA0E0029614F /* HourMinSec.swift */,
 				8BDE5DF31E3ADDF90068B153 /* DayMonthYear.swift */,
 				8B0BC3E11E1B0FB10029614F /* TaskBank.swift */,
+				8BFA5C331E3D72E80049E4C4 /* TimeSelectorViewController.swift */,
 				8B0BC3E31E1B15EB0029614F /* TasksViewController.swift */,
 				8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */,
 				8B6CA3351E2A86A30036EC67 /* TaskCell.swift */,
 				8B0BC3E51E1C460B0029614F /* AddTaskViewController.swift */,
+				8BFA5C311E3CF83A0049E4C4 /* TaskDetailViewController.swift */,
 				8B0BC3E71E1C4B540029614F /* AddTimedViewController.swift */,
 				8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */,
 			);
@@ -296,11 +302,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B0BC3E81E1C4B540029614F /* AddTimedViewController.swift in Sources */,
+				8BFA5C341E3D72E80049E4C4 /* TimeSelectorViewController.swift in Sources */,
 				8B0BC3E21E1B0FB10029614F /* TaskBank.swift in Sources */,
 				8BDE5DF41E3ADDF90068B153 /* DayMonthYear.swift in Sources */,
 				8B0BC3E61E1C460B0029614F /* AddTaskViewController.swift in Sources */,
 				8B0BC3EA1E1C4C3D0029614F /* AddCheckOffViewController.swift in Sources */,
 				8B0BC3DE1E1AE83D0029614F /* Task.swift in Sources */,
+				8BFA5C321E3CF83A0049E4C4 /* TaskDetailViewController.swift in Sources */,
 				8B76DEE81E2AF2510028C24B /* AddOneTimeTaskViewController.swift in Sources */,
 				8B0BC3E41E1B15EB0029614F /* TasksViewController.swift in Sources */,
 				8B0BC3B01E1AE7590029614F /* AppDelegate.swift in Sources */,

@@ -109,6 +109,19 @@ class TasksViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "taskDetail"?:
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let task = TaskBank.sharedInstance.taskArrays[indexPath.section][indexPath.row]
+                let taskDetailViewController = segue.destination as! TaskDetailViewController
+                taskDetailViewController.task = task
+            }
+        default:
+            break
+        }
+    }
+    
     func appMovedToBackground() {
         print("App moved to background")
         self.timeMovedToBackground = Date()
