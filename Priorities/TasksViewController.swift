@@ -105,6 +105,10 @@ class TasksViewController: UITableViewController {
             cell.location.append(indexPath.section)
             cell.location.append(indexPath.row)
             cell.iconButton.addTarget(self, action: #selector(self.selectFunction), for: .touchUpInside)
+            cell.iconView.tag = task.taskId
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.selectViewFunction))
+            cell.iconView.addGestureRecognizer(tap)
+            cell.iconView.isUserInteractionEnabled = true
         }
         return cell
     }
@@ -175,6 +179,20 @@ class TasksViewController: UITableViewController {
             for task in arr {
                 if task.type == TaskType.Time && task.clockedIn == true {
                     task.currentTime?.addSeconds(seconds)
+                }
+            }
+        }
+    }
+    
+    func selectViewFunction(_ sender: UITapGestureRecognizer) {
+        for arr in TaskBank.sharedInstance.taskArrays {
+            for task in arr {
+                if sender.view?.tag == task.taskId {
+                    if task.type == TaskType.Time {
+                        task.switchClocked()
+                    } else {
+                        task.currentInt = task.currentInt! + 1
+                    }
                 }
             }
         }
