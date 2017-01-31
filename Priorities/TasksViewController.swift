@@ -42,6 +42,7 @@ class TasksViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         
+        
         _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTable), userInfo: nil, repeats: true)
     }
     
@@ -75,7 +76,6 @@ class TasksViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskCell
-        
         if indexPath.row < TaskBank.sharedInstance.taskArrays[indexPath.section].count {
             let task = TaskBank.sharedInstance.taskArrays[indexPath.section][indexPath.row]
             cell.nameLabel.text = task.title

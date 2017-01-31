@@ -16,6 +16,7 @@ class TaskCell: UITableViewCell {
     @IBOutlet var goalLabel: UILabel!
     @IBOutlet var iconButton: UIButton!
     var location = [Int]()
+    @IBOutlet var iconView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
