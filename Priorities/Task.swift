@@ -28,7 +28,7 @@ class Task: NSObject, NSCoding {
     var title: String
     var urgent: Bool
     var important: Bool
-    var dateCreated: Date
+    var lastDateUsed: Date
     var frequency: Frequency
     var type: TaskType
     var goalTime: HourMinSec?
@@ -50,7 +50,7 @@ class Task: NSObject, NSCoding {
         self.title = title
         self.urgent = urgent
         self.important = important
-        self.dateCreated = Date()
+        self.lastDateUsed = Date()
         self.frequency = frequency
         self.type = type
         self.goalTime = goalTime
@@ -113,7 +113,7 @@ class Task: NSObject, NSCoding {
         title = aDecoder.decodeObject(forKey: "title") as! String
         urgent = aDecoder.decodeBool(forKey: "urgent")
         important = aDecoder.decodeBool(forKey: "important")
-        dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
+        lastDateUsed = aDecoder.decodeObject(forKey: "lastDateUsed") as! Date
         frequency = Frequency(rawValue: aDecoder.decodeInteger(forKey: "frequency"))!
         type = TaskType(rawValue: aDecoder.decodeInteger(forKey: "type"))!
         if type == TaskType.Time {
@@ -136,7 +136,7 @@ class Task: NSObject, NSCoding {
         aCoder.encode(title, forKey: "title")
         aCoder.encode(urgent, forKey: "urgent")
         aCoder.encode(important, forKey: "important")
-        aCoder.encode(dateCreated, forKey: "dateCreated")
+        aCoder.encode(lastDateUsed, forKey: "lastDateUsed")
         aCoder.encode(frequency.rawValue, forKey: "frequency")
         aCoder.encode(type.rawValue, forKey: "type")
         aCoder.encode(goalTime, forKey: "goalTime")

@@ -31,6 +31,7 @@ class TaskBank {
     init() {
         if let archivedTasks = NSKeyedUnarchiver.unarchiveObject(withFile: taskArchiveURL.path) as? [[Task]] {
             taskArrays = archivedTasks
+            self.updateClockedInOnOpen()
             self.setAllTimedToClockedOut()
             if self.checkIfNewDate() {
                 self.resetForNewDate()
@@ -47,6 +48,18 @@ class TaskBank {
         return NSKeyedArchiver.archiveRootObject(taskArrays, toFile: taskArchiveURL.path)
     }
     
+    func updateClockedInOnOpen() {
+        for arr in taskArrays {
+            for task in arr {
+                if task.type == TaskType.Time && task.clockedIn == true {
+                    let elapsed = Date().timeIntervalSince(task.lastDateUsed)
+                    let duration = Int(elapsed)
+                    task.currentTime?.addSeconds(duration)
+                }
+            }
+        }
+    }
+    
     func setAllTimedToClockedOut() {
         for arr in taskArrays {
             for task in arr {
@@ -61,6 +74,7 @@ class TaskBank {
         for arr in taskArrays {
             for task in arr {
                 task.lastUpdated = Task.convertDateToDayMonthYear(date: Date())
+                task.lastDateUsed = Date()
             }
         }
     }
@@ -160,19 +174,6 @@ class TaskBank {
         return high
     }
     
-//    func orginizeTasks() {
-//        for task in allTasks {
-//            if task.important == true && task.urgent == true {
-//                taskArrays[0].append(task)
-//            } else if task.important == true && task.urgent == false {
-//                taskArrays[1].append(task)
-//            } else if task.important == false && task.urgent == true {
-//                taskArrays[2].append(task)
-//            } else if task.important == false && task.urgent == false {
-//                taskArrays[3].append(task)
-//            }
-//        }
-//    }
     
     func addTaskToBank(task: Task) {
         if task.important == true && task.urgent == true {
