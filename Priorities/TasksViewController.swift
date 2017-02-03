@@ -15,6 +15,8 @@ class TasksViewController: UITableViewController {
     var counter: Int = 0
     var newDayCounter: Int = 0
     var timeMovedToBackground: Date?
+    var clockedIn: Bool = false
+//    var addSecTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(checkForNewDay), userInfo: nil, repeats: true)
     
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
     
@@ -41,9 +43,15 @@ class TasksViewController: UITableViewController {
         notificationCenter.addObserver(self, selector: #selector(appBecameActive), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+//        self.clockedIn = self.checkForClockedIn()
+//         if self.checkForClockedIn() != true {
+//            self.addSecTimer.invalidate()
+//        }
         
         
-        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTable), userInfo: nil, repeats: true)
+//        _ = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(checkForNewDay), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(secondTimer), userInfo: nil, repeats: true)
+//        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTable), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,20 +146,39 @@ class TasksViewController: UITableViewController {
     }
     
     func updateTable() {
-        self.counter = self.counter + 1
-        if self.counter == 10 {
-            self.addSecToAllTimedTasks(seconds: 1)
-            self.counter = 0
-            self.newDayCounter += 1
-            if self.newDayCounter == 60 {// one a minute check if it is a new day
-                if TaskBank.sharedInstance.checkIfNewDate() {
-                    TaskBank.sharedInstance.resetForNewDate()
-                }
-                self.newDayCounter = 0
-            }
-        }
         self.checkTasksForCompletion()
         tableView.reloadData()
+    }
+    
+    func secondTimer() {
+        if self.checkForClockedIn() == true {
+            self.addSecToAllTimedTasks(seconds: 1)
+        }
+        self.newDayCounter += 1
+        if self.newDayCounter == 60 {// one a minute check if it is a new day
+            if TaskBank.sharedInstance.checkIfNewDate() {
+                TaskBank.sharedInstance.resetForNewDate()
+            }
+            self.newDayCounter = 0
+        }
+        self.updateTable()
+    }
+    
+    func checkForNewDay() {
+        if TaskBank.sharedInstance.checkIfNewDate() {
+            TaskBank.sharedInstance.resetForNewDate()
+        }
+    }
+    
+    func checkForClockedIn() ->Bool {
+        for arr in TaskBank.sharedInstance.taskArrays {
+            for task in arr {
+                if task.type == TaskType.Time && task.clockedIn == true {
+                    return true
+                }
+            }
+        }
+        return false
     }
     
     func checkTasksForCompletion() {
@@ -196,6 +223,7 @@ class TasksViewController: UITableViewController {
                 }
             }
         }
+        self.updateTable()
     }
     
     func selectFunction(sender: UIButton) {
@@ -210,6 +238,7 @@ class TasksViewController: UITableViewController {
                 }
             }
         }
+        self.updateTable()
     }
     
     
