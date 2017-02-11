@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navController = window!.rootViewController as! UINavigationController
         let taskController = navController.topViewController as! TasksViewController
         taskController.taskBank = taskBank
+        
+        let notificationSettings = UIUserNotificationSettings
+        
         return true
     }
 

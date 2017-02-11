@@ -21,7 +21,7 @@ class TaskBank {
     var completed = [Task]()
     var allTasks = [Task]()
     var taskArrays = [[Task]]()
-    var arrayNames = ["Important & Urgent", "Important & Not Urgent", "Not Important & Urgent", "Not Important & Not Urgent", "Completed"]
+    var arrayNames = ["Important & Urgent", "Important", "Urgent", "To-do", "Completed"]
     let taskArchiveURL: URL = {
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
@@ -32,7 +32,6 @@ class TaskBank {
         if let archivedTasks = NSKeyedUnarchiver.unarchiveObject(withFile: taskArchiveURL.path) as? [[Task]] {
             taskArrays = archivedTasks
             self.updateClockedInOnOpen()
-            self.setAllTimedToClockedOut()
             if self.checkIfNewDate() {
                 self.resetForNewDate()
             }
@@ -91,7 +90,7 @@ class TaskBank {
     
     func checkIfNewDate() -> Bool {
         let today = Task.convertDateToDayMonthYear(date: Date())
-//        let today = DayMonthYear(day: 1, month: 2, year: 2017)
+//        let today = DayMonthYear(day: 5, month: 2, year: 2017)
         if !self.taskBankIsEmpty() {
             for arr in self.taskArrays {
                 for task in arr {
@@ -108,10 +107,11 @@ class TaskBank {
     
     func resetForNewDate() {
         let today = Task.convertDateToDayMonthYear(date: Date())
-//        let today = DayMonthYear(day: 1, month: 2, year: 2017)
+//        let today = DayMonthYear(day: 5, month: 2, year: 2017)
         for arr in self.taskArrays {
             for task in arr {
                 if today.month != task.lastUpdated?.month || today.day != task.lastUpdated?.day {
+                    self.removeOneTimeCompletedTasks()
                     self.resetTasks(frequency: Frequency.Daily.rawValue)
                     if self.isNewWeek(today: today, task: task) {
                         self.resetTasks(frequency: Frequency.Weekly.rawValue)
@@ -121,6 +121,17 @@ class TaskBank {
                     }
                 }
                 break
+            }
+            break
+        }
+    }
+    
+    func removeOneTimeCompletedTasks() {
+        for arr in self.taskArrays {
+            for task in arr {
+                if task.type == TaskType.Once {
+                        self.removeTaskFromBank(task: task)
+                }
             }
         }
     }

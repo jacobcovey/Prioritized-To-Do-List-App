@@ -20,6 +20,7 @@
 		8B0BC3E61E1C460B0029614F /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E51E1C460B0029614F /* AddTaskViewController.swift */; };
 		8B0BC3E81E1C4B540029614F /* AddTimedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E71E1C4B540029614F /* AddTimedViewController.swift */; };
 		8B0BC3EA1E1C4C3D0029614F /* AddCheckOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */; };
+		8B3D7BA21E466BFF0071013B /* detailScreen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B3D7BA11E466BFF0071013B /* detailScreen.gif */; };
 		8B6CA3361E2A86A30036EC67 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CA3351E2A86A30036EC67 /* TaskCell.swift */; };
 		8B76DEE81E2AF2510028C24B /* AddOneTimeTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */; };
 		8BDE5DF41E3ADDF90068B153 /* DayMonthYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDE5DF31E3ADDF90068B153 /* DayMonthYear.swift */; };
@@ -64,6 +65,7 @@
 		8B0BC3E51E1C460B0029614F /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		8B0BC3E71E1C4B540029614F /* AddTimedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimedViewController.swift; sourceTree = "<group>"; };
 		8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCheckOffViewController.swift; sourceTree = "<group>"; };
+		8B3D7BA11E466BFF0071013B /* detailScreen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = detailScreen.gif; path = ../../../../Downloads/detailScreen.gif; sourceTree = "<group>"; };
 		8B6CA3351E2A86A30036EC67 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneTimeTaskViewController.swift; sourceTree = "<group>"; };
 		8BDE5DF31E3ADDF90068B153 /* DayMonthYear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayMonthYear.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				8B6CA3371E2A95930036EC67 /* Suppporting FIles */,
 				8B0BC3AF1E1AE7590029614F /* AppDelegate.swift */,
+				8B3D7BA11E466BFF0071013B /* detailScreen.gif */,
 				8B0BC3B31E1AE75A0029614F /* Main.storyboard */,
 				8B0BC3B61E1AE75A0029614F /* Assets.xcassets */,
 				8B0BC3B81E1AE75A0029614F /* LaunchScreen.storyboard */,
@@ -277,6 +280,7 @@
 				8B0BC3BA1E1AE75A0029614F /* LaunchScreen.storyboard in Resources */,
 				8B0BC3B71E1AE75A0029614F /* Assets.xcassets in Resources */,
 				8B0BC3B51E1AE75A0029614F /* Main.storyboard in Resources */,
+				8B3D7BA21E466BFF0071013B /* detailScreen.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

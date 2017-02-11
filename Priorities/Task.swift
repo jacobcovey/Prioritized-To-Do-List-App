@@ -176,7 +176,7 @@ class Task: NSObject, NSCoding {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
         dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
-        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.timeZone = NSTimeZone.local
         let localDate = dateFormatter.string(from: date)
         let dateComps = localDate.components(separatedBy: " ")
         let day = (dateComps[1].components(separatedBy: ","))[0]

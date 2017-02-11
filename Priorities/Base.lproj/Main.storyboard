@@ -10,6 +10,70 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="SN6-JT-65j">
+            <objects>
+                <viewController id="bGg-5M-olc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2ye-A1-vVc"/>
+                        <viewControllerLayoutGuide type="bottom" id="rTT-MF-0MB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cmg-ZA-0dA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Task:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8S-7f-SeI">
+                                <rect key="frame" x="5" y="72" width="98" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="4eq-mp-NYU"/>
+                                    <constraint firstAttribute="width" constant="98" id="ioy-AI-xBZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit or Delete Task:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inU-Sf-wZ5">
+                                <rect key="frame" x="5" y="167" width="176" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="2u7-KP-u8T"/>
+                                    <constraint firstAttribute="width" constant="176" id="YQf-jx-YJE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on the + icon on the home page to launch task creator" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXj-yZ-zRg">
+                                <rect key="frame" x="31" y="109" width="333" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Simply touch the cell of the task you would like to edit " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhU-sj-scD">
+                                <rect key="frame" x="31" y="211" width="313" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UhU-sj-scD" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="1Xt-KB-aB5"/>
+                            <constraint firstItem="CXj-yZ-zRg" firstAttribute="top" secondItem="n8S-7f-SeI" secondAttribute="bottom" constant="8" id="1yc-Ip-dhC"/>
+                            <constraint firstItem="CXj-yZ-zRg" firstAttribute="trailing" secondItem="Cmg-ZA-0dA" secondAttribute="trailingMargin" constant="5" id="BqS-an-0bd"/>
+                            <constraint firstItem="inU-Sf-wZ5" firstAttribute="top" secondItem="CXj-yZ-zRg" secondAttribute="bottom" constant="17" id="RkE-0h-er3"/>
+                            <constraint firstItem="n8S-7f-SeI" firstAttribute="top" secondItem="2ye-A1-vVc" secondAttribute="bottom" constant="8" id="Ybt-5K-wEf"/>
+                            <constraint firstItem="n8S-7f-SeI" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leading" constant="5" id="Ztd-EE-ycV"/>
+                            <constraint firstItem="inU-Sf-wZ5" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leading" constant="5" id="cf0-qi-JMo"/>
+                            <constraint firstItem="UhU-sj-scD" firstAttribute="top" secondItem="inU-Sf-wZ5" secondAttribute="bottom" constant="15" id="end-Dh-u5Y"/>
+                            <constraint firstItem="CXj-yZ-zRg" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="uKJ-Wf-6Ru"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UhU-sj-scD" secondAttribute="trailing" constant="5" id="y9a-5L-JG1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8MX-qq-gDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="-1045.7271364317842"/>
+        </scene>
         <!--Priorities-->
         <scene sceneID="dyA-cX-bGk">
             <objects>
@@ -23,7 +87,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJB-lo-NZp" id="2KS-gN-kLg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVc-ux-Bc7">
@@ -117,6 +181,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Priorities" id="jFI-Gg-QM0">
+                        <barButtonItem key="leftBarButtonItem" image="Info-50" style="plain" id="YvI-QM-dSQ">
+                            <connections>
+                                <segue destination="bGg-5M-olc" kind="show" id="feX-jV-JSH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TQe-eG-fUx">
                             <connections>
                                 <action selector="addTaskAlert:" destination="Og0-C9-aCB" id="FMo-z0-BXc"/>
@@ -991,6 +1060,9 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Info-50" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BHd-xg-vI3"/>
     </inferredMetricsTieBreakers>
