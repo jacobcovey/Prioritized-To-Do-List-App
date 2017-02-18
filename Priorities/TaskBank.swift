@@ -14,6 +14,7 @@ class TaskBank {
     
     var currentId: Int = 0
     
+    var reminders = [Reminder]()
     var urgent_important = [Task]()
     var nonUrgent_important = [Task]()
     var urgent_nonImportant = [Task]()
@@ -195,6 +196,26 @@ class TaskBank {
             taskArrays[2].append(task)
         } else if task.important == false && task.urgent == false {
             taskArrays[3].append(task)
+        }
+        
+        if task.nextAlarm != nil {
+            let message = "Reminder for task: \"\(task.title)\""
+            let title = "Task Reminder"
+            
+            let reminder = Reminder(date: task.nextAlarm!, title: title, message: message, id: String(task.taskId))
+            TaskBank.sharedInstance.reminders.append(reminder)
+            let delegate = UIApplication.shared.delegate as? AppDelegate
+            delegate?.updateScheduledNotification()
+//            delegate?.scheduleNotification(at: task.nextAlarm!, title: title, message: message)
+        }
+    }
+    
+    func removeAlarmWithId(id: String) {
+        for reminder in self.reminders {
+            if reminder.id == id {
+                self.reminders = self.reminders.filter{$0 != reminder}
+                print("Reminder deleted. Number of reminders: " + String(self.reminders.count))
+            }
         }
     }
     

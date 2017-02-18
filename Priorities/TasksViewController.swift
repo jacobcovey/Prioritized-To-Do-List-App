@@ -217,6 +217,7 @@ class TasksViewController: UITableViewController {
             for task in arr {
                 if sender.view?.tag == task.taskId {
                     if task.type == TaskType.Time {
+                        self.updateCompletionAlert(task: task)
                         task.switchClocked()
                     } else {
                         task.currentInt = task.currentInt! + 1
@@ -232,6 +233,7 @@ class TasksViewController: UITableViewController {
             for task in arr {
                 if sender.tag == task.taskId {
                     if task.type == TaskType.Time {
+                        self.updateCompletionAlert(task: task)
                         task.switchClocked()
                     } else {
                         task.currentInt = task.currentInt! + 1
@@ -242,5 +244,27 @@ class TasksViewController: UITableViewController {
         self.updateTable()
     }
     
+    func updateCompletionAlert(task: Task) {
+        let id = "c" + String(task.taskId)
+        if task.clockedIn == false {
+                let diff = task.secondsCurrentLessThanGoal()
+                print("diff: " + String(diff))
+                if diff > 0 {
+                let message = "You hit your goal time for \"\(task.title)\" 👍"
+                let title = "🎉 Task Completed "
+                let date = Date(timeIntervalSinceNow: TimeInterval(diff))
+                print(date)
+                    
+                let reminder = Reminder(date: date, title: title, message: message, id: id)
+                TaskBank.sharedInstance.reminders.append(reminder)
+                let delegate = UIApplication.shared.delegate as? AppDelegate
+                delegate?.updateScheduledNotification()
+            }
+        } else {
+            TaskBank.sharedInstance.removeAlarmWithId(id: id)
+            let delegate = UIApplication.shared.delegate as? AppDelegate
+            delegate?.updateScheduledNotification()
+        }
+    }
     
 }

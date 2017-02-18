@@ -42,9 +42,10 @@ class Task: NSObject, NSCoding {
     var partialGaolInt: Int?
     var completed: Bool
     var lastUpdated: DayMonthYear?
+    var nextAlarm: Date?
     
 
-    init(title: String, urgent: Bool, important: Bool, frequency: Frequency, type: TaskType, goalTime: HourMinSec?, goalInt: Int?) {
+    init(title: String, urgent: Bool, important: Bool, frequency: Frequency, type: TaskType, goalTime: HourMinSec?, goalInt: Int?, nextAlarm: Date?) {
         self.taskId = TaskBank.sharedInstance.getAndUpdateId()
         self.completed = false
         self.title = title
@@ -55,6 +56,7 @@ class Task: NSObject, NSCoding {
         self.type = type
         self.goalTime = goalTime
         self.goalInt = goalInt
+        self.nextAlarm = nextAlarm
         self.lastUpdated = Task.convertDateToDayMonthYear(date: Date())
         if type == .Time {
             currentTime = HourMinSec(hour: 0, min: 0, sec: 0)
@@ -129,6 +131,7 @@ class Task: NSObject, NSCoding {
         partialFisrt = aDecoder.decodeBool(forKey: "partialFirst")
         completed = aDecoder.decodeBool(forKey: "completed")
         lastUpdated = aDecoder.decodeObject(forKey: "lastUpdated") as? DayMonthYear
+        nextAlarm = aDecoder.decodeObject(forKey: "nextAlarm") as? Date
     }
     
     func encode(with aCoder: NSCoder) {
@@ -149,6 +152,7 @@ class Task: NSObject, NSCoding {
         aCoder.encode(partialGaolInt, forKey: "partialGoalInt")
         aCoder.encode(completed, forKey: "completed")
         aCoder.encode(lastUpdated, forKey: "lastUpdated")
+        aCoder.encode(nextAlarm, forKey: "nextAlarm")
         
     }
     
@@ -170,6 +174,14 @@ class Task: NSObject, NSCoding {
         } else if self.clockedIn == false {
             self.clockedIn = true
         }
+    }
+    
+    func secondsCurrentLessThanGoal() -> Int {
+        let diff = (self.goalTime?.getTotalSeconds())! - (self.currentTime?.getTotalSeconds())!
+//        diff += ((self.goalTime?.hour)! - (self.currentTime?.hour)!) * 3600
+//        diff += ((self.goalTime?.min)! - (self.currentTime?.min)!) * 60
+//        diff += (self.goalTime?.sec)! - (self.currentTime?.sec)!
+        return diff
     }
     
     static func convertDateToDayMonthYear(date: Date) -> DayMonthYear {
@@ -212,6 +224,8 @@ class Task: NSObject, NSCoding {
         }
         return DayMonthYear(day: Int(day)!, month: month, year: Int(year)!)
     }
+    
+    
 }
 
 func ==(lhs: Task, rhs: Task) -> Bool {

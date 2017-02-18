@@ -13,6 +13,8 @@ class AddOneTimeTaskViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var taskName: UITextField!
     @IBOutlet var urgentSwitch: UISwitch!
     @IBOutlet var importantSwitch: UISwitch!
+    @IBOutlet var reminderSwitch: UISwitch!
+    @IBOutlet var datePicker: UIDatePicker!
     
     var name: String = ""
     var isUrgent: Bool = false
@@ -26,7 +28,7 @@ class AddOneTimeTaskViewController: UIViewController, UITextFieldDelegate {
         isUrgent = urgentSwitch.isOn
         isImportant = importantSwitch.isOn
         
-        let oneTimeTask:Task = Task(title: name, urgent: isUrgent, important: isImportant, frequency: Frequency.Once, type: TaskType.Once, goalTime: nil, goalInt: 1)
+        let oneTimeTask:Task = Task(title: name, urgent: isUrgent, important: isImportant, frequency: Frequency.Once, type: TaskType.Once, goalTime: nil, goalInt: 1, nextAlarm: self.datePicker.date)
 //        TaskBank.sharedInstance.allTasks.append(oneTimeTask)
         TaskBank.sharedInstance.addTaskToBank(task: oneTimeTask)
         
@@ -38,6 +40,14 @@ class AddOneTimeTaskViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func importantToggled(_ sender: Any) {
         taskName.resignFirstResponder()
+    }
+    @IBAction func reminderToggle(_ sender: Any) {
+        taskName.resignFirstResponder()
+        if self.reminderSwitch.isOn {
+            self.datePicker.isHidden = false
+        } else {
+            self.datePicker.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

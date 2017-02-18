@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hqW-tr-XWm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hqW-tr-XWm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -607,8 +607,26 @@
                                             <action selector="importantToggled:" destination="9FG-gZ-hn6" eventType="valueChanged" id="Wl5-DR-ukM"/>
                                         </connections>
                                     </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to attach a reminder?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7x-wd-ImA">
+                                        <rect key="frame" x="0.0" y="194" width="327" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="REL-Lc-d50">
+                                        <rect key="frame" x="0.0" y="214.5" width="329" height="31"/>
+                                        <connections>
+                                            <action selector="reminderToggle:" destination="9FG-gZ-hn6" eventType="valueChanged" id="hen-6o-C84"/>
+                                        </connections>
+                                    </switch>
+                                    <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="SVb-wU-N3d">
+                                        <rect key="frame" x="0.0" y="245.5" width="327" height="0.0"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="508537732.30113399">
+                                            <!--2017-02-11 20:28:52 +0000-->
+                                        </date>
+                                    </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOY-e4-dej">
-                                        <rect key="frame" x="0.0" y="194" width="327" height="393"/>
+                                        <rect key="frame" x="0.0" y="245.5" width="327" height="341.5"/>
                                         <state key="normal" title="Save &amp; Close"/>
                                         <connections>
                                             <action selector="saveAndQuit:" destination="9FG-gZ-hn6" eventType="touchUpInside" id="iDo-b6-ruY"/>
@@ -630,7 +648,9 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="datePicker" destination="SVb-wU-N3d" id="8v7-ip-lFC"/>
                         <outlet property="importantSwitch" destination="uPt-jD-jMA" id="Izg-5W-enF"/>
+                        <outlet property="reminderSwitch" destination="REL-Lc-d50" id="jPM-Ux-OJB"/>
                         <outlet property="taskName" destination="RZ9-d4-DwI" id="pZM-ct-nhJ"/>
                         <outlet property="urgentSwitch" destination="zuW-8k-r1o" id="UMU-Hi-GKp"/>
                         <segue destination="XAP-sn-8Vx" kind="unwind" unwindAction="unwindToMenuWithSegue:" id="F5I-F0-ufX"/>

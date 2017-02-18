@@ -60,4 +60,5 @@ class HourMinSec: NSObject, NSCoding {
     func toStringWOsec() -> String {
         return String(self.hour) + ":" + String(format: "%02d",self.min)
     }
+    
 }

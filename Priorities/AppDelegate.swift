@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,9 +26,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let taskController = navController.topViewController as! TasksViewController
         taskController.taskBank = taskBank
         
-        let notificationSettings = UIUserNotificationSettings
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
+            if !accepted {
+                print("Notification access denied.")
+            }
+        }
+        
+//        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         
         return true
+    }
+    
+    func updateScheduledNotification() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        for reminder in TaskBank.sharedInstance.reminders {
+            let calendar = Calendar(identifier: .gregorian)
+            let components = calendar.dateComponents(in: .current, from: reminder.date)
+            let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+            
+            let content = UNMutableNotificationContent()
+            content.title = reminder.title
+            content.body = reminder.message
+            content.sound = UNNotificationSound.default()
+            
+            let request = UNNotificationRequest(identifier: reminder.id, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request)
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
+        completionHandler(
+            [UNNotificationPresentationOptions.alert,
+             UNNotificationPresentationOptions.sound,
+             UNNotificationPresentationOptions.badge])
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
