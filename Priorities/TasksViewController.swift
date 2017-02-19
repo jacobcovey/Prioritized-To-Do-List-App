@@ -253,9 +253,10 @@ class TasksViewController: UITableViewController {
                 let message = "You hit your goal time for \"\(task.title)\" 👍"
                 let title = "🎉 Task Completed "
                 let date = Date(timeIntervalSinceNow: TimeInterval(diff))
+                let reminderDate = ReminderDate(date: date, frequency: .Once, type: .Once, weekday: nil)
                 print(date)
                     
-                let reminder = Reminder(date: date, title: title, message: message, id: id)
+                let reminder = Reminder(reminderDate: reminderDate, title: title, message: message, id: id)
                 TaskBank.sharedInstance.reminders.append(reminder)
                 let delegate = UIApplication.shared.delegate as? AppDelegate
                 delegate?.updateScheduledNotification()

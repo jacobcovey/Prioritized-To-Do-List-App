@@ -11,20 +11,20 @@ import Foundation
 import Foundation
 
 class Reminder: NSObject, NSCoding {
-    var date: Date
+    var reminderDate: ReminderDate
     var title: String
     var message: String
     var id: String
     
-    init(date: Date, title: String, message: String, id: String){
-        self.date = date
+    init(reminderDate: ReminderDate, title: String, message: String, id: String){
+        self.reminderDate = reminderDate
         self.title = title
         self.message = message
         self.id = id
     }
     
     required init?(coder aDecoder: NSCoder) {
-        date = aDecoder.decodeObject(forKey: "date") as! Date
+        reminderDate = aDecoder.decodeObject(forKey: "reminderDate") as! ReminderDate
         title = aDecoder.decodeObject(forKey: "title") as! String
         message = aDecoder.decodeObject(forKey: "message") as! String
         id = aDecoder.decodeObject(forKey: "id") as! String
@@ -32,7 +32,7 @@ class Reminder: NSObject, NSCoding {
     }
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(date, forKey: "date")
+        aCoder.encode(reminderDate, forKey: "reminderDate")
         aCoder.encode(title, forKey: "title")
         aCoder.encode(message, forKey: "message")
         aCoder.encode(id, forKey: "id")

@@ -14,6 +14,8 @@ class TaskBank {
     
     var currentId: Int = 0
     
+    var reminderDate: ReminderDate?
+    var reminderDateSet: Bool = false
     var reminders = [Reminder]()
     var urgent_important = [Task]()
     var nonUrgent_important = [Task]()
@@ -197,17 +199,27 @@ class TaskBank {
         } else if task.important == false && task.urgent == false {
             taskArrays[3].append(task)
         }
-        
-        if task.nextAlarm != nil {
+        if task.reminderDate != nil {
             let message = "Reminder for task: \"\(task.title)\""
             let title = "Task Reminder"
-            
-            let reminder = Reminder(date: task.nextAlarm!, title: title, message: message, id: String(task.taskId))
+
+            let reminder = Reminder(reminderDate: task.reminderDate!, title: title, message: message, id: String(task.taskId))
             TaskBank.sharedInstance.reminders.append(reminder)
             let delegate = UIApplication.shared.delegate as? AppDelegate
             delegate?.updateScheduledNotification()
 //            delegate?.scheduleNotification(at: task.nextAlarm!, title: title, message: message)
         }
+
+//        if task.nextAlarm != nil {
+//            let message = "Reminder for task: \"\(task.title)\""
+//            let title = "Task Reminder"
+//            
+//            let reminder = Reminder(date: task.nextAlarm!, title: title, message: message, id: String(task.taskId))
+//            TaskBank.sharedInstance.reminders.append(reminder)
+//            let delegate = UIApplication.shared.delegate as? AppDelegate
+//            delegate?.updateScheduledNotification()
+////            delegate?.scheduleNotification(at: task.nextAlarm!, title: title, message: message)
+//        }
     }
     
     func removeAlarmWithId(id: String) {

@@ -37,7 +37,7 @@ class AddTimedViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBAction func saveAndClose(_ sender: UIButton) {
         self.goalTime.hour = Int(timePickerData[0][goalTimePicker.selectedRow(inComponent: 0)])!
         self.goalTime.min = Int(timePickerData[2][goalTimePicker.selectedRow(inComponent: 2)])!
-        let timedTask:Task = Task(title: self.taskTitle, urgent: self.urgent, important: self.important, frequency: self.frequency, type: TaskType.Time, goalTime: self.goalTime, goalInt: nil, nextAlarm: nil)
+        let timedTask:Task = Task(title: self.taskTitle, urgent: self.urgent, important: self.important, frequency: self.frequency, type: TaskType.Time, goalTime: self.goalTime, goalInt: nil, reminderDate: nil)
 //        TaskBank.sharedInstance.allTasks.append(timedTask)
         TaskBank.sharedInstance.addTaskToBank(task: timedTask)
         

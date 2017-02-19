@@ -13,8 +13,10 @@ class AddOneTimeTaskViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var taskName: UITextField!
     @IBOutlet var urgentSwitch: UISwitch!
     @IBOutlet var importantSwitch: UISwitch!
-    @IBOutlet var reminderSwitch: UISwitch!
-    @IBOutlet var datePicker: UIDatePicker!
+    
+    @IBOutlet var reminderLabel: UILabel!
+    var reminderDate: ReminderDate?
+    @IBOutlet var alarmButton: UIButton!
     
     var name: String = ""
     var isUrgent: Bool = false
@@ -28,7 +30,7 @@ class AddOneTimeTaskViewController: UIViewController, UITextFieldDelegate {
         isUrgent = urgentSwitch.isOn
         isImportant = importantSwitch.isOn
         
-        let oneTimeTask:Task = Task(title: name, urgent: isUrgent, important: isImportant, frequency: Frequency.Once, type: TaskType.Once, goalTime: nil, goalInt: 1, nextAlarm: self.datePicker.date)
+        let oneTimeTask:Task = Task(title: name, urgent: isUrgent, important: isImportant, frequency: Frequency.Once, type: TaskType.Once, goalTime: nil, goalInt: 1, reminderDate: self.reminderDate!)
 //        TaskBank.sharedInstance.allTasks.append(oneTimeTask)
         TaskBank.sharedInstance.addTaskToBank(task: oneTimeTask)
         
@@ -41,20 +43,28 @@ class AddOneTimeTaskViewController: UIViewController, UITextFieldDelegate {
     @IBAction func importantToggled(_ sender: Any) {
         taskName.resignFirstResponder()
     }
-    @IBAction func reminderToggle(_ sender: Any) {
-        taskName.resignFirstResponder()
-        if self.reminderSwitch.isOn {
-            self.datePicker.isHidden = false
-        } else {
-            self.datePicker.isHidden = true
-        }
-    }
+    
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM, d h:mm a"
+        return formatter
+    }()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.taskName.delegate = self
         navigationItem.title = "Add Task"
+        if TaskBank.sharedInstance.reminderDateSet == true {
+            TaskBank.sharedInstance.reminderDateSet = false
+            self.reminderDate = TaskBank.sharedInstance.reminderDate
+            self.reminderLabel.text = dateFormatter.string(from: (self.reminderDate?.date)!)
+            self.alarmButton.setTitle("Edit", for: .normal)
+        } else {
+            self.reminderLabel.text = "n/a"
+            self.alarmButton.setTitle("set alarm", for: .normal)
+            self.reminderDate = nil
+        }
     }
     
     

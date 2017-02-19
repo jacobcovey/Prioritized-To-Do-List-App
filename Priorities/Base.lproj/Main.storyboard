@@ -87,7 +87,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJB-lo-NZp" id="2KS-gN-kLg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVc-ux-Bc7">
@@ -607,26 +607,32 @@
                                             <action selector="importantToggled:" destination="9FG-gZ-hn6" eventType="valueChanged" id="Wl5-DR-ukM"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to attach a reminder?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7x-wd-ImA">
-                                        <rect key="frame" x="0.0" y="194" width="327" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="REL-Lc-d50">
-                                        <rect key="frame" x="0.0" y="214.5" width="329" height="31"/>
-                                        <connections>
-                                            <action selector="reminderToggle:" destination="9FG-gZ-hn6" eventType="valueChanged" id="hen-6o-C84"/>
-                                        </connections>
-                                    </switch>
-                                    <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="SVb-wU-N3d">
-                                        <rect key="frame" x="0.0" y="245.5" width="327" height="0.0"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="508537732.30113399">
-                                            <!--2017-02-11 20:28:52 +0000-->
-                                        </date>
-                                    </datePicker>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="gb5-g3-wXS">
+                                        <rect key="frame" x="0.0" y="194" width="327" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9h-KY-bIc">
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tN0-uX-rxa">
+                                                <rect key="frame" x="81" y="0.0" width="179" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfj-o5-RrQ">
+                                                <rect key="frame" x="263" y="0.0" width="64" height="30"/>
+                                                <state key="normal" title="set alarm"/>
+                                                <connections>
+                                                    <segue destination="6w0-cp-cZP" kind="show" identifier="reminder" id="Xs7-8G-6NY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOY-e4-dej">
-                                        <rect key="frame" x="0.0" y="245.5" width="327" height="341.5"/>
+                                        <rect key="frame" x="0.0" y="224" width="327" height="363"/>
                                         <state key="normal" title="Save &amp; Close"/>
                                         <connections>
                                             <action selector="saveAndQuit:" destination="9FG-gZ-hn6" eventType="touchUpInside" id="iDo-b6-ruY"/>
@@ -648,9 +654,9 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="SVb-wU-N3d" id="8v7-ip-lFC"/>
+                        <outlet property="alarmButton" destination="rfj-o5-RrQ" id="7Xd-j9-e16"/>
                         <outlet property="importantSwitch" destination="uPt-jD-jMA" id="Izg-5W-enF"/>
-                        <outlet property="reminderSwitch" destination="REL-Lc-d50" id="jPM-Ux-OJB"/>
+                        <outlet property="reminderLabel" destination="tN0-uX-rxa" id="1va-vL-xZ6"/>
                         <outlet property="taskName" destination="RZ9-d4-DwI" id="pZM-ct-nhJ"/>
                         <outlet property="urgentSwitch" destination="zuW-8k-r1o" id="UMU-Hi-GKp"/>
                         <segue destination="XAP-sn-8Vx" kind="unwind" unwindAction="unwindToMenuWithSegue:" id="F5I-F0-ufX"/>
@@ -665,6 +671,67 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1529" y="426"/>
+        </scene>
+        <!--Reminder Picker Controller-->
+        <scene sceneID="qGf-tw-ZxP">
+            <objects>
+                <viewController id="6w0-cp-cZP" customClass="ReminderPickerController" customModule="Priorities" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YKN-Ss-CK6"/>
+                        <viewControllerLayoutGuide type="bottom" id="WO3-k0-HFJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BOa-33-yrA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dd6-IR-dcy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="509172527.90942001">
+                                    <!--2017-02-19 04:48:47 +0000-->
+                                </date>
+                            </datePicker>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="UnE-pZ-wB7">
+                                <rect key="frame" x="16" y="284" width="343" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKT-pJ-j3R">
+                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
+                                        <state key="normal" title="Save Reminder"/>
+                                        <connections>
+                                            <action selector="save:" destination="6w0-cp-cZP" eventType="touchUpInside" id="oZG-5k-TOH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpl-g4-3ec">
+                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
+                                        <state key="normal" title="Cancel Reminder">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="6w0-cp-cZP" eventType="touchUpInside" id="TCz-WD-GBn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="vSI-cj-ZmL"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UnE-pZ-wB7" firstAttribute="leading" secondItem="BOa-33-yrA" secondAttribute="leadingMargin" id="4It-Ry-RxG"/>
+                            <constraint firstItem="UnE-pZ-wB7" firstAttribute="top" secondItem="YKN-Ss-CK6" secondAttribute="bottom" constant="220" id="NvZ-HT-EmM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UnE-pZ-wB7" secondAttribute="trailing" id="OYX-kQ-NHf"/>
+                            <constraint firstItem="dd6-IR-dcy" firstAttribute="leading" secondItem="BOa-33-yrA" secondAttribute="leading" id="YXO-qv-Pp9"/>
+                            <constraint firstItem="dd6-IR-dcy" firstAttribute="top" secondItem="YKN-Ss-CK6" secondAttribute="bottom" id="enJ-fA-OcX"/>
+                            <constraint firstAttribute="trailing" secondItem="dd6-IR-dcy" secondAttribute="trailing" id="h3S-1F-jJ5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="dd6-IR-dcy" id="MrH-VC-RAj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tAl-BV-EGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1529" y="1184"/>
         </scene>
         <!--Add Task View Controller-->
         <scene sceneID="LnX-3a-AMH">

@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         for reminder in TaskBank.sharedInstance.reminders {
             let calendar = Calendar(identifier: .gregorian)
-            let components = calendar.dateComponents(in: .current, from: reminder.date)
+            let components = calendar.dateComponents(in: .current, from: reminder.reminderDate.date)
             let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
