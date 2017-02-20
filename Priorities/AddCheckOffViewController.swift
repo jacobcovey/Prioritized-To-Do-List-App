@@ -50,7 +50,16 @@ class AddCheckOffViewController: UIViewController, UIPickerViewDataSource, UIPic
         self.goalIntPicker.delegate = self
     }
     
-
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        switch segue.identifier {
+//        case "repeatReminder"?:
+//            let reminderPickerController = segue.destination as! ReminderPickerController
+//            reminderPickerController.repeate = true
+//            break
+//        default:
+//            preconditionFailure("Unexpected segue identifier")
+//        }
+//    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

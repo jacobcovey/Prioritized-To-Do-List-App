@@ -14,6 +14,9 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var urgentSwitch: UISwitch!
     @IBOutlet var importantSwitch: UISwitch!
     @IBOutlet var frequencySegControl: UISegmentedControl!
+    @IBOutlet var reminderLabel: UILabel!
+    @IBOutlet var reminderButton: UIButton!
+//    @IBOutlet var oneTimeSpecificView: UIStackView!
 
     @IBOutlet var goalIntLabel: UILabel!
     @IBOutlet var currentIntLabel: UILabel!
@@ -86,10 +89,14 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
         goalIntLabel.text = Int(sender.value).description
     }
     
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM, d h:mm a"
+        return formatter
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-
         self.taskName.delegate = self
         navigationItem.title = "Task Details"
         let attString = NSAttributedString(string: self.task.title)
@@ -97,9 +104,21 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
         urgentSwitch.isOn = self.task.urgent
         importantSwitch.isOn = self.task.important
 
+        if TaskBank.sharedInstance.reminderDateSet == true || ( TaskBank.sharedInstance.reminderDate != nil && (TaskBank.sharedInstance.reminderDate?.date)! > Date()) {
+            TaskBank.sharedInstance.reminderDateSet = false
+            task.reminderDate = TaskBank.sharedInstance.reminderDate
+            self.reminderLabel.text = dateFormatter.string(from: (task.reminderDate?.date)!)
+            self.reminderButton.setTitle("Edit", for: .normal)
+        } else {
+            self.reminderLabel.text = "n/a"
+            self.reminderButton.setTitle("set alarm", for: .normal)
+            task.reminderDate = nil
+        }
+        
         if task.type == TaskType.Once {
             taskTypeLabel.text = "One Time"
             repetitveSpecificView.isHidden = true
+
         } else {
             if task.frequency == Frequency.Daily {
                 frequencySegControl.selectedSegmentIndex = 0

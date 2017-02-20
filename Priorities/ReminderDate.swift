@@ -25,9 +25,7 @@ class ReminderDate: NSObject, NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         date = aDecoder.decodeObject(forKey: "date") as! Date
-//        frequency = aDecoder.decodeObject(forKey: "frequency") as! Frequency
         weekday = aDecoder.decodeObject(forKey: "weekday") as? Int
-//        type = aDecoder.decodeObject(forKey: "type") as! TaskType
         frequency = Frequency(rawValue: aDecoder.decodeInteger(forKey: "frequency"))!
         type = TaskType(rawValue: aDecoder.decodeInteger(forKey: "type"))!
         super.init()

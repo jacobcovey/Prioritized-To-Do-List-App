@@ -10,12 +10,12 @@ import UIKit
 
 class ReminderPickerController: UIViewController {
     
-//    var date: Date?
-//    var reminderSet: Bool?
-//    var reminderDate: ReminderDate!
     var reminderSet: Bool?
+    var repeate: Bool = false
     
     @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var reminderSpecificView: UIStackView!
+    @IBOutlet var weeklyMonthlyView: UIStackView!
 
     
     @IBAction func save(_ sender: Any) {
@@ -24,6 +24,7 @@ class ReminderPickerController: UIViewController {
     }
     
     @IBAction func cancel(_ sender: Any) {
+        TaskBank.sharedInstance.reminderDate = nil
         self.reminderSet = false
         self.navigationController?.popViewController(animated: true)
         
@@ -31,6 +32,10 @@ class ReminderPickerController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Reminder"
+        if self.repeate == true {
+            datePicker.datePickerMode = .time
+            reminderSpecificView.isHidden = false
+        }
     }
     
     
