@@ -471,7 +471,7 @@
                                                 <rect key="frame" x="251" y="0.0" width="87" height="30"/>
                                                 <state key="normal" title="set reminder"/>
                                                 <connections>
-                                                    <segue destination="6w0-cp-cZP" kind="show" id="8le-iS-beb"/>
+                                                    <segue destination="6w0-cp-cZP" kind="show" identifier="reminder" id="8le-iS-beb"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -642,7 +642,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tN0-uX-rxa">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="n/a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tN0-uX-rxa">
                                                 <rect key="frame" x="81" y="0.0" width="156" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -711,10 +711,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zRB-h2-w5Y">
-                                <rect key="frame" x="28" y="75" width="320" height="563.5"/>
+                                <rect key="frame" x="28" y="75" width="320" height="543"/>
                                 <subviews>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="gab-Co-5Vo">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="317.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="297"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Frequency: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPS-K4-5lg">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
@@ -729,37 +729,34 @@
                                                     <segment title="Weekly"/>
                                                     <segment title="Monthly"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="segControlAction:" destination="6w0-cp-cZP" eventType="valueChanged" id="XFE-W3-d3J"/>
+                                                </connections>
                                             </segmentedControl>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wz0-nT-cbg">
-                                                <rect key="frame" x="0.0" y="56.5" width="320" height="236.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On which day of the week?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBl-jF-q0P">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNi-k2-wb7">
-                                                        <rect key="frame" x="0.0" y="20.5" width="320" height="216"/>
-                                                    </pickerView>
-                                                </subviews>
-                                            </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="At what time?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBa-0b-O4V">
-                                                <rect key="frame" x="0.0" y="297" width="320" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBl-jF-q0P">
+                                                <rect key="frame" x="0.0" y="56.5" width="320" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wz0-nT-cbg">
+                                                <rect key="frame" x="0.0" y="81" width="320" height="216"/>
+                                                <subviews>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNi-k2-wb7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                                    </pickerView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dd6-IR-dcy">
-                                        <rect key="frame" x="0.0" y="317.5" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="297" width="320" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="509172527.90942001">
                                             <!--2017-02-19 04:48:47 +0000-->
                                         </date>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="UnE-pZ-wB7">
-                                        <rect key="frame" x="0.0" y="533.5" width="320" height="30"/>
+                                        <rect key="frame" x="0.0" y="513" width="320" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKT-pJ-j3R">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
@@ -793,7 +790,9 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="dd6-IR-dcy" id="MrH-VC-RAj"/>
+                        <outlet property="frequencySegControl" destination="0os-VZ-kxc" id="RRu-0q-NfV"/>
                         <outlet property="reminderSpecificView" destination="gab-Co-5Vo" id="aW1-m2-9Ic"/>
+                        <outlet property="repetitivePicker" destination="BNi-k2-wb7" id="tu6-UY-QwO"/>
                         <outlet property="weeklyMonthlyView" destination="wz0-nT-cbg" id="bAL-b1-pFV"/>
                     </connections>
                 </viewController>
@@ -961,8 +960,32 @@
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTG-ET-euq">
                                         <rect key="frame" x="0.0" y="89.5" width="343" height="216"/>
                                     </pickerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="nHZ-7y-YEe">
+                                        <rect key="frame" x="0.0" y="305.5" width="343" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPo-ah-ilT">
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="n/a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fL-cG-03Z">
+                                                <rect key="frame" x="81" y="0.0" width="172" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6z-ib-vvL">
+                                                <rect key="frame" x="256" y="0.0" width="87" height="30"/>
+                                                <state key="normal" title="set reminder"/>
+                                                <connections>
+                                                    <segue destination="6w0-cp-cZP" kind="show" identifier="repeatReminder" id="kcX-4h-6an"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENv-BU-XAT">
-                                        <rect key="frame" x="0.0" y="305.5" width="343" height="289.5"/>
+                                        <rect key="frame" x="0.0" y="335.5" width="343" height="259.5"/>
                                         <state key="normal" title="Save &amp; Close"/>
                                         <connections>
                                             <action selector="saveAndClose:" destination="BEb-KU-iFt" eventType="touchUpInside" id="eAC-tv-yIH"/>
@@ -983,6 +1006,8 @@
                     <connections>
                         <outlet property="frequencySegControl" destination="Z8H-WR-Ejg" id="4i6-Cp-hY3"/>
                         <outlet property="goalIntPicker" destination="OTG-ET-euq" id="4Qj-BS-buc"/>
+                        <outlet property="reminderButton" destination="P6z-ib-vvL" id="74N-zQ-j0y"/>
+                        <outlet property="reminderLabel" destination="9fL-cG-03Z" id="979-Jk-oU8"/>
                         <outlet property="saveAndCloseButton" destination="ENv-BU-XAT" id="13a-cX-ATm"/>
                         <segue destination="Sye-MI-sDT" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="3ss-Gy-OJs"/>
                     </connections>
@@ -1046,7 +1071,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dv-rb-ufK">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="n/a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dv-rb-ufK">
                                                 <rect key="frame" x="81" y="0.0" width="172" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -1081,6 +1106,8 @@
                     </view>
                     <connections>
                         <outlet property="goalTimePicker" destination="lBo-fk-DDu" id="MTr-5t-Hn5"/>
+                        <outlet property="reminderButton" destination="8fI-NJ-PF7" id="zTZ-hz-Qk7"/>
+                        <outlet property="reminderLabel" destination="4dv-rb-ufK" id="LDc-PM-9wS"/>
                         <outlet property="saveAndCloseButton" destination="5tn-mC-6wx" id="pDh-se-fm6"/>
                         <outlet property="timeFrameSegControl" destination="Pht-pq-LWs" id="so1-rU-WQd"/>
                         <segue destination="7fR-zG-KdZ" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="rg8-ny-qhD"/>
@@ -1244,6 +1271,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BHd-xg-vI3"/>
-        <segue reference="Q3z-5M-RCg"/>
+        <segue reference="kcX-4h-6an"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -41,11 +41,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         for reminder in TaskBank.sharedInstance.reminders {
             let calendar = Calendar(identifier: .gregorian)
-            let components = calendar.dateComponents(in: .current, from: reminder.reminderDate.date)
-            let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
-            
-            let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
-            
+            var trigger: UNCalendarNotificationTrigger
+            if reminder.reminderDate.frequency == .Once {
+                let components = calendar.dateComponents(in: .current, from: reminder.reminderDate.date)
+                let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
+                
+               trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+            } else if reminder.reminderDate.frequency == .Daily {
+                let components = calendar.dateComponents(in: .current, from: reminder.reminderDate.date)
+                let newComponents = DateComponents(calendar: calendar, timeZone: .current, hour: components.hour, minute: components.minute)
+                
+                trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
+            }  else if reminder.reminderDate.frequency == .Weekly {
+                var components = calendar.dateComponents(in: .current, from: reminder.reminderDate.date)
+                components.weekday = reminder.reminderDate.weekday! + 1
+                let newComponents = DateComponents(calendar: calendar, timeZone: .current, hour: components.hour, minute: components.minute, weekday: components.weekday)
+                
+                trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
+//                let nextTrigger = trigger.nextTriggerDate()
+//                var trash = 0
+            } else {
+                var components = calendar.dateComponents(in: .current, from: reminder.reminderDate.date)
+                components.day = reminder.reminderDate.weekday
+                let newComponents = DateComponents(calendar: calendar, timeZone: .current, day: components.day, hour: components.hour, minute: components.minute)
+                
+                trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
+//                let nextTrigger = trigger.nextTriggerDate()
+//                var trash = 0
+            }
             let content = UNMutableNotificationContent()
             content.title = reminder.title
             content.body = reminder.message

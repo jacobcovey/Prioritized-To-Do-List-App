@@ -57,13 +57,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Priorities/TaskDetailViewController.swift"
-            timestampString = "509235784.457772"
+            filePath = "Priorities/AddTimedViewController.swift"
+            timestampString = "509321831.976198"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "convertNumToWeekday(num:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Priorities/AppDelegate.swift"
+            timestampString = "509320623.212445"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "updateScheduledNotification()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

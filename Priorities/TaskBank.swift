@@ -16,6 +16,7 @@ class TaskBank {
     
     var reminderDate: ReminderDate?
     var reminderDateSet: Bool = false
+    var deleteReminder: Bool = false
     var reminders = [Reminder]()
     var urgent_important = [Task]()
     var nonUrgent_important = [Task]()
@@ -207,19 +208,49 @@ class TaskBank {
             TaskBank.sharedInstance.reminders.append(reminder)
             let delegate = UIApplication.shared.delegate as? AppDelegate
             delegate?.updateScheduledNotification()
-//            delegate?.scheduleNotification(at: task.nextAlarm!, title: title, message: message)
         }
-
-//        if task.nextAlarm != nil {
-//            let message = "Reminder for task: \"\(task.title)\""
-//            let title = "Task Reminder"
-//            
-//            let reminder = Reminder(date: task.nextAlarm!, title: title, message: message, id: String(task.taskId))
-//            TaskBank.sharedInstance.reminders.append(reminder)
-//            let delegate = UIApplication.shared.delegate as? AppDelegate
-//            delegate?.updateScheduledNotification()
-////            delegate?.scheduleNotification(at: task.nextAlarm!, title: title, message: message)
-//        }
+    }
+    
+    func updateReminders() {
+        self.reminders.removeAll()
+        var count = 0
+        for arr in self.taskArrays {
+            for task in arr {
+                if task.reminderDate != nil {
+                    if task.reminderDate?.frequency == Frequency.Once {
+                        if (task.reminderDate?.date)! > Date() {
+                            let message = "Reminder for task: \"\(task.title)\""
+                            let title = "Task Reminder"
+                            
+                            let reminder = Reminder(reminderDate: task.reminderDate!, title: title, message: message, id: String(task.taskId))
+                            TaskBank.sharedInstance.reminders.append(reminder)
+                        } else {
+                         task.reminderDate = nil
+                        }
+                    } else if task.reminderDate?.frequency == Frequency.Daily {
+                        let message = "Daily Reminder for task: \"\(task.title)\""
+                        let title = "Task Reminder"
+                        
+                        let reminder = Reminder(reminderDate: task.reminderDate!, title: title, message: message, id: String(task.taskId))
+                        TaskBank.sharedInstance.reminders.append(reminder)
+                    } else if task.reminderDate?.frequency == Frequency.Weekly {
+                        let message = "Weekly Reminder for task: \"\(task.title)\""
+                        let title = "Task Reminder"
+                        
+                        let reminder = Reminder(reminderDate: task.reminderDate!, title: title, message: message, id: String(task.taskId))
+                        TaskBank.sharedInstance.reminders.append(reminder)
+                    } else if task.reminderDate?.frequency == Frequency.Monthly {
+                        let message = "Monthly for task: \"\(task.title)\""
+                        let title = "Task Reminder"
+                        
+                        let reminder = Reminder(reminderDate: task.reminderDate!, title: title, message: message, id: String(task.taskId))
+                        TaskBank.sharedInstance.reminders.append(reminder)
+                    }
+                }
+            }
+        }
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        delegate?.updateScheduledNotification()
     }
     
     func removeAlarmWithId(id: String) {
@@ -259,6 +290,9 @@ class TaskBank {
         } else if task.important == false && task.urgent == false {
             taskArrays[3] = taskArrays[3].filter{$0 != task}
         }
+        self.removeAlarmWithId(id: String(task.taskId))
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        delegate?.updateScheduledNotification()
     }
     
     func doesExistInCompletedArray(task: Task) -> Bool {

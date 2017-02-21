@@ -97,28 +97,30 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        TaskBank.sharedInstance.updateReminders()
         self.taskName.delegate = self
         navigationItem.title = "Task Details"
         let attString = NSAttributedString(string: self.task.title)
         taskName.attributedText = attString
         urgentSwitch.isOn = self.task.urgent
         importantSwitch.isOn = self.task.important
-
-        if TaskBank.sharedInstance.reminderDateSet == true || ( TaskBank.sharedInstance.reminderDate != nil && (TaskBank.sharedInstance.reminderDate?.date)! > Date()) {
-            TaskBank.sharedInstance.reminderDateSet = false
-            task.reminderDate = TaskBank.sharedInstance.reminderDate
-            self.reminderLabel.text = dateFormatter.string(from: (task.reminderDate?.date)!)
-            self.reminderButton.setTitle("Edit", for: .normal)
-        } else {
-            self.reminderLabel.text = "n/a"
-            self.reminderButton.setTitle("set alarm", for: .normal)
-            task.reminderDate = nil
-        }
         
         if task.type == TaskType.Once {
             taskTypeLabel.text = "One Time"
             repetitveSpecificView.isHidden = true
-
+            if TaskBank.sharedInstance.reminderDateSet == true {
+                TaskBank.sharedInstance.reminderDateSet = false
+                task.reminderDate = TaskBank.sharedInstance.reminderDate
+                self.reminderLabel.text = dateFormatter.string(from: (task.reminderDate?.date)!)
+                self.reminderButton.setTitle("Edit", for: .normal)
+            } else if task.reminderDate != nil && TaskBank.sharedInstance.deleteReminder == false {
+                self.reminderLabel.text = dateFormatter.string(from: (task.reminderDate?.date)!)
+                self.reminderButton.setTitle("Edit", for: .normal)
+            } else {
+                self.reminderLabel.text = "n/a"
+                self.reminderButton.setTitle("set alarm", for: .normal)
+                task.reminderDate = nil
+            }
         } else {
             if task.frequency == Frequency.Daily {
                 frequencySegControl.selectedSegmentIndex = 0
@@ -140,11 +142,53 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
                 currentTimedLabel.text = task.currentTime!.toStringWOsec()
                 goalTimedLabel.text = task.goalTime!.toStringWOsec()
             }
+            if TaskBank.sharedInstance.reminderDateSet == true {
+                TaskBank.sharedInstance.reminderDateSet = false
+                task.reminderDate = TaskBank.sharedInstance.reminderDate
+                self.reminderLabel.text = reptitiveReminderString()
+                self.reminderButton.setTitle("Edit", for: .normal)
+            } else if task.reminderDate != nil && TaskBank.sharedInstance.deleteReminder == false {
+                self.reminderLabel.text = reptitiveReminderString()
+                self.reminderButton.setTitle("Edit", for: .normal)
+            } else {
+                self.reminderLabel.text = "n/a"
+                self.reminderButton.setTitle("set alarm", for: .normal)
+                task.reminderDate = nil
+            }
         }
         
     }
     
+    func reptitiveReminderString() -> String {
+        let hourMin = timeFormatter.string(from: (self.task.reminderDate?.date)!)
+        if self.task.reminderDate?.frequency == Frequency.Daily {
+            return "Daily " + hourMin
+        } else if self.task.reminderDate?.frequency == Frequency.Weekly{
+            return AddTimedViewController.convertNumToWeekday(num: (self.task.reminderDate?.weekday)!) + " " + hourMin
+        } else if self.task.reminderDate?.frequency == Frequency.Monthly {
+            if let day = self.task.reminderDate?.weekday {
+                var day1 = ""
+                if day == 1{
+                    day1 = String(day) + "st"
+                } else if day == 1{
+                    day1 = String(day) + "nd"
+                } else if day == 1{
+                    day1 = String(day) + "rd"
+                }else{
+                    day1 = String(day) + "th"
+                }
+                return "Monthly, " + day1 + " " + hourMin
+            }
+        }
+        return "n/a"
+    }
     
+    let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter
+    }()
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         TaskBank.sharedInstance.removeTaskFromBank(task: self.task)
@@ -180,6 +224,15 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
             let timeSelectorViewController = segue.destination as! TimeSelectorViewController
             timeSelectorViewController.task = task
             timeSelectorViewController.current = false
+        case "reminder"?:
+            let reminderPickerController = segue.destination as! ReminderPickerController
+            if task.frequency == .Once {
+                reminderPickerController.repeate = false
+            } else {
+                reminderPickerController.repeate = true
+            }
+            reminderPickerController.frequency = self.task.frequency
+            break
         default:
             break
             //            preconditionFailure("Unexpected segue identifier")
