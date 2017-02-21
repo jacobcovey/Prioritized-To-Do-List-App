@@ -10,7 +10,8 @@ import UIKit
 
 class TimeSelectorViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    @IBOutlet weak var timePicker: UIPickerView!
+
+    @IBOutlet var timePicker: UIPickerView!
     var current: Bool!
     var task: Task!
     var timePickerData = [[String]]()
