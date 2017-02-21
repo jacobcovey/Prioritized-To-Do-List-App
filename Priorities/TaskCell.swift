@@ -21,6 +21,7 @@ class TaskCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.accessoryType = .disclosureIndicator
         nameLabel.adjustsFontForContentSizeCategory = true
         frequencyLabel.adjustsFontForContentSizeCategory = true
         currentLabel.adjustsFontForContentSizeCategory = true

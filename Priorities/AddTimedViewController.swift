@@ -41,7 +41,7 @@ class AddTimedViewController: UIViewController {
         let components = calendar.dateComponents(in: .current, from: goalTimePicker.date)
         goalTime.hour = components.hour!
         goalTime.min = components.minute!
-        let timedTask:Task = Task(title: self.taskTitle, urgent: self.urgent, important: self.important, frequency: self.frequency, type: TaskType.Time, goalTime: self.goalTime, goalInt: nil, reminderDate: reminderDate)
+        let timedTask:Task = Task(title: self.taskTitle, urgent: self.urgent, important: self.important, frequency: self.frequency, type: TaskType.Time, goalTime: self.goalTime, goalInt: nil, reminderDate: reminderDate, notes: nil)
 //        TaskBank.sharedInstance.allTasks.append(timedTask)
         TaskBank.sharedInstance.addTaskToBank(task: timedTask)
         

@@ -44,9 +44,10 @@ class Task: NSObject, NSCoding {
     var lastUpdated: DayMonthYear?
     var nextAlarm: Date?
     var reminderDate: ReminderDate?
+    var notes: String?
     
 
-    init(title: String, urgent: Bool, important: Bool, frequency: Frequency, type: TaskType, goalTime: HourMinSec?, goalInt: Int?, reminderDate: ReminderDate?) {
+    init(title: String, urgent: Bool, important: Bool, frequency: Frequency, type: TaskType, goalTime: HourMinSec?, goalInt: Int?, reminderDate: ReminderDate?, notes: String?) {
         self.taskId = TaskBank.sharedInstance.getAndUpdateId()
         self.completed = false
         self.title = title
@@ -58,6 +59,7 @@ class Task: NSObject, NSCoding {
         self.goalTime = goalTime
         self.goalInt = goalInt
         self.reminderDate = reminderDate
+        self.notes = notes
         self.lastUpdated = Task.convertDateToDayMonthYear(date: Date())
         if type == .Time {
             currentTime = HourMinSec(hour: 0, min: 0, sec: 0)
@@ -134,6 +136,7 @@ class Task: NSObject, NSCoding {
         lastUpdated = aDecoder.decodeObject(forKey: "lastUpdated") as? DayMonthYear
         nextAlarm = aDecoder.decodeObject(forKey: "nextAlarm") as? Date
         reminderDate = aDecoder.decodeObject(forKey: "reminderDate") as? ReminderDate
+        notes = aDecoder.decodeObject(forKey: "notes") as? String
     }
     
     func encode(with aCoder: NSCoder) {
@@ -156,7 +159,7 @@ class Task: NSObject, NSCoding {
         aCoder.encode(lastUpdated, forKey: "lastUpdated")
         aCoder.encode(nextAlarm, forKey: "nextAlarm")
         aCoder.encode(reminderDate, forKey: "reminderDate")
-        
+        aCoder.encode(notes, forKey: "notes")
     }
     
     func updateCompleted() {

@@ -37,7 +37,7 @@ class AddCheckOffViewController: UIViewController, UIPickerViewDataSource, UIPic
         }
     }
     @IBAction func saveAndClose(_ sender: UIButton) {
-        let checkOffTask:Task = Task(title: self.taskTitle, urgent: self.urgent, important: self.important, frequency: self.frequency, type: TaskType.CheckOff, goalTime: nil, goalInt: Int(goalPickerData[goalIntPicker.selectedRow(inComponent: 0)]), reminderDate: self.reminderDate)
+        let checkOffTask:Task = Task(title: self.taskTitle, urgent: self.urgent, important: self.important, frequency: self.frequency, type: TaskType.CheckOff, goalTime: nil, goalInt: Int(goalPickerData[goalIntPicker.selectedRow(inComponent: 0)]), reminderDate: self.reminderDate, notes: nil)
 //        TaskBank.sharedInstance.allTasks.append(checkOffTask)
         TaskBank.sharedInstance.addTaskToBank(task: checkOffTask)
         

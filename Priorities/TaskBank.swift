@@ -16,6 +16,8 @@ class TaskBank {
     
     var reminderDate: ReminderDate?
     var reminderDateSet: Bool = false
+    var notes: String?
+    var notesSet: Bool = false
     var deleteReminder: Bool = false
     var reminders = [Reminder]()
     var urgent_important = [Task]()
@@ -94,7 +96,7 @@ class TaskBank {
     
     func checkIfNewDate() -> Bool {
         let today = Task.convertDateToDayMonthYear(date: Date())
-//        let today = DayMonthYear(day: 5, month: 2, year: 2017)
+//        let today = DayMonthYear(day: 22, month: 2, year: 2017)
         if !self.taskBankIsEmpty() {
             for arr in self.taskArrays {
                 for task in arr {
@@ -111,7 +113,7 @@ class TaskBank {
     
     func resetForNewDate() {
         let today = Task.convertDateToDayMonthYear(date: Date())
-//        let today = DayMonthYear(day: 5, month: 2, year: 2017)
+//        let today = DayMonthYear(day: 22, month: 2, year: 2017)
         for arr in self.taskArrays {
             for task in arr {
                 if today.month != task.lastUpdated?.month || today.day != task.lastUpdated?.day {
@@ -124,9 +126,7 @@ class TaskBank {
                         self.resetTasks(frequency: Frequency.Monthly.rawValue)
                     }
                 }
-                break
             }
-            break
         }
     }
     

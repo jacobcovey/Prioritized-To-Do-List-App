@@ -18,6 +18,8 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var reminderButton: UIButton!
 //    @IBOutlet var oneTimeSpecificView: UIStackView!
 
+    @IBOutlet var notesLabel: UILabel!
+    @IBOutlet var oneTimeSpecificView: UIStackView!
     @IBOutlet var goalIntLabel: UILabel!
     @IBOutlet var currentIntLabel: UILabel!
     @IBOutlet var currentTimedLabel: UILabel!
@@ -121,7 +123,20 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
                 self.reminderButton.setTitle("set alarm", for: .normal)
                 task.reminderDate = nil
             }
+            
+            if TaskBank.sharedInstance.notesSet == true {
+                TaskBank.sharedInstance.notesSet = false
+                task.notes = TaskBank.sharedInstance.notes
+                notesLabel.text = task.notes
+            } else {
+                if task.notes == nil {
+                    notesLabel.text = "n/a"
+                } else {
+                    notesLabel.text = task.notes
+                }
+            }
         } else {
+            oneTimeSpecificView.isHidden = true
             if task.frequency == Frequency.Daily {
                 frequencySegControl.selectedSegmentIndex = 0
             } else if task.frequency == Frequency.Weekly {
@@ -233,6 +248,9 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
             }
             reminderPickerController.frequency = self.task.frequency
             break
+        case "addNotes"?:
+            let notesViewController = segue.destination as! NotesViewController
+            notesViewController.notes = task.notes
         default:
             break
             //            preconditionFailure("Unexpected segue identifier")

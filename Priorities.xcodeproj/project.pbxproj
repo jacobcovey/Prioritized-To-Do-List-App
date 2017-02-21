@@ -22,6 +22,7 @@
 		8B0BC3EA1E1C4C3D0029614F /* AddCheckOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */; };
 		8B3D7BA21E466BFF0071013B /* detailScreen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B3D7BA11E466BFF0071013B /* detailScreen.gif */; };
 		8B4696421E59668B009D28ED /* ReminderDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4696411E59668B009D28ED /* ReminderDate.swift */; };
+		8B5405B61E5C795700CEA435 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5405B51E5C795700CEA435 /* NotesViewController.swift */; };
 		8B6CA3361E2A86A30036EC67 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CA3351E2A86A30036EC67 /* TaskCell.swift */; };
 		8B73E7CB1E4FCEF100B0C032 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73E7CA1E4FCEF100B0C032 /* Reminder.swift */; };
 		8B76DEE81E2AF2510028C24B /* AddOneTimeTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */; };
@@ -70,6 +71,7 @@
 		8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCheckOffViewController.swift; sourceTree = "<group>"; };
 		8B3D7BA11E466BFF0071013B /* detailScreen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = detailScreen.gif; path = ../../../../Downloads/detailScreen.gif; sourceTree = "<group>"; };
 		8B4696411E59668B009D28ED /* ReminderDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderDate.swift; sourceTree = "<group>"; };
+		8B5405B51E5C795700CEA435 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		8B6CA3351E2A86A30036EC67 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		8B73E7CA1E4FCEF100B0C032 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneTimeTaskViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				8B0BC3E31E1B15EB0029614F /* TasksViewController.swift */,
 				8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */,
 				8B6CA3351E2A86A30036EC67 /* TaskCell.swift */,
+				8B5405B51E5C795700CEA435 /* NotesViewController.swift */,
 				8B0BC3E51E1C460B0029614F /* AddTaskViewController.swift */,
 				8B91C8841E595CCA0089F477 /* ReminderPickerController.swift */,
 				8BFA5C311E3CF83A0049E4C4 /* TaskDetailViewController.swift */,
@@ -325,6 +328,7 @@
 				8B0BC3DE1E1AE83D0029614F /* Task.swift in Sources */,
 				8BFA5C321E3CF83A0049E4C4 /* TaskDetailViewController.swift in Sources */,
 				8B76DEE81E2AF2510028C24B /* AddOneTimeTaskViewController.swift in Sources */,
+				8B5405B61E5C795700CEA435 /* NotesViewController.swift in Sources */,
 				8B0BC3E41E1B15EB0029614F /* TasksViewController.swift in Sources */,
 				8B91C8851E595CCA0089F477 /* ReminderPickerController.swift in Sources */,
 				8B0BC3B01E1AE7590029614F /* AppDelegate.swift in Sources */,
