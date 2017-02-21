@@ -64,8 +64,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tap the icon (checkmark, plus sing, or stopwatch) on the right side of the cell" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrO-cD-hRF">
-                                <rect key="frame" x="31" y="279" width="323" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the icon (checkmark, plus sing, or stopwatch) on the right side of the cell" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrO-cD-hRF">
+                                <rect key="frame" x="31" y="279" width="323" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bkf-kx-m71">
+                                <rect key="frame" x="5" y="328" width="92" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="TZe-YE-LHN"/>
+                                    <constraint firstAttribute="height" constant="21" id="lgE-E7-Aas"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stopwatch &amp; plus sign icon made by MadeByOliver from www.flaticon.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndk-pY-ljR">
+                                <rect key="frame" x="31" y="349" width="323" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkmark icon made by Silviu Runceanu from www.flaticon.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwV-fX-ydk">
+                                <rect key="frame" x="31" y="392" width="323" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -76,6 +98,9 @@
                             <constraint firstItem="nrO-cD-hRF" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="0sz-2q-1wT"/>
                             <constraint firstItem="CXj-yZ-zRg" firstAttribute="top" secondItem="n8S-7f-SeI" secondAttribute="bottom" constant="8" id="1yc-Ip-dhC"/>
                             <constraint firstItem="gjt-xM-Lxq" firstAttribute="top" secondItem="UhU-sj-scD" secondAttribute="bottom" constant="10" id="3pS-d0-7S3"/>
+                            <constraint firstItem="Bkf-kx-m71" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leading" constant="5" id="4DL-S0-J3r"/>
+                            <constraint firstItem="kwV-fX-ydk" firstAttribute="top" secondItem="ndk-pY-ljR" secondAttribute="bottom" constant="2" id="6d4-by-snG"/>
+                            <constraint firstItem="kwV-fX-ydk" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="9kl-cq-PNh"/>
                             <constraint firstItem="UhU-sj-scD" firstAttribute="top" secondItem="inU-Sf-wZ5" secondAttribute="bottom" constant="8" id="B1P-zn-z9s"/>
                             <constraint firstItem="CXj-yZ-zRg" firstAttribute="trailing" secondItem="Cmg-ZA-0dA" secondAttribute="trailingMargin" constant="5" id="BqS-an-0bd"/>
                             <constraint firstItem="nrO-cD-hRF" firstAttribute="top" secondItem="gjt-xM-Lxq" secondAttribute="bottom" constant="8" id="Cwj-rV-lmh"/>
@@ -86,6 +111,11 @@
                             <constraint firstItem="n8S-7f-SeI" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leading" constant="5" id="Ztd-EE-ycV"/>
                             <constraint firstItem="inU-Sf-wZ5" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leading" constant="5" id="cf0-qi-JMo"/>
                             <constraint firstItem="gjt-xM-Lxq" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leading" constant="5" id="gXj-Zr-eGK"/>
+                            <constraint firstItem="ndk-pY-ljR" firstAttribute="top" secondItem="Bkf-kx-m71" secondAttribute="bottom" id="hPg-vR-Grp"/>
+                            <constraint firstItem="Bkf-kx-m71" firstAttribute="top" secondItem="nrO-cD-hRF" secondAttribute="bottom" constant="8" id="ifO-tS-G5h"/>
+                            <constraint firstItem="ndk-pY-ljR" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="jq1-hj-ASU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kwV-fX-ydk" secondAttribute="trailing" constant="5" id="nRK-kN-8mU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ndk-pY-ljR" secondAttribute="trailing" constant="5" id="qML-pC-feJ"/>
                             <constraint firstItem="UhU-sj-scD" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="saO-FT-a6y"/>
                             <constraint firstItem="CXj-yZ-zRg" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="uKJ-Wf-6Ru"/>
                         </constraints>
