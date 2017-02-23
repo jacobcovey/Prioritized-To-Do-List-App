@@ -138,7 +138,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJB-lo-NZp" id="2KS-gN-kLg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVc-ux-Bc7">
@@ -204,6 +204,7 @@
                                             <constraints>
                                                 <constraint firstItem="y1J-S0-Lfj" firstAttribute="centerY" secondItem="cVc-ux-Bc7" secondAttribute="centerY" id="JB5-lZ-aPB"/>
                                                 <constraint firstItem="bUS-p9-jmn" firstAttribute="centerY" secondItem="cVc-ux-Bc7" secondAttribute="centerY" id="Vwc-8h-W9X"/>
+                                                <constraint firstAttribute="trailing" secondItem="JVO-Za-gJr" secondAttribute="trailing" id="YBJ-en-g5o"/>
                                                 <constraint firstAttribute="height" constant="44" id="xL8-QK-mDT"/>
                                             </constraints>
                                         </stackView>
