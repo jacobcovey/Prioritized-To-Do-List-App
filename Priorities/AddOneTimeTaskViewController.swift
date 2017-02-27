@@ -107,4 +107,22 @@ class AddOneTimeTaskViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let currentCharacterCount = textField.text?.characters.count ?? 0
+        if (range.length + range.location > currentCharacterCount){
+            return false
+        }
+        let newLength = currentCharacterCount + string.characters.count - range.length
+        
+        print(UIDevice().type)
+        if UIDevice().type == .iPhone6plus || UIDevice().type == .iPhone6Splus || UIDevice().type == .iPhone7plus {
+            return newLength <= 35
+        } else if UIDevice().type == .iPhone6 || UIDevice().type == .iPhone6S || UIDevice().type == .iPhone7 || UIDevice().type == .simulator {
+            return newLength <= 30
+        } else {
+            return newLength <= 25
+        }
+    }
+    
 }

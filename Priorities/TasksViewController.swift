@@ -41,17 +41,15 @@ class TasksViewController: UITableViewController {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
         notificationCenter.addObserver(self, selector: #selector(appBecameActive), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
-//        self.clockedIn = self.checkForClockedIn()
-//         if self.checkForClockedIn() != true {
-//            self.addSecTimer.invalidate()
-//        }
         
-        
-//        _ = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(checkForNewDay), userInfo: nil, repeats: true)
+        if UIDevice().type == .iPhone6plus || UIDevice().type == .iPhone6Splus || UIDevice().type == .iPhone7plus || UIDevice().type == .simulator{
+            tableView.rowHeight = 40
+        } else {
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.estimatedRowHeight = 40
+        }
+
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(secondTimer), userInfo: nil, repeats: true)
-//        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTable), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +71,23 @@ class TasksViewController: UITableViewController {
         }
     }
     
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        if TaskBank.sharedInstance.taskArrays[section].isEmpty {
+//            return nil
+//        } else {
+//            let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 26))
+//            returnedView.backgroundColor = UIColor.lightGray
+//            
+//            let label = UILabel(frame: CGRect(x: 10, y: 7, width: view.frame.size.width, height: 20))
+//            
+//            label.text = TaskBank.sharedInstance.arrayNames[section]
+//            returnedView.addSubview(label)
+//            
+//            return returnedView
+//        }
+//    }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return TaskBank.sharedInstance.taskArrays.count
     }
@@ -86,7 +101,19 @@ class TasksViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskCell
         if indexPath.row < TaskBank.sharedInstance.taskArrays[indexPath.section].count {
             let task = TaskBank.sharedInstance.taskArrays[indexPath.section][indexPath.row]
-            cell.nameLabel.text = task.title
+            
+            if UIDevice().type == .iPhone6plus || UIDevice().type == .iPhone6Splus || UIDevice().type == .iPhone7plus || UIDevice().type == .simulator{
+                let length = task.title.characters.count
+                let spacesCount = 37 - length
+                var spaces = ""
+                for _ in 1...spacesCount {
+                    spaces += " "
+                }
+                cell.nameLabel.text = task.title + spaces
+            } else {
+                cell.nameLabel.text = task.title
+            }
+            
             if task.frequency == Frequency.Daily {
                 cell.frequencyLabel.text = "Daily"
             } else if task.frequency == Frequency.Weekly {

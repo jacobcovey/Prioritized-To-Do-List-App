@@ -10,6 +10,8 @@ import UIKit
 
 class TaskCell: UITableViewCell {
     
+    
+    @IBOutlet var nameView: UIStackView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var frequencyLabel: UILabel!
     @IBOutlet var currentLabel: UILabel!
@@ -21,7 +23,10 @@ class TaskCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.accessoryType = .disclosureIndicator
+        if UIDevice().type == .iPhone6 || UIDevice().type == .iPhone6S || UIDevice().type == .iPhone6plus || UIDevice().type == .iPhone6Splus || UIDevice().type == .iPhone7 || UIDevice().type == .iPhone7plus || UIDevice().type == .simulator {
+            self.accessoryType = .disclosureIndicator
+            
+        }
         nameLabel.adjustsFontForContentSizeCategory = true
         frequencyLabel.adjustsFontForContentSizeCategory = true
         currentLabel.adjustsFontForContentSizeCategory = true
