@@ -43,6 +43,7 @@ class TaskBank {
             if self.checkIfNewDate() {
                 self.resetForNewDate()
             }
+            self.setTasksLastUpdated()
             self.currentId = self.findHighestTaskID()
         } else {
             taskArrays = [urgent_important, nonUrgent_important, urgent_nonImportant, nonUrgent_nonImportant, completed]
@@ -50,6 +51,9 @@ class TaskBank {
     }
     
     func savedChanges() -> Bool {
+        if self.checkIfNewDate() {
+            self.resetForNewDate()
+        }
         self.setTasksLastUpdated()
         print("Saving items to: \(taskArchiveURL.path)")
         return NSKeyedArchiver.archiveRootObject(taskArrays, toFile: taskArchiveURL.path)
@@ -98,7 +102,7 @@ class TaskBank {
     
     func checkIfNewDate() -> Bool {
         let today = Task.convertDateToDayMonthYear(date: Date())
-//        let today = DayMonthYear(day: 5, month: 3, year: 2017)
+//        let today = DayMonthYear(day: 6, month: 3, year: 2017)
         if !self.taskBankIsEmpty() {
             for arr in self.taskArrays {
                 for task in arr {
@@ -115,7 +119,7 @@ class TaskBank {
     
     func resetForNewDate() {
         let today = Task.convertDateToDayMonthYear(date: Date())
-//        let today = DayMonthYear(day: 5, month: 3, year: 2017)
+//        let today = DayMonthYear(day: 6, month: 3, year: 2017)
         for arr in self.taskArrays {
             for task in arr {
                 if today.month != task.lastUpdated?.month || today.day != task.lastUpdated?.day {
@@ -133,11 +137,10 @@ class TaskBank {
     }
     
     func removeOneTimeCompletedTasks() {
-        for arr in self.taskArrays {
-            for task in arr {
-                if task.type == TaskType.Once {
-                        self.removeTaskFromBank(task: task)
-                }
+        let arr = self.taskArrays[4]
+        for task in arr {
+            if task.type == TaskType.Once {
+                    self.removeTaskFromBank(task: task)
             }
         }
     }

@@ -31,13 +31,24 @@ class TasksViewController: UITableViewController {
             self.performSegue(withIdentifier: "reptitiveTask", sender: nil)
         })
         alertController.addAction(repeatAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+            
+        })
+        alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Habit Hero"
+        UIApplication.shared.statusBarStyle = .lightContent
+        navigationController?.navigationBar.barTintColor = UIColor(red: 88, green: 116, blue: 152)
+        let imageView = UIImageView(image: UIImage(named: "habit hero white"))
+        self.navigationItem.titleView = imageView
+        
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as! [String : Any]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
         notificationCenter.addObserver(self, selector: #selector(appBecameActive), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
@@ -48,13 +59,19 @@ class TasksViewController: UITableViewController {
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.estimatedRowHeight = 40
         }
+        print ("view did load")
 
+        
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(secondTimer), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print ("view appeared")
+        if TaskBank.sharedInstance.checkIfNewDate() {
+            TaskBank.sharedInstance.resetForNewDate()
+        }
+        TaskBank.sharedInstance.setTasksLastUpdated()
         tableView.reloadData()
     }
     
@@ -71,21 +88,35 @@ class TasksViewController: UITableViewController {
         }
     }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        if TaskBank.sharedInstance.taskArrays[section].isEmpty {
-//            return nil
-//        } else {
-//            let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 26))
-//            returnedView.backgroundColor = UIColor.lightGray
-//            
-//            let label = UILabel(frame: CGRect(x: 10, y: 7, width: view.frame.size.width, height: 20))
-//            
-//            label.text = TaskBank.sharedInstance.arrayNames[section]
-//            returnedView.addSubview(label)
-//            
-//            return returnedView
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if TaskBank.sharedInstance.taskArrays[section].isEmpty {
+            return nil
+        } else {
+            let label = UILabel(frame: CGRect(x: 10, y: 6, width: view.frame.size.width, height: 20))
+            
+            label.text = TaskBank.sharedInstance.arrayNames[section]
+            label.textColor = UIColor.white
+            label.font = UIFont.boldSystemFont(ofSize: 18)
+  
+            let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 30))
+            
+            if label.text == "Important & Urgent"{
+                returnedView.backgroundColor = UIColor(red: 232, green: 104, blue: 80)
+            } else if label.text == "Important" {
+                returnedView.backgroundColor = UIColor(red: 255, green: 150, blue: 0)
+            } else if label.text == "Urgent" {
+                returnedView.backgroundColor = UIColor(red: 88, green: 112, blue: 88)
+            } else if label.text == "To-do" {
+                returnedView.backgroundColor = UIColor(red: 255, green: 216, blue: 0)
+            } else if label.text == "Completed" {
+                returnedView.backgroundColor = UIColor(red: 88, green: 116, blue: 152)
+            } else {
+                returnedView.backgroundColor = UIColor.lightGray
+            }
+            returnedView.addSubview(label)
+            return returnedView
+        }
+    }
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -126,15 +157,54 @@ class TasksViewController: UITableViewController {
             if task.type == TaskType.Time {
                 cell.currentLabel.text = "Current: " + (task.currentTime?.toStringWithSec())!
                 cell.goalLabel.text = "Goal: " + (task.goalTime?.toStringWithSec())!
-                cell.iconButton.setImage(UIImage(named:"stopwatch"), for: UIControlState.normal)
+//                if task.completed == true {
+//                    cell.iconButton.setImage(UIImage(named:"Stop Watch blue"), for: UIControlState.normal)
+//                } else {
+                    if task.important == true && task.urgent == true {
+                        cell.iconButton.setImage(UIImage(named:"Stop Watch red"), for: UIControlState.normal)
+                    } else if task.important == true && task.urgent == false {
+                        cell.iconButton.setImage(UIImage(named:"Stop Watch orange"), for: UIControlState.normal)
+                    } else if task.important == false && task.urgent == true {
+                        cell.iconButton.setImage(UIImage(named:"Stop Watch green"), for: UIControlState.normal)
+                    } else {
+                        cell.iconButton.setImage(UIImage(named:"Stop Watch yellow"), for: UIControlState.normal)
+                    }
+//                }
+//                cell.iconButton.setImage(UIImage(named:"stopwatch"), for: UIControlState.normal)
             } else if task.type == TaskType.CheckOff {
                 cell.currentLabel.text = "Current: " + String(describing: task.currentInt!)
                 cell.goalLabel.text = "Goal: " + String(describing: task.goalInt!)
-                cell.iconButton.setImage(UIImage(named:"plus-symbol"), for: UIControlState.normal)
+//                if task.completed == true {
+//                    cell.iconButton.setImage(UIImage(named:"Plus sign blue"), for: UIControlState.normal)
+//                } else {
+                    if task.important == true && task.urgent == true {
+                        cell.iconButton.setImage(UIImage(named:"Plus sign red"), for: UIControlState.normal)
+                    } else if task.important == true && task.urgent == false {
+                        cell.iconButton.setImage(UIImage(named:"Plus sign orange"), for: UIControlState.normal)
+                    } else if task.important == false && task.urgent == true {
+                        cell.iconButton.setImage(UIImage(named:"Plus sign green"), for: UIControlState.normal)
+                    } else {
+                        cell.iconButton.setImage(UIImage(named:"Plus sign yellow"), for: UIControlState.normal)
+                    }
+//                }
+//                cell.iconButton.setImage(UIImage(named:"plus-symbol"), for: UIControlState.normal)
             } else {
                 cell.currentLabel.text = ""
                 cell.goalLabel.text = ""
-                cell.iconButton.setImage(UIImage(named:"checkmark"), for: UIControlState.normal)
+//                if task.completed == true {
+//                    cell.iconButton.setImage(UIImage(named:"Checkmark blue"), for: UIControlState.normal)
+//                } else {
+                    if task.important == true && task.urgent == true {
+                        cell.iconButton.setImage(UIImage(named:"Checkmark red"), for: UIControlState.normal)
+                    } else if task.important == true && task.urgent == false {
+                        cell.iconButton.setImage(UIImage(named:"Checkmark orange"), for: UIControlState.normal)
+                    } else if task.important == false && task.urgent == true {
+                        cell.iconButton.setImage(UIImage(named:"Checkmark green"), for: UIControlState.normal)
+                    } else {
+                        cell.iconButton.setImage(UIImage(named:"Checkmark yellow"), for: UIControlState.normal)
+                    }
+//                }
+//                cell.iconButton.setImage(UIImage(named:"checkmark"), for: UIControlState.normal)
             }
             cell.iconButton.tag = task.taskId
             cell.location.append(indexPath.section)
@@ -167,6 +237,11 @@ class TasksViewController: UITableViewController {
     }
     
     func appBecameActive() {
+        if TaskBank.sharedInstance.checkIfNewDate() {
+            TaskBank.sharedInstance.resetForNewDate()
+        }
+        TaskBank.sharedInstance.setTasksLastUpdated()
+        
         let elapsed = Date().timeIntervalSince(self.timeMovedToBackground!)
         let duration = Int(elapsed)
         self.addSecToAllTimedTasks(seconds: duration)
@@ -294,5 +369,14 @@ class TasksViewController: UITableViewController {
             delegate?.updateScheduledNotification()
         }
     }
-    
+}
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        let newRed = CGFloat(red)/255
+        let newGreen = CGFloat(green)/255
+        let newBlue = CGFloat(blue)/255
+        
+        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+    }
 }

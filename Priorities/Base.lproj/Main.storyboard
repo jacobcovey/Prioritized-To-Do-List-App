@@ -64,30 +64,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the icon (checkmark, plus sing, or stopwatch) on the right side of the cell" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrO-cD-hRF">
-                                <rect key="frame" x="31" y="279" width="323" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bkf-kx-m71">
-                                <rect key="frame" x="5" y="328" width="92" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="TZe-YE-LHN"/>
-                                    <constraint firstAttribute="height" constant="21" id="lgE-E7-Aas"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stopwatch &amp; plus sign icon made by MadeByOliver from www.flaticon.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndk-pY-ljR">
-                                <rect key="frame" x="31" y="357" width="323" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkmark icon made by Silviu Runceanu from www.flaticon.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwV-fX-ydk">
-                                <rect key="frame" x="31" y="400" width="323" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tap the icon (checkmark, plus sign, or stopwatch) on the right side of the cell" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrO-cD-hRF">
+                                <rect key="frame" x="31" y="279" width="323" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -98,9 +76,6 @@
                             <constraint firstItem="nrO-cD-hRF" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="0sz-2q-1wT"/>
                             <constraint firstItem="CXj-yZ-zRg" firstAttribute="top" secondItem="n8S-7f-SeI" secondAttribute="bottom" constant="8" id="1yc-Ip-dhC"/>
                             <constraint firstItem="gjt-xM-Lxq" firstAttribute="top" secondItem="UhU-sj-scD" secondAttribute="bottom" constant="10" id="3pS-d0-7S3"/>
-                            <constraint firstItem="Bkf-kx-m71" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leading" constant="5" id="4DL-S0-J3r"/>
-                            <constraint firstItem="kwV-fX-ydk" firstAttribute="top" secondItem="ndk-pY-ljR" secondAttribute="bottom" constant="2" id="6d4-by-snG"/>
-                            <constraint firstItem="kwV-fX-ydk" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="9kl-cq-PNh"/>
                             <constraint firstItem="UhU-sj-scD" firstAttribute="top" secondItem="inU-Sf-wZ5" secondAttribute="bottom" constant="8" id="B1P-zn-z9s"/>
                             <constraint firstItem="CXj-yZ-zRg" firstAttribute="trailing" secondItem="Cmg-ZA-0dA" secondAttribute="trailingMargin" constant="5" id="BqS-an-0bd"/>
                             <constraint firstItem="nrO-cD-hRF" firstAttribute="top" secondItem="gjt-xM-Lxq" secondAttribute="bottom" constant="8" id="Cwj-rV-lmh"/>
@@ -108,14 +83,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="nrO-cD-hRF" secondAttribute="trailing" constant="5" id="NoY-Ff-V6h"/>
                             <constraint firstItem="inU-Sf-wZ5" firstAttribute="top" secondItem="CXj-yZ-zRg" secondAttribute="bottom" constant="10" id="RkE-0h-er3"/>
                             <constraint firstItem="n8S-7f-SeI" firstAttribute="top" secondItem="2ye-A1-vVc" secondAttribute="bottom" constant="8" id="Ybt-5K-wEf"/>
-                            <constraint firstItem="ndk-pY-ljR" firstAttribute="top" secondItem="Bkf-kx-m71" secondAttribute="bottom" constant="8" id="Zp6-D8-GDb"/>
                             <constraint firstItem="n8S-7f-SeI" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leading" constant="5" id="Ztd-EE-ycV"/>
                             <constraint firstItem="inU-Sf-wZ5" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leading" constant="5" id="cf0-qi-JMo"/>
                             <constraint firstItem="gjt-xM-Lxq" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leading" constant="5" id="gXj-Zr-eGK"/>
-                            <constraint firstItem="Bkf-kx-m71" firstAttribute="top" secondItem="nrO-cD-hRF" secondAttribute="bottom" constant="8" id="ifO-tS-G5h"/>
-                            <constraint firstItem="ndk-pY-ljR" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="jq1-hj-ASU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kwV-fX-ydk" secondAttribute="trailing" constant="5" id="nRK-kN-8mU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ndk-pY-ljR" secondAttribute="trailing" constant="5" id="qML-pC-feJ"/>
                             <constraint firstItem="UhU-sj-scD" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="saO-FT-a6y"/>
                             <constraint firstItem="CXj-yZ-zRg" firstAttribute="leading" secondItem="Cmg-ZA-0dA" secondAttribute="leadingMargin" constant="15" id="uKJ-Wf-6Ru"/>
                         </constraints>
@@ -125,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-1045.7271364317842"/>
         </scene>
-        <!--Priorities-->
+        <!--Tasks View Controller-->
         <scene sceneID="dyA-cX-bGk">
             <objects>
                 <tableViewController id="Og0-C9-aCB" customClass="TasksViewController" customModule="Priorities" customModuleProvider="target" sceneMemberID="viewController">
@@ -138,7 +108,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJB-lo-NZp" id="2KS-gN-kLg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVc-ux-Bc7">
@@ -237,13 +207,15 @@
                             <outlet property="delegate" destination="Og0-C9-aCB" id="d9I-Ts-3Nc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Priorities" id="jFI-Gg-QM0">
-                        <barButtonItem key="leftBarButtonItem" image="Info-50" style="plain" id="YvI-QM-dSQ">
+                    <navigationItem key="navigationItem" id="jFI-Gg-QM0">
+                        <barButtonItem key="leftBarButtonItem" image="Info white" style="plain" id="YvI-QM-dSQ">
+                            <color key="tintColor" red="0.96078431369999995" green="0.95686274510000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="bGg-5M-olc" kind="show" id="feX-jV-JSH"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TQe-eG-fUx">
+                        <barButtonItem key="rightBarButtonItem" image="Plus sign white" id="TQe-eG-fUx">
+                            <color key="tintColor" red="0.96078431369999995" green="0.95686274510000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addTaskAlert:" destination="Og0-C9-aCB" id="FMo-z0-BXc"/>
                             </connections>
@@ -385,6 +357,7 @@
                                                             <segment title="Weekly"/>
                                                             <segment title="Monthly"/>
                                                         </segments>
+                                                        <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
                                                             <action selector="changeSegControl:" destination="pws-CA-6qO" eventType="valueChanged" id="ECG-VZ-Yzd"/>
                                                         </connections>
@@ -414,7 +387,9 @@
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJz-nd-3W7">
                                                                 <rect key="frame" x="143" y="0.0" width="195" height="30"/>
-                                                                <state key="normal" title="adjust"/>
+                                                                <state key="normal" title="adjust">
+                                                                    <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="currentAdjust:" destination="pws-CA-6qO" eventType="touchUpInside" id="B0h-Xl-Mbu"/>
                                                                 </connections>
@@ -441,7 +416,9 @@
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNx-Y8-Ii1">
                                                                 <rect key="frame" x="143" y="0.0" width="195" height="30"/>
-                                                                <state key="normal" title="adjust"/>
+                                                                <state key="normal" title="adjust">
+                                                                    <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="goalAdjust:" destination="pws-CA-6qO" eventType="touchUpInside" id="JE6-Q4-nB8"/>
                                                                 </connections>
@@ -473,6 +450,7 @@
                                                             </label>
                                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="uzc-WU-EvN">
                                                                 <rect key="frame" x="244" y="0.0" width="94" height="29"/>
+                                                                <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
                                                                     <action selector="currentStepper:" destination="pws-CA-6qO" eventType="valueChanged" id="i6a-bI-ug6"/>
                                                                 </connections>
@@ -499,6 +477,7 @@
                                                             </label>
                                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="yJB-aU-0EZ">
                                                                 <rect key="frame" x="244" y="0.0" width="94" height="29"/>
+                                                                <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <connections>
                                                                     <action selector="goalStepper:" destination="pws-CA-6qO" eventType="valueChanged" id="r5g-dk-Ahu"/>
                                                                 </connections>
@@ -526,7 +505,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxn-Uh-cdy">
                                                 <rect key="frame" x="251" y="0.0" width="87" height="30"/>
-                                                <state key="normal" title="set reminder"/>
+                                                <state key="normal" title="set reminder">
+                                                    <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="6w0-cp-cZP" kind="show" identifier="reminder" id="8le-iS-beb"/>
                                                 </connections>
@@ -550,7 +531,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8U-NX-vkN">
                                                 <rect key="frame" x="281" y="0.0" width="57" height="30"/>
-                                                <state key="normal" title="add/edit"/>
+                                                <state key="normal" title="add/edit">
+                                                    <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="Zr7-F2-OyY" kind="show" identifier="addNotes" id="swY-dN-nsX"/>
                                                 </connections>
@@ -560,7 +543,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inp-vM-zFe">
                                         <rect key="frame" x="0.0" y="469.5" width="338" height="122.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Save &amp; Close"/>
+                                        <state key="normal" title="Save &amp; Close">
+                                            <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="saveAndClose:" destination="pws-CA-6qO" eventType="touchUpInside" id="Iub-3h-DFs"/>
                                         </connections>
@@ -631,7 +616,9 @@
                                     <constraint firstAttribute="height" constant="43" id="eGe-5B-YIx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="saveButtonClicked:" destination="o38-up-lCz" eventType="touchUpInside" id="BSf-14-5gG"/>
                                 </connections>
@@ -683,7 +670,7 @@
                                             <constraint firstItem="RZ9-d4-DwI" firstAttribute="centerY" secondItem="R2C-Lb-dqa" secondAttribute="centerY" id="2Nq-Gz-2zY"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Is this task of a urgent nature? (i.e., get haircut, email boss back, ect.)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhu-hU-Wce">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Is this task of a urgent nature? (e.g., get haircut, email boss back, ect.)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhu-hU-Wce">
                                         <rect key="frame" x="0.0" y="30" width="327" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -695,7 +682,7 @@
                                             <action selector="urgentToggled:" destination="9FG-gZ-hn6" eventType="valueChanged" id="OaL-b8-2Ck"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this task of significant importance? (e.g., if you don't do this will your quality of life suffer?)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMv-TX-i1m">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this task of significant importance? (i.e., if you don't do this will your quality of life suffer?)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMv-TX-i1m">
                                         <rect key="frame" x="0.0" y="102" width="327" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -724,7 +711,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfj-o5-RrQ">
                                                 <rect key="frame" x="240" y="0.0" width="87" height="30"/>
-                                                <state key="normal" title="set reminder"/>
+                                                <state key="normal" title="set reminder">
+                                                    <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="6w0-cp-cZP" kind="show" identifier="reminder" id="Xs7-8G-6NY"/>
                                                 </connections>
@@ -748,7 +737,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Cw-st-vkz">
                                                 <rect key="frame" x="270" y="0.0" width="57" height="30"/>
-                                                <state key="normal" title="add/edit"/>
+                                                <state key="normal" title="add/edit">
+                                                    <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="Zr7-F2-OyY" kind="show" identifier="addNotes" id="1ou-gb-3Lf"/>
                                                 </connections>
@@ -757,7 +748,9 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOY-e4-dej">
                                         <rect key="frame" x="0.0" y="254" width="327" height="333"/>
-                                        <state key="normal" title="Save &amp; Close"/>
+                                        <state key="normal" title="Save &amp; Close">
+                                            <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="saveAndQuit:" destination="9FG-gZ-hn6" eventType="touchUpInside" id="iDo-b6-ruY"/>
                                         </connections>
@@ -884,6 +877,7 @@
                                                     <segment title="Weekly"/>
                                                     <segment title="Monthly"/>
                                                 </segments>
+                                                <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="segControlAction:" destination="6w0-cp-cZP" eventType="valueChanged" id="XFE-W3-d3J"/>
                                                 </connections>
@@ -915,6 +909,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKT-pJ-j3R">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
+                                                <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Save Reminder"/>
                                                 <connections>
                                                     <action selector="save:" destination="6w0-cp-cZP" eventType="touchUpInside" id="oZG-5k-TOH"/>
@@ -1095,6 +1090,7 @@
                                             <segment title="Weekly"/>
                                             <segment title="Monthly"/>
                                         </segments>
+                                        <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="segmentedControlAction:" destination="BEb-KU-iFt" eventType="valueChanged" id="MtC-J2-WTy"/>
                                             <action selector="setControlAction:" destination="5Yp-wg-5fp" eventType="valueChanged" id="wC0-4o-c7J"/>
@@ -1126,7 +1122,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6z-ib-vvL">
                                                 <rect key="frame" x="256" y="0.0" width="87" height="30"/>
-                                                <state key="normal" title="set reminder"/>
+                                                <state key="normal" title="set reminder">
+                                                    <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="6w0-cp-cZP" kind="show" identifier="repeatReminder" id="kcX-4h-6an"/>
                                                 </connections>
@@ -1135,7 +1133,9 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENv-BU-XAT">
                                         <rect key="frame" x="0.0" y="335.5" width="343" height="259.5"/>
-                                        <state key="normal" title="Save &amp; Close"/>
+                                        <state key="normal" title="Save &amp; Close">
+                                            <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="saveAndClose:" destination="BEb-KU-iFt" eventType="touchUpInside" id="eAC-tv-yIH"/>
                                             <action selector="saveAndClose:" destination="5Yp-wg-5fp" eventType="touchUpInside" id="jo3-dB-Bpb"/>
@@ -1194,11 +1194,12 @@
                                             <segment title="Weekly"/>
                                             <segment title="Monthly"/>
                                         </segments>
+                                        <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="segmentedControlAction:" destination="BEb-KU-iFt" eventType="valueChanged" id="Fp7-Q7-PNm"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How long each peroid would you like to perform this task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVw-UI-21I">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How long each period would you like to perform this task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVw-UI-21I">
                                         <rect key="frame" x="0.0" y="48.5" width="343" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1227,6 +1228,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fI-NJ-PF7">
                                                 <rect key="frame" x="256" y="0.0" width="87" height="30"/>
+                                                <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="set reminder"/>
                                                 <connections>
                                                     <segue destination="6w0-cp-cZP" kind="show" identifier="repeatReminder" id="Q3z-5M-RCg"/>
@@ -1236,7 +1238,9 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tn-mC-6wx">
                                         <rect key="frame" x="0.0" y="335.5" width="343" height="251.5"/>
-                                        <state key="normal" title="Save &amp; Close"/>
+                                        <state key="normal" title="Save &amp; Close">
+                                            <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="saveAndClose:" destination="BEb-KU-iFt" eventType="touchUpInside" id="ePX-ts-bwu"/>
                                         </connections>
@@ -1313,7 +1317,7 @@
                                             <constraint firstItem="CQK-FP-8f4" firstAttribute="centerY" secondItem="WiA-sT-bJK" secondAttribute="centerY" id="SgW-R6-luP"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Is this task of a urgent nature? (i.e., get haircut, email boss back, ect.)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKB-P3-x8q">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Is this task of a urgent nature? (e.g., get haircut, email boss back, ect.)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKB-P3-x8q">
                                         <rect key="frame" x="0.0" y="38" width="343" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1325,7 +1329,7 @@
                                             <action selector="urgentSwitchChanged:" destination="cZC-z5-v1g" eventType="valueChanged" id="MbW-54-ijv"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this task of significant importance? (e.g., if you don't do this will your quality of life suffer?)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtH-Vu-X5s">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this task of significant importance? (i.e., if you don't do this will your quality of life suffer?)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtH-Vu-X5s">
                                         <rect key="frame" x="0.0" y="126" width="343" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1348,11 +1352,15 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLG-Q6-Sk7">
                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
-                                                <state key="normal" title="Time"/>
+                                                <state key="normal" title="Time">
+                                                    <color key="titleColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVq-ul-Vjd">
                                                 <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
-                                                <state key="normal" title="Check Off"/>
+                                                <state key="normal" title="Check Off">
+                                                    <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -1392,11 +1400,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Info-50" width="25" height="25"/>
+        <image name="Info white" width="29" height="29"/>
+        <image name="Plus sign white" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xs7-8G-6NY"/>
         <segue reference="1ou-gb-3Lf"/>
+        <segue reference="Xs7-8G-6NY"/>
         <segue reference="BHd-xg-vI3"/>
     </inferredMetricsTieBreakers>
 </document>

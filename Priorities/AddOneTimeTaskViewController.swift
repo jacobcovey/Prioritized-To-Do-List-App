@@ -55,6 +55,7 @@ class AddOneTimeTaskViewController: UIViewController, UITextFieldDelegate {
         
         self.taskName.delegate = self
         navigationItem.title = "Add Task"
+        
         if TaskBank.sharedInstance.reminderDateSet == true  {
             TaskBank.sharedInstance.reminderDateSet = false
             self.reminderDate = TaskBank.sharedInstance.reminderDate
