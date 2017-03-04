@@ -194,6 +194,10 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
             let addTaskIntPickerController = segue.destination as! AddTaskIntPickerController
             addTaskIntPickerController.frequency = self.frequency
             break
+        case "timedGoal"?:
+            let addTaskTimerPicker = segue.destination as! AddTaskTimePickerController
+            addTaskTimerPicker.frequency = self.frequency
+            break
         default:
             break
         }

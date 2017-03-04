@@ -67,7 +67,7 @@ class AddTaskIntPickerController: UIViewController, UIPickerViewDataSource, UIPi
         var intPicker = [String]()
         var frequencyPicker = [String]()
 
-        for i in 0...999 {
+        for i in 1...999 {
             intPicker.append(String(i))
         }
         intPickerData.append(intPicker)

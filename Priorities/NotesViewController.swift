@@ -19,6 +19,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         self.textField.layer.cornerRadius = 6.0
         self.textField.layer.borderColor = UIColor.lightGray.cgColor
         self.textField.delegate = self
+        self.textField.becomeFirstResponder()
         self.automaticallyAdjustsScrollViewInsets = false
         if notes != nil && notes != "" {
             self.textField.text = notes

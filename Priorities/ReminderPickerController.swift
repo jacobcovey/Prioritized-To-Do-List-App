@@ -65,6 +65,7 @@ class ReminderPickerController: UIViewController, UIPickerViewDataSource, UIPick
             datePicker.datePickerMode = .time
             reminderSpecificView.isHidden = false
         }
+        self.repetitivePicker.selectRow(7, inComponent: 1, animated: true)
     }
     
 

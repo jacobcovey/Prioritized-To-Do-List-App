@@ -607,31 +607,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="APo-4o-Jz6">
-                                <rect key="frame" x="16" y="99" width="343" height="558"/>
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="841-B2-9Nz">
-                                <rect key="frame" x="16" y="72" width="55" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="O6Z-vN-gTS"/>
-                                    <constraint firstAttribute="height" constant="21" id="gf9-ty-OqX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="APo-4o-Jz6" firstAttribute="top" secondItem="Zt7-Hv-SD1" secondAttribute="bottom" constant="35" id="2s5-VS-tFb"/>
-                            <constraint firstItem="841-B2-9Nz" firstAttribute="top" secondItem="Zt7-Hv-SD1" secondAttribute="bottom" constant="8" id="61W-fd-Mpa"/>
-                            <constraint firstItem="APo-4o-Jz6" firstAttribute="leading" secondItem="9D2-zL-q3M" secondAttribute="leadingMargin" id="P9E-K7-lG1"/>
-                            <constraint firstItem="841-B2-9Nz" firstAttribute="leading" secondItem="9D2-zL-q3M" secondAttribute="leadingMargin" id="YM0-Ke-JSb"/>
-                            <constraint firstItem="pJc-op-xCI" firstAttribute="top" secondItem="APo-4o-Jz6" secondAttribute="bottom" constant="10" id="vls-l6-FnU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="APo-4o-Jz6" secondAttribute="trailing" id="y2V-Ut-74O"/>
+                            <constraint firstItem="pJc-op-xCI" firstAttribute="top" secondItem="APo-4o-Jz6" secondAttribute="bottom" id="Agd-6U-LiK"/>
+                            <constraint firstItem="APo-4o-Jz6" firstAttribute="leading" secondItem="9D2-zL-q3M" secondAttribute="leadingMargin" id="gyx-Vb-HuU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="APo-4o-Jz6" secondAttribute="trailing" id="uce-ax-VLO"/>
+                            <constraint firstItem="APo-4o-Jz6" firstAttribute="top" secondItem="Zt7-Hv-SD1" secondAttribute="bottom" id="yM1-fR-hhe"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="i1y-wY-fvx" appends="YES" id="if7-a5-REK"/>
@@ -648,7 +636,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="740" y="1182"/>
+            <point key="canvasLocation" x="740" y="1181.5592203898052"/>
         </scene>
         <!--Reminder Picker Controller-->
         <scene sceneID="qGf-tw-ZxP">
@@ -1813,8 +1801,8 @@
         <image name="Plus sign white" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4x3-MP-fqA"/>
-        <segue reference="iAX-Uw-vi2"/>
+        <segue reference="RPq-dm-290"/>
         <segue reference="fPf-XK-Rtg"/>
+        <segue reference="iAX-Uw-vi2"/>
     </inferredMetricsTieBreakers>
 </document>
