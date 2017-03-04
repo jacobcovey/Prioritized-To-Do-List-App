@@ -53,7 +53,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             addCheckOffViewController.important = isImportant
             break
         default:
-            preconditionFailure("Unexpected segue identifier")
+            break
+//            preconditionFailure("Unexpected segue identifier")
         }
     }
     

@@ -38,7 +38,6 @@ class TasksViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.statusBarStyle = .lightContent
@@ -61,6 +60,15 @@ class TasksViewController: UITableViewController {
         }
         print ("view did load")
 
+        if TaskBank.sharedInstance.currentId == 0 && TaskBank.sharedInstance.firstTime == true {
+            let message = "Every time this app is downloaded a baby angel gets its wings. Good work!\n\nHabit Hero is here to help you spend your time in more meangful ways. To get started go ahead and tap the ➕ in the right corner to add your first task. If you are ever unsure about a screen or how to do something just click the ℹ︎ in the top left corner of any screen for info and instructions."
+            let alertController = UIAlertController(title: "Thanks for using Habit Hero!", message: message, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Got it", style: .cancel, handler: { (action) -> Void in
+            })
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true, completion: nil)
+        }
+        
         
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(secondTimer), userInfo: nil, repeats: true)
     }
@@ -157,9 +165,6 @@ class TasksViewController: UITableViewController {
             if task.type == TaskType.Time {
                 cell.currentLabel.text = "Current: " + (task.currentTime?.toStringWithSec())!
                 cell.goalLabel.text = "Goal: " + (task.goalTime?.toStringWithSec())!
-//                if task.completed == true {
-//                    cell.iconButton.setImage(UIImage(named:"Stop Watch blue"), for: UIControlState.normal)
-//                } else {
                     if task.important == true && task.urgent == true {
                         cell.iconButton.setImage(UIImage(named:"Stop Watch red"), for: UIControlState.normal)
                     } else if task.important == true && task.urgent == false {
@@ -169,14 +174,9 @@ class TasksViewController: UITableViewController {
                     } else {
                         cell.iconButton.setImage(UIImage(named:"Stop Watch yellow"), for: UIControlState.normal)
                     }
-//                }
-//                cell.iconButton.setImage(UIImage(named:"stopwatch"), for: UIControlState.normal)
             } else if task.type == TaskType.CheckOff {
                 cell.currentLabel.text = "Current: " + String(describing: task.currentInt!)
                 cell.goalLabel.text = "Goal: " + String(describing: task.goalInt!)
-//                if task.completed == true {
-//                    cell.iconButton.setImage(UIImage(named:"Plus sign blue"), for: UIControlState.normal)
-//                } else {
                     if task.important == true && task.urgent == true {
                         cell.iconButton.setImage(UIImage(named:"Plus sign red"), for: UIControlState.normal)
                     } else if task.important == true && task.urgent == false {
@@ -186,14 +186,9 @@ class TasksViewController: UITableViewController {
                     } else {
                         cell.iconButton.setImage(UIImage(named:"Plus sign yellow"), for: UIControlState.normal)
                     }
-//                }
-//                cell.iconButton.setImage(UIImage(named:"plus-symbol"), for: UIControlState.normal)
             } else {
                 cell.currentLabel.text = ""
                 cell.goalLabel.text = ""
-//                if task.completed == true {
-//                    cell.iconButton.setImage(UIImage(named:"Checkmark blue"), for: UIControlState.normal)
-//                } else {
                     if task.important == true && task.urgent == true {
                         cell.iconButton.setImage(UIImage(named:"Checkmark red"), for: UIControlState.normal)
                     } else if task.important == true && task.urgent == false {
@@ -203,8 +198,6 @@ class TasksViewController: UITableViewController {
                     } else {
                         cell.iconButton.setImage(UIImage(named:"Checkmark yellow"), for: UIControlState.normal)
                     }
-//                }
-//                cell.iconButton.setImage(UIImage(named:"checkmark"), for: UIControlState.normal)
             }
             cell.iconButton.tag = task.taskId
             cell.location.append(indexPath.section)
@@ -226,8 +219,36 @@ class TasksViewController: UITableViewController {
                 let taskDetailViewController = segue.destination as! TaskDetailViewController
                 taskDetailViewController.task = task
             }
+        case "oneTimeDetail"?:
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let task = TaskBank.sharedInstance.taskArrays[indexPath.section][indexPath.row]
+                let oneTimeDetailController = segue.destination as! OneTimeDetailController
+                oneTimeDetailController.task = task
+            }
+        case "checkOffDetail"?:
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let task = TaskBank.sharedInstance.taskArrays[indexPath.section][indexPath.row]
+                let checkOffDetailController = segue.destination as! CheckOffDetailController
+                checkOffDetailController.task = task
+            }
+        case "timedDetail"?:
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let task = TaskBank.sharedInstance.taskArrays[indexPath.section][indexPath.row]
+                let timedDetailController = segue.destination as! TimedDetailController
+                timedDetailController.task = task
+            }
         default:
             break
+        }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let task = TaskBank.sharedInstance.taskArrays[indexPath.section][indexPath.row]
+        if task.type == TaskType.Once {
+            self.performSegue(withIdentifier: "oneTimeDetail", sender: nil)
+        } else if task.type == TaskType.CheckOff {
+            self.performSegue(withIdentifier: "checkOffDetail", sender: nil)
+        } else if task.type == TaskType.Time {
+            self.performSegue(withIdentifier: "timedDetail", sender: nil)
         }
     }
     

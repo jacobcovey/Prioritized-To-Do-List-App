@@ -16,7 +16,12 @@ class TaskBank {
     
     var phoneType: Model
     var reminderDate: ReminderDate?
+    var firstTime: Bool = true
     var reminderDateSet: Bool = false
+    var goalTimeSet: Bool = false
+    var goalTime: HourMinSec?
+    var goalIntSet: Bool = false
+    var goalInt: Int?
     var notes: String?
     var notesSet: Bool = false
     var deleteReminder: Bool = false

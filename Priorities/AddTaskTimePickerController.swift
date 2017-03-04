@@ -1,40 +1,32 @@
 //
-//  TimeSelectorViewController.swift
+//  AddTaskTimePickerController.swift
 //  Priorities
 //
-//  Created by Jacob Covey on 1/28/17.
+//  Created by Jacob Covey on 3/2/17.
 //  Copyright © 2017 Jacob Covey. All rights reserved.
 //
 
 import UIKit
 
-class TimeSelectorViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddTaskTimePickerController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-
+    
     @IBOutlet var timePicker: UIPickerView!
-    var current: Bool!
-    var task: Task!
+    
     var timePickerData = [[String]]()
     var newTime:HourMinSec = HourMinSec(hour: 0, min: 0, sec: 0)
-    var oldTime:HourMinSec!
+//    var oldTime:HourMinSec!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if self.current == true {
-            navigationItem.title = "Select Current Time"
-            self.oldTime = self.task.currentTime
-        } else {
-            navigationItem.title = "Select Goal Time"
-            self.oldTime = self.task.goalTime
-        }
+        navigationItem.title = "Goal Time"
         
-
-//        self.timePicker.selectRow(5, inComponent: 2, animated: false)
+        //        self.timePicker.selectRow(5, inComponent: 2, animated: false)
         self.loadPickerArrays()
         self.timePicker.dataSource = self
         self.timePicker.delegate = self
-        self.timePicker.selectRow(oldTime.hour, inComponent: 0, animated: true)
-        self.timePicker.selectRow(oldTime.min, inComponent: 2, animated: true)
+        self.timePicker.selectRow(0, inComponent: 0, animated: true)
+        self.timePicker.selectRow(1, inComponent: 2, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -42,17 +34,15 @@ class TimeSelectorViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         self.newTime.hour = Int(timePickerData[0][timePicker.selectedRow(inComponent: 0)])!
         self.newTime.min = Int(timePickerData[2][timePicker.selectedRow(inComponent: 2)])!
-        if self.current == true {
-            self.task.currentTime = self.newTime
-        } else {
-            self.task.goalTime = self.newTime
-        }
+        TaskBank.sharedInstance.goalTimeSet = true
+        TaskBank.sharedInstance.goalTime = self.newTime
     }
-    
+
     @IBAction func saveButtonClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 4
     }

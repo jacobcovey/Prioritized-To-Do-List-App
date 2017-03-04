@@ -22,7 +22,14 @@
 		8B0BC3EA1E1C4C3D0029614F /* AddCheckOffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */; };
 		8B3D7BA21E466BFF0071013B /* detailScreen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B3D7BA11E466BFF0071013B /* detailScreen.gif */; };
 		8B4696421E59668B009D28ED /* ReminderDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4696411E59668B009D28ED /* ReminderDate.swift */; };
+		8B504A011E68A12B0024B8EC /* AddOneTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B504A001E68A12B0024B8EC /* AddOneTimeViewController.swift */; };
+		8B504A031E68C6760024B8EC /* AddRepetitiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B504A021E68C6760024B8EC /* AddRepetitiveViewController.swift */; };
+		8B504A051E68F6EB0024B8EC /* AddTaskTimePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B504A041E68F6EB0024B8EC /* AddTaskTimePickerController.swift */; };
+		8B504A071E6904120024B8EC /* AddTaskIntPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B504A061E6904120024B8EC /* AddTaskIntPickerController.swift */; };
 		8B5405B61E5C795700CEA435 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5405B51E5C795700CEA435 /* NotesViewController.swift */; };
+		8B56C5831E699D7300E2341D /* OneTimeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56C5821E699D7300E2341D /* OneTimeDetailController.swift */; };
+		8B56C5851E69B21700E2341D /* CheckOffDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56C5841E69B21700E2341D /* CheckOffDetailController.swift */; };
+		8B56C5871E69B93800E2341D /* TimedDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56C5861E69B93800E2341D /* TimedDetailController.swift */; };
 		8B6CA3361E2A86A30036EC67 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6CA3351E2A86A30036EC67 /* TaskCell.swift */; };
 		8B73E7CB1E4FCEF100B0C032 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73E7CA1E4FCEF100B0C032 /* Reminder.swift */; };
 		8B76DEE81E2AF2510028C24B /* AddOneTimeTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */; };
@@ -71,7 +78,14 @@
 		8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCheckOffViewController.swift; sourceTree = "<group>"; };
 		8B3D7BA11E466BFF0071013B /* detailScreen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = detailScreen.gif; path = ../../../../Downloads/detailScreen.gif; sourceTree = "<group>"; };
 		8B4696411E59668B009D28ED /* ReminderDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderDate.swift; sourceTree = "<group>"; };
+		8B504A001E68A12B0024B8EC /* AddOneTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneTimeViewController.swift; sourceTree = "<group>"; };
+		8B504A021E68C6760024B8EC /* AddRepetitiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRepetitiveViewController.swift; sourceTree = "<group>"; };
+		8B504A041E68F6EB0024B8EC /* AddTaskTimePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskTimePickerController.swift; sourceTree = "<group>"; };
+		8B504A061E6904120024B8EC /* AddTaskIntPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskIntPickerController.swift; sourceTree = "<group>"; };
 		8B5405B51E5C795700CEA435 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		8B56C5821E699D7300E2341D /* OneTimeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTimeDetailController.swift; sourceTree = "<group>"; };
+		8B56C5841E69B21700E2341D /* CheckOffDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOffDetailController.swift; sourceTree = "<group>"; };
+		8B56C5861E69B93800E2341D /* TimedDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedDetailController.swift; sourceTree = "<group>"; };
 		8B6CA3351E2A86A30036EC67 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		8B73E7CA1E4FCEF100B0C032 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneTimeTaskViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +156,12 @@
 				8B4696411E59668B009D28ED /* ReminderDate.swift */,
 				8B0BC3E11E1B0FB10029614F /* TaskBank.swift */,
 				8B73E7CA1E4FCEF100B0C032 /* Reminder.swift */,
+				8B504A001E68A12B0024B8EC /* AddOneTimeViewController.swift */,
+				8B56C5821E699D7300E2341D /* OneTimeDetailController.swift */,
+				8B56C5841E69B21700E2341D /* CheckOffDetailController.swift */,
+				8B56C5861E69B93800E2341D /* TimedDetailController.swift */,
 				8BFA5C331E3D72E80049E4C4 /* TimeSelectorViewController.swift */,
+				8B504A021E68C6760024B8EC /* AddRepetitiveViewController.swift */,
 				8B0BC3E31E1B15EB0029614F /* TasksViewController.swift */,
 				8B76DEE71E2AF2510028C24B /* AddOneTimeTaskViewController.swift */,
 				8B6CA3351E2A86A30036EC67 /* TaskCell.swift */,
@@ -151,6 +170,8 @@
 				8B91C8841E595CCA0089F477 /* ReminderPickerController.swift */,
 				8BFA5C311E3CF83A0049E4C4 /* TaskDetailViewController.swift */,
 				8B0BC3E71E1C4B540029614F /* AddTimedViewController.swift */,
+				8B504A061E6904120024B8EC /* AddTaskIntPickerController.swift */,
+				8B504A041E68F6EB0024B8EC /* AddTaskTimePickerController.swift */,
 				8B0BC3E91E1C4C3D0029614F /* AddCheckOffViewController.swift */,
 			);
 			path = Priorities;
@@ -317,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B56C5871E69B93800E2341D /* TimedDetailController.swift in Sources */,
 				8B0BC3E81E1C4B540029614F /* AddTimedViewController.swift in Sources */,
 				8B4696421E59668B009D28ED /* ReminderDate.swift in Sources */,
 				8B73E7CB1E4FCEF100B0C032 /* Reminder.swift in Sources */,
@@ -326,14 +348,20 @@
 				8B0BC3E61E1C460B0029614F /* AddTaskViewController.swift in Sources */,
 				8B0BC3EA1E1C4C3D0029614F /* AddCheckOffViewController.swift in Sources */,
 				8B0BC3DE1E1AE83D0029614F /* Task.swift in Sources */,
+				8B504A031E68C6760024B8EC /* AddRepetitiveViewController.swift in Sources */,
 				8BFA5C321E3CF83A0049E4C4 /* TaskDetailViewController.swift in Sources */,
 				8B76DEE81E2AF2510028C24B /* AddOneTimeTaskViewController.swift in Sources */,
 				8B5405B61E5C795700CEA435 /* NotesViewController.swift in Sources */,
+				8B504A011E68A12B0024B8EC /* AddOneTimeViewController.swift in Sources */,
 				8B0BC3E41E1B15EB0029614F /* TasksViewController.swift in Sources */,
+				8B504A051E68F6EB0024B8EC /* AddTaskTimePickerController.swift in Sources */,
 				8B91C8851E595CCA0089F477 /* ReminderPickerController.swift in Sources */,
 				8B0BC3B01E1AE7590029614F /* AppDelegate.swift in Sources */,
+				8B56C5831E699D7300E2341D /* OneTimeDetailController.swift in Sources */,
 				8B6CA3361E2A86A30036EC67 /* TaskCell.swift in Sources */,
+				8B504A071E6904120024B8EC /* AddTaskIntPickerController.swift in Sources */,
 				8B0BC3E01E1AEA0E0029614F /* HourMinSec.swift in Sources */,
+				8B56C5851E69B21700E2341D /* CheckOffDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
