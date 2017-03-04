@@ -330,6 +330,29 @@ class TaskBank {
     
 }
 
+func convertNumToWeekday(num: Int)->String {
+    var day = ""
+    switch num {
+    case 0 :
+        day = "Sundays"
+    case 1 :
+        day = "Mondays"
+    case 2 :
+        day = "Tuesdays"
+    case 3 :
+        day = "Wednesdays"
+    case 4 :
+        day = "Thursdays"
+    case 5 :
+        day = "Fridays"
+    case 6 :
+        day = "Saturdays"
+    default:
+        day = "Error"
+    }
+    return day
+}
+
 public enum Model : String {
     case simulator = "simulator/sandbox",
     iPod1          = "iPod 1",
@@ -425,4 +448,5 @@ public extension UIDevice {
         }
         return Model.unrecognized
     }
+    
 }

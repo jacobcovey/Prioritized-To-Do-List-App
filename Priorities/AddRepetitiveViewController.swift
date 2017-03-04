@@ -163,7 +163,7 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
         if self.reminderDate?.frequency == Frequency.Daily {
             return "Daily " + hourMin
         } else if self.reminderDate?.frequency == Frequency.Weekly{
-            return AddTimedViewController.convertNumToWeekday(num: (self.reminderDate?.weekday)!) + " " + hourMin
+            return convertNumToWeekday(num: (self.reminderDate?.weekday)!) + " " + hourMin
         } else if self.reminderDate?.frequency == Frequency.Monthly {
             if let day = self.reminderDate?.weekday {
                 var day1 = ""

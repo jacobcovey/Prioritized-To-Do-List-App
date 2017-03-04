@@ -139,7 +139,7 @@ class TimedDetailController: UITableViewController, UITextFieldDelegate {
         if self.task.reminderDate?.frequency == Frequency.Daily {
             return "Daily " + hourMin
         } else if self.task.reminderDate?.frequency == Frequency.Weekly{
-            return AddTimedViewController.convertNumToWeekday(num: (self.task.reminderDate?.weekday)!) + " " + hourMin
+            return convertNumToWeekday(num: (self.task.reminderDate?.weekday)!) + " " + hourMin
         } else if self.task.reminderDate?.frequency == Frequency.Monthly {
             if let day = self.task.reminderDate?.weekday {
                 var day1 = ""
