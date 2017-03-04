@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8MX-qq-gDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-1045.7271364317842"/>
+            <point key="canvasLocation" x="-868" y="-1066"/>
         </scene>
         <!--Add Task Int Picker Controller-->
         <scene sceneID="1CN-T4-RWu">
@@ -136,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vft-Ht-pye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1529" y="-1046"/>
+            <point key="canvasLocation" x="801" y="-1386"/>
         </scene>
         <!--Add Repetitive View Controller-->
         <scene sceneID="mZW-mm-6l7">
@@ -410,7 +410,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ga-ju-bGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1529" y="-334"/>
+            <point key="canvasLocation" x="-74" y="-1066"/>
         </scene>
         <!--Tasks View Controller-->
         <scene sceneID="dyA-cX-bGk">
@@ -548,7 +548,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6f8-o1-GWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-334.18290854572717"/>
+            <point key="canvasLocation" x="-868" y="-334"/>
         </scene>
         <!--Time Selector View Controller-->
         <scene sceneID="gcf-IX-Ogx">
@@ -592,7 +592,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qd-iN-Prw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="425.93703148425789"/>
+            <point key="canvasLocation" x="905" y="1892"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="mUR-EX-hIv">
@@ -648,7 +648,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="750" y="1183"/>
+            <point key="canvasLocation" x="740" y="1182"/>
         </scene>
         <!--Reminder Picker Controller-->
         <scene sceneID="qGf-tw-ZxP">
@@ -752,7 +752,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAl-BV-EGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1529" y="1184"/>
+            <point key="canvasLocation" x="740" y="426"/>
         </scene>
         <!--Add One Time View Controller-->
         <scene sceneID="6ho-bt-TaC">
@@ -950,7 +950,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qf-k9-5Zc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528.8" y="425.93703148425789"/>
+            <point key="canvasLocation" x="-74" y="-360"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rML-Uf-Wgz">
@@ -968,7 +968,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Y9-VF-4rT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-73" y="-334"/>
+            <point key="canvasLocation" x="-1847" y="-334"/>
         </scene>
         <!--Check Off Detail Controller-->
         <scene sceneID="5ms-gz-5Vb">
@@ -1265,7 +1265,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOn-uG-cva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-834.39999999999998" y="425.93703148425789"/>
+            <point key="canvasLocation" x="-74" y="426"/>
         </scene>
         <!--Timed Detail Controller-->
         <scene sceneID="gMD-yC-z5A">
@@ -1549,7 +1549,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xt0-Ta-0RD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-834.39999999999998" y="1182.4587706146926"/>
+            <point key="canvasLocation" x="-74" y="1893"/>
         </scene>
         <!--One Time Detail Controller-->
         <scene sceneID="67k-Y6-aHh">
@@ -1758,7 +1758,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g4W-J2-XDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74.400000000000006" y="1181.5592203898052"/>
+            <point key="canvasLocation" x="-74" y="1182"/>
         </scene>
         <!--Add Task Time Picker Controller-->
         <scene sceneID="yes-Ha-qtI">
@@ -1805,7 +1805,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJg-O7-cnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2444" y="-334"/>
+            <point key="canvasLocation" x="801" y="-707"/>
         </scene>
     </scenes>
     <resources>
@@ -1813,8 +1813,8 @@
         <image name="Plus sign white" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="4x3-MP-fqA"/>
         <segue reference="iAX-Uw-vi2"/>
         <segue reference="fPf-XK-Rtg"/>
-        <segue reference="4x3-MP-fqA"/>
     </inferredMetricsTieBreakers>
 </document>
