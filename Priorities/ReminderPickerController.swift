@@ -43,14 +43,15 @@ class ReminderPickerController: UIViewController, UIPickerViewDataSource, UIPick
     
     @IBAction func save(_ sender: Any) {
         self.reminderSet = true
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func cancel(_ sender: Any) {
         TaskBank.sharedInstance.reminderDate = nil
         TaskBank.sharedInstance.deleteReminder = true
+        TaskBank.sharedInstance.cancelReminder = true
         self.reminderSet = false
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
         
     }
     override func viewWillAppear(_ animated: Bool) {

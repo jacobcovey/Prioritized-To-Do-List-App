@@ -17,7 +17,6 @@
 		8B0BC3E01E1AEA0E0029614F /* HourMinSec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3DF1E1AEA0E0029614F /* HourMinSec.swift */; };
 		8B0BC3E21E1B0FB10029614F /* TaskBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E11E1B0FB10029614F /* TaskBank.swift */; };
 		8B0BC3E41E1B15EB0029614F /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BC3E31E1B15EB0029614F /* TasksViewController.swift */; };
-		8B3D7BA21E466BFF0071013B /* detailScreen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B3D7BA11E466BFF0071013B /* detailScreen.gif */; };
 		8B4696421E59668B009D28ED /* ReminderDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4696411E59668B009D28ED /* ReminderDate.swift */; };
 		8B504A011E68A12B0024B8EC /* AddOneTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B504A001E68A12B0024B8EC /* AddOneTimeViewController.swift */; };
 		8B504A031E68C6760024B8EC /* AddRepetitiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B504A021E68C6760024B8EC /* AddRepetitiveViewController.swift */; };
@@ -68,7 +67,6 @@
 		8B0BC3DF1E1AEA0E0029614F /* HourMinSec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourMinSec.swift; sourceTree = "<group>"; };
 		8B0BC3E11E1B0FB10029614F /* TaskBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskBank.swift; sourceTree = "<group>"; };
 		8B0BC3E31E1B15EB0029614F /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
-		8B3D7BA11E466BFF0071013B /* detailScreen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = detailScreen.gif; path = ../../../../Downloads/detailScreen.gif; sourceTree = "<group>"; };
 		8B4696411E59668B009D28ED /* ReminderDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderDate.swift; sourceTree = "<group>"; };
 		8B504A001E68A12B0024B8EC /* AddOneTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneTimeViewController.swift; sourceTree = "<group>"; };
 		8B504A021E68C6760024B8EC /* AddRepetitiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRepetitiveViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 			children = (
 				8B6CA3371E2A95930036EC67 /* Suppporting FIles */,
 				8B0BC3AF1E1AE7590029614F /* AppDelegate.swift */,
-				8B3D7BA11E466BFF0071013B /* detailScreen.gif */,
 				8B0BC3B31E1AE75A0029614F /* Main.storyboard */,
 				8B0BC3B61E1AE75A0029614F /* Assets.xcassets */,
 				8B0BC3B81E1AE75A0029614F /* LaunchScreen.storyboard */,
@@ -338,7 +335,6 @@
 				8B0BC3BA1E1AE75A0029614F /* LaunchScreen.storyboard in Resources */,
 				8B0BC3B71E1AE75A0029614F /* Assets.xcassets in Resources */,
 				8B0BC3B51E1AE75A0029614F /* Main.storyboard in Resources */,
-				8B3D7BA21E466BFF0071013B /* detailScreen.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +531,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QBY6T6WGMK;
 				INFOPLIST_FILE = Priorities/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jpc.Priorities;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -549,6 +546,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QBY6T6WGMK;
 				INFOPLIST_FILE = Priorities/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jpc.Priorities;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -15,11 +15,13 @@ class NotesViewController: UIViewController, UITextViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.title = "Notes"
         self.textField.layer.borderWidth = 1.0
         self.textField.layer.cornerRadius = 6.0
         self.textField.layer.borderColor = UIColor.lightGray.cgColor
         self.textField.delegate = self
         self.textField.becomeFirstResponder()
+        self.textField.layer.borderWidth = 0
         self.automaticallyAdjustsScrollViewInsets = false
         if notes != nil && notes != "" {
             self.textField.text = notes

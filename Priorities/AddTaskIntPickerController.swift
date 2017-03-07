@@ -40,7 +40,7 @@ class AddTaskIntPickerController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 //    @IBAction func saveButtonClicked(_ sender: Any) {
 //        self.navigationController?.popViewController(animated: true)

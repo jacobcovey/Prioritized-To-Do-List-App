@@ -19,6 +19,7 @@ class TaskCell: UITableViewCell {
     @IBOutlet var iconButton: UIButton!
     var location = [Int]()
     @IBOutlet var iconView: UIView!
+    @IBOutlet var repetitiveSpecificView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

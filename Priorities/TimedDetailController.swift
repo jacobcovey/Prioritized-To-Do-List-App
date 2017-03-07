@@ -48,7 +48,7 @@ class TimedDetailController: UITableViewController, UITextFieldDelegate {
         
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {(action) -> Void in
             self.delete = true
-            self.navigationController?.popViewController(animated: true)
+             _ = self.navigationController?.popViewController(animated: true)
         })
         alertController.addAction(deleteAction)
         
@@ -56,7 +56,7 @@ class TimedDetailController: UITableViewController, UITextFieldDelegate {
     }
     @IBAction func saveAndClose(_ sender: Any) {
         self.view.endEditing(true)
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

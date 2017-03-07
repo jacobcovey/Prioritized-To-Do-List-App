@@ -95,7 +95,7 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
         }
         
         
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -119,7 +119,7 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
         
         if TaskBank.sharedInstance.currentId == 0 && TaskBank.sharedInstance.firstTime == true {
             TaskBank.sharedInstance.firstTime = false
-            let message = "This app is designed to help you proritize important tasks over tasks that are just urgent. This is important because it is in our nature to only focus on what is urgent.\n\nEvery task you enter will have a level of importance to it, but we encourage you to only mark important on those task where your quality of life will suffer if you don’t perform the task."
+            let message = "This app is designed to help you prioritize important tasks over tasks that are just urgent. This is important because it is in our nature to only focus on what is urgent.\n\nEvery task you enter will have a level of importance to it, but we encourage you to only mark important on those task where your quality of life (or someone else's) will suffer if you don’t perform the task."
             let alertController = UIAlertController(title: "One last thing...", message: message, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Got it", style: .cancel, handler: { (action) -> Void in
             })
@@ -136,11 +136,13 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
             TaskBank.sharedInstance.reminderDateSet = false
             self.reminderDate = TaskBank.sharedInstance.reminderDate
             self.reminderLabel.text = reptitiveReminderString()
-        }
-        else if reminderDate != nil {
-//            self.reminderLabel.text = reptitiveReminderString()
+        } 
+        else if reminderDate == nil || TaskBank.sharedInstance.cancelReminder {
+            TaskBank.sharedInstance.cancelReminder = false
             self.reminderLabel.text = "(optional)"
             self.reminderDate = nil
+        } else {
+            self.reminderLabel.text = reptitiveReminderString()
         }
         if TaskBank.sharedInstance.goalIntSet == true {
             self.goalIntIsSet = true
@@ -152,7 +154,11 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
             TaskBank.sharedInstance.goalTimeSet = false
             goalTime = TaskBank.sharedInstance.goalTime!
             self.goalLabel.text = goalTime.toStringWOsec()
-        } else {
+        } else if self.goalIntIsSet && self.type == TaskType.CheckOff {
+            self.goalLabel.text = String(goalInt)
+        } else if self.goalTimeIsSet && self.type == TaskType.Time {
+            self.goalLabel.text = goalTime.toStringWOsec()
+        }else {
             self.goalLabel.text = "(required)"
         }
         
@@ -188,8 +194,6 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
             let reminderPickerController = segue.destination as! ReminderPickerController
             reminderPickerController.repeate = true
             reminderPickerController.frequency = self.frequency
-//        case "timedGoal"?:
-//            let addTaskTimePickerController = segue.destination as! AddTaskTimePickerController
         case "intGoal"?:
             let addTaskIntPickerController = segue.destination as! AddTaskIntPickerController
             addTaskIntPickerController.frequency = self.frequency
@@ -215,24 +219,5 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let currentCharacterCount = textField.text?.characters.count ?? 0
-        if (range.length + range.location > currentCharacterCount){
-            return false
-        }
-        let newLength = currentCharacterCount + string.characters.count - range.length
-        
-        print(UIDevice().type)
-        if UIDevice().type == .iPhone6plus || UIDevice().type == .iPhone6Splus || UIDevice().type == .iPhone7plus {
-            return newLength <= 21
-        } else if UIDevice().type == .iPhone6 || UIDevice().type == .iPhone6S || UIDevice().type == .iPhone7 || UIDevice().type == .simulator {
-            return newLength <= 16
-        } else {
-            return newLength <= 13
-        }
-    }
-    
-    
+
 }

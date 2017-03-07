@@ -34,7 +34,7 @@ class AddOneTimeViewController: UITableViewController, UITextFieldDelegate {
         oneTimeTask = Task(title: name, urgent: isUrgent, important: isImportant, frequency: Frequency.Once, type: TaskType.Once, goalTime: nil, goalInt: 1, reminderDate: reminderDate, notes: notes)
         TaskBank.sharedInstance.addTaskToBank(task: oneTimeTask)
         
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     @IBAction func urgentToggled(_ sender: Any) {
         taskName.resignFirstResponder()
@@ -54,7 +54,7 @@ class AddOneTimeViewController: UITableViewController, UITextFieldDelegate {
         
         if TaskBank.sharedInstance.currentId == 0 && TaskBank.sharedInstance.firstTime == true {
             TaskBank.sharedInstance.firstTime = false
-            let message = "This app is designed to help you proritize important tasks over tasks that are just urgent. This is important because it is in our nature to only focus on what is urgent.\n\nEvery task you enter will have a level of importance to it, but we encourage you to only mark important on those task where your quality of life will suffer if you don’t perform the task."
+            let message = "This app is designed to help you prioritize important tasks over tasks that are just urgent. This is important because it is in our nature to only focus on what is urgent.\n\nEvery task you enter will have a level of importance to it, but we encourage you to only mark important on those task where your quality of life (or someone else's) will suffer if you don’t perform the task."
             let alertController = UIAlertController(title: "One last thing...", message: message, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Got it", style: .cancel, handler: { (action) -> Void in
             })
@@ -69,21 +69,26 @@ class AddOneTimeViewController: UITableViewController, UITextFieldDelegate {
             TaskBank.sharedInstance.reminderDateSet = false
             self.reminderDate = TaskBank.sharedInstance.reminderDate
             self.reminderLabel.text = dateFormatter.string(from: (self.reminderDate?.date)!)
-        } else if reminderDate != nil {
-            self.reminderLabel.text = dateFormatter.string(from: (self.reminderDate?.date)!)
-        } else {
+        } else if reminderDate == nil || TaskBank.sharedInstance.cancelReminder {
+            TaskBank.sharedInstance.cancelReminder = false
             self.reminderLabel.text = "(optional)"
             self.reminderDate = nil
+        } else {
+            self.reminderLabel.text = dateFormatter.string(from: (self.reminderDate?.date)!)
         }
-        
         if TaskBank.sharedInstance.notesSet == true  {
             TaskBank.sharedInstance.notesSet = false
             notes = TaskBank.sharedInstance.notes
+            if notes == ""{
+                notesLabel.text = "Notes"
+            }else {
+                notesLabel.text = notes
+            }
+        } else if notes != nil && notes != "" {
             notesLabel.text = notes
-        } else if notes != nil {
-            notesLabel.text = notes
+        
         } else {
-            if notes == nil {
+            if notes == nil || notes == "" {
                 notesLabel.text = "Notes (optional)"
             } else {
                 notesLabel.text = notes
@@ -113,24 +118,4 @@ class AddOneTimeViewController: UITableViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let currentCharacterCount = textField.text?.characters.count ?? 0
-        if (range.length + range.location > currentCharacterCount){
-            return false
-        }
-        let newLength = currentCharacterCount + string.characters.count - range.length
-        
-        print(UIDevice().type)
-        if UIDevice().type == .iPhone6plus || UIDevice().type == .iPhone6Splus || UIDevice().type == .iPhone7plus {
-            return newLength <= 35
-        } else if UIDevice().type == .iPhone6 || UIDevice().type == .iPhone6S || UIDevice().type == .iPhone7 || UIDevice().type == .simulator {
-            return newLength <= 30
-        } else {
-            return newLength <= 25
-        }
-    }
-    
-
 }

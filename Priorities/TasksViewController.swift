@@ -16,7 +16,6 @@ class TasksViewController: UITableViewController {
     var newDayCounter: Int = 0
     var timeMovedToBackground: Date?
     var clockedIn: Bool = false
-//    var addSecTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(checkForNewDay), userInfo: nil, repeats: true)
     
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
     
@@ -46,7 +45,7 @@ class TasksViewController: UITableViewController {
         self.navigationItem.titleView = imageView
         
         let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.white]
-        self.navigationController?.navigationBar.titleTextAttributes = titleDict as! [String : Any]
+        self.navigationController?.navigationBar.titleTextAttributes = (titleDict as! [String : Any])
         self.navigationController?.navigationBar.tintColor = UIColor.white
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
@@ -61,7 +60,7 @@ class TasksViewController: UITableViewController {
         print ("view did load")
 
         if TaskBank.sharedInstance.currentId == 0 && TaskBank.sharedInstance.firstTime == true {
-            let message = "Every time this app is downloaded a baby angel gets its wings. Good work!\n\nHabit Hero is here to help you spend your time in more meangful ways. To get started go ahead and tap the ➕ in the right corner to add your first task. If you are ever unsure about a screen or how to do something just click the ℹ︎ in the top left corner of any screen for info and instructions."
+            let message = "Habit Hero is here to help you spend your time in more meaningful ways. To get started go ahead and tap the ➕ in the top right corner of the screen to add your first task.\n\nIf you are ever unsure about a screen or how to do something just click the ℹ︎ at the top of any screen for info and instructions."
             let alertController = UIAlertController(title: "Thanks for using Habit Hero!", message: message, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Got it", style: .cancel, handler: { (action) -> Void in
             })
@@ -163,6 +162,7 @@ class TasksViewController: UITableViewController {
                 cell.frequencyLabel.text = "Once"
             }
             if task.type == TaskType.Time {
+                cell.repetitiveSpecificView.isHidden = false
                 cell.currentLabel.text = "Current: " + (task.currentTime?.toStringWithSec())!
                 cell.goalLabel.text = "Goal: " + (task.goalTime?.toStringWithSec())!
                     if task.important == true && task.urgent == true {
@@ -175,6 +175,7 @@ class TasksViewController: UITableViewController {
                         cell.iconButton.setImage(UIImage(named:"Stop Watch yellow"), for: UIControlState.normal)
                     }
             } else if task.type == TaskType.CheckOff {
+                cell.repetitiveSpecificView.isHidden = false
                 cell.currentLabel.text = "Current: " + String(describing: task.currentInt!)
                 cell.goalLabel.text = "Goal: " + String(describing: task.goalInt!)
                     if task.important == true && task.urgent == true {
@@ -189,6 +190,7 @@ class TasksViewController: UITableViewController {
             } else {
                 cell.currentLabel.text = ""
                 cell.goalLabel.text = ""
+                cell.repetitiveSpecificView.isHidden = true
                     if task.important == true && task.urgent == true {
                         cell.iconButton.setImage(UIImage(named:"Checkmark red"), for: UIControlState.normal)
                     } else if task.important == true && task.urgent == false {
@@ -262,9 +264,12 @@ class TasksViewController: UITableViewController {
         self.addSecToAllTimedTasks(seconds: duration)
     }
     
-    func updateTable() {
+    func reloadTableView(_ tableView: UITableView) {
         self.checkTasksForCompletion()
+        let contentOffset = tableView.contentOffset
         tableView.reloadData()
+        tableView.layoutIfNeeded()
+        tableView.setContentOffset(contentOffset, animated: false)
     }
     
     func secondTimer() {
@@ -278,7 +283,7 @@ class TasksViewController: UITableViewController {
             }
             self.newDayCounter = 0
         }
-        self.updateTable()
+        self.reloadTableView(self.tableView)
     }
     
     func checkForNewDay() {
@@ -304,7 +309,6 @@ class TasksViewController: UITableViewController {
                 if task.type == TaskType.Once {
                     if task.currentInt! >= 1 {
                         TaskBank.sharedInstance.moveTaskToCompleted(task: task)
-//                    TaskBank.sharedInstance.removeTaskFromBank(task: task)
                     }
                 } else if task.type == TaskType.CheckOff {
                     if task.currentInt! >= task.goalInt! {
@@ -342,7 +346,7 @@ class TasksViewController: UITableViewController {
                 }
             }
         }
-        self.updateTable()
+        self.reloadTableView(self.tableView)
     }
     
     func selectFunction(sender: UIButton) {
@@ -358,7 +362,7 @@ class TasksViewController: UITableViewController {
                 }
             }
         }
-        self.updateTable()
+        self.reloadTableView(self.tableView)
     }
     
     func updateCompletionAlert(task: Task) {

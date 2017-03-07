@@ -16,6 +16,7 @@ class TaskBank {
     
     var phoneType: Model
     var reminderDate: ReminderDate?
+    var cancelReminder: Bool = false
     var firstTime: Bool = true
     var reminderDateSet: Bool = false
     var goalTimeSet: Bool = false
@@ -223,7 +224,7 @@ class TaskBank {
     
     func updateReminders() {
         self.reminders.removeAll()
-        var count = 0
+//        var count = 0
         for arr in self.taskArrays {
             for task in arr {
                 if task.reminderDate != nil {

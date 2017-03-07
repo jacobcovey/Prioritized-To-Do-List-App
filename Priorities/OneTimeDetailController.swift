@@ -15,6 +15,7 @@ class OneTimeDetailController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var importantSwitch: UISwitch!
     @IBOutlet var reminderLabel: UILabel!
     @IBOutlet var notesLabel: UILabel!
+    @IBOutlet var completedSwitch: UISwitch!
     
     var delete = false
     var task: Task! {
@@ -37,19 +38,22 @@ class OneTimeDetailController: UITableViewController, UITextFieldDelegate {
         
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {(action) -> Void in
             self.delete = true
-            self.navigationController?.popViewController(animated: true)
+           _ = self.navigationController?.popViewController(animated: true)
         })
         alertController.addAction(deleteAction)
         
         present(alertController, animated: true, completion: nil)
     }
     @IBAction func saveAndClose(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     @IBAction func urgentToggle(_ sender: Any) {
         self.view.endEditing(true)
     }
     @IBAction func importantToggle(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    @IBAction func completedToggle(_ sender: Any) {
         self.view.endEditing(true)
     }
 
@@ -69,6 +73,11 @@ class OneTimeDetailController: UITableViewController, UITextFieldDelegate {
         taskName.attributedText = attString
         urgentSwitch.isOn = self.task.urgent
         importantSwitch.isOn = self.task.important
+        if self.task.currentInt == 0 {
+            completedSwitch.isOn = false
+        } else {
+            completedSwitch.isOn = true
+        }
         
         if TaskBank.sharedInstance.reminderDateSet == true {
             TaskBank.sharedInstance.reminderDateSet = false
@@ -84,9 +93,13 @@ class OneTimeDetailController: UITableViewController, UITextFieldDelegate {
         if TaskBank.sharedInstance.notesSet == true {
             TaskBank.sharedInstance.notesSet = false
             task.notes = TaskBank.sharedInstance.notes
-            notesLabel.text = task.notes
+            if task.notes == ""{
+                notesLabel.text = "Notes"
+            }else {
+                notesLabel.text = task.notes
+            }
         } else {
-            if task.notes == nil {
+            if task.notes == nil || task.notes == "" {
                 notesLabel.text = "Notes"
             } else {
                 notesLabel.text = task.notes
@@ -99,6 +112,13 @@ class OneTimeDetailController: UITableViewController, UITextFieldDelegate {
         self.task.title = (taskName.attributedText?.string)!
         self.task.urgent = urgentSwitch.isOn
         self.task.important = importantSwitch.isOn
+        if completedSwitch.isOn {
+            self.task.currentInt = 1
+            self.task.completed = true
+        } else {
+            self.task.currentInt = 0
+            self.task.completed = false
+        }
         if self.delete == false {
             TaskBank.sharedInstance.addTaskToBank(task: self.task)
         }

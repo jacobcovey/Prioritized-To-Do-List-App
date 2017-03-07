@@ -50,7 +50,7 @@ class TimeSelectorViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

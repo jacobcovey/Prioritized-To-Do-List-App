@@ -51,7 +51,7 @@ class CheckOffDetailController: UITableViewController, UITextFieldDelegate {
         
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {(action) -> Void in
             self.delete = true
-            self.navigationController?.popViewController(animated: true)
+            _ = self.navigationController?.popViewController(animated: true)
         })
         alertController.addAction(deleteAction)
         
@@ -59,7 +59,7 @@ class CheckOffDetailController: UITableViewController, UITextFieldDelegate {
     }
     @IBAction func saveAndClose(_ sender: Any) {
         self.view.endEditing(true)
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     @IBAction func currentAdjust(_ sender: UIStepper) {
         self.view.endEditing(true)
