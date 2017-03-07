@@ -17,19 +17,18 @@ class AddTaskTimePickerController: UIViewController, UIPickerViewDataSource, UIP
     var newTime:HourMinSec = HourMinSec(hour: 0, min: 0, sec: 0)
     var componentWidth = [CGFloat]()
     var frequency: Frequency?
-//    var oldTime:HourMinSec!
+    
+    @IBAction func saveButtonClicked(_ sender: Any) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Goal Time"
         
-        //        self.timePicker.selectRow(5, inComponent: 2, animated: false)
         self.loadPickerArrays()
         self.timePicker.dataSource = self
         self.timePicker.delegate = self
-//        self.timePicker.selectRow(0, inComponent: 0, animated: true)
-//        self.timePicker.selectRow(1, inComponent: 2, animated: true)
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,10 +40,7 @@ class AddTaskTimePickerController: UIViewController, UIPickerViewDataSource, UIP
         TaskBank.sharedInstance.goalTime = self.newTime
     }
 
-    @IBAction func saveButtonClicked(_ sender: Any) {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
-    
+
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         if self.componentWidth.isEmpty {
             if UIDevice().type == .iPhone6plus || UIDevice().type == .iPhone6Splus || UIDevice().type == .iPhone7plus {
@@ -75,14 +71,11 @@ class AddTaskTimePickerController: UIViewController, UIPickerViewDataSource, UIP
         return String(timePickerData[component][row])
     }
     
-    
-    
     func loadPickerArrays() {
         var hourPicker = [String]()
         var minPicker = [String]()
         var colonArr = [String]()
         var minArr = [String]()
-//        var freqArr = [String]()
         for i in 0...999 {
             hourPicker.append(String(i))
         }
@@ -113,23 +106,5 @@ class AddTaskTimePickerController: UIViewController, UIPickerViewDataSource, UIP
             }
         }
         timePickerData.append(minArr)
-//        if frequency == Frequency.Daily {
-//            freqArr.append("/day")
-//        } else if frequency == Frequency.Weekly {
-//            if UIDevice().type == .iPhone5 || UIDevice().type == .iPhone5C || UIDevice().type == .iPhone5S || UIDevice().type == .iPhoneSE {
-//                    freqArr.append("/week")
-//            } else {
-//            freqArr.append("/week")
-//            }
-//        } else if frequency == Frequency.Monthly {
-//            if UIDevice().type == .iPhone5 || UIDevice().type == .iPhone5C || UIDevice().type == .iPhone5S || UIDevice().type == .iPhoneSE {
-//                freqArr.append("/mon")
-//            } else {
-//            freqArr.append("/month")
-//            }
-//        }
-//        timePickerData.append(freqArr)
-        
     }
-    
 }

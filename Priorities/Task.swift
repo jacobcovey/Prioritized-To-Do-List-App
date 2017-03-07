@@ -33,7 +33,6 @@ class Task: NSObject, NSCoding {
     var type: TaskType
     var goalTime: HourMinSec?
     var currentTime: HourMinSec?
-//    var autoClockOut: HourMinSec?
     var clockedIn: Bool?
     var goalInt: Int?
     var currentInt: Int?
@@ -67,8 +66,7 @@ class Task: NSObject, NSCoding {
         } else {// either checkOff or once
             currentInt = 0
         }
-//        self.autoClockOut = autoClockOut
-        // Check for partial first
+        // Check for partial first. Partial first not currently in use 3/7/2017
         if type == .CheckOff && goalInt == 1 {
             self.partialFisrt = false
         } else {
@@ -184,9 +182,6 @@ class Task: NSObject, NSCoding {
     
     func secondsCurrentLessThanGoal() -> Int {
         let diff = (self.goalTime?.getTotalSeconds())! - (self.currentTime?.getTotalSeconds())!
-//        diff += ((self.goalTime?.hour)! - (self.currentTime?.hour)!) * 3600
-//        diff += ((self.goalTime?.min)! - (self.currentTime?.min)!) * 60
-//        diff += (self.goalTime?.sec)! - (self.currentTime?.sec)!
         return diff
     }
     
@@ -230,8 +225,6 @@ class Task: NSObject, NSCoding {
         }
         return DayMonthYear(day: Int(day)!, month: month, year: Int(year)!)
     }
-    
-    
 }
 
 func ==(lhs: Task, rhs: Task) -> Bool {

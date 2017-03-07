@@ -28,11 +28,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Priorities/TasksViewController.swift"
-            timestampString = "510595604.297342"
+            timestampString = "510616931.740234"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417">
+            startingLineNumber = "419"
+            endingLineNumber = "419">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,27 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Priorities/TaskBank.swift"
-            timestampString = "510506252.191336"
+            timestampString = "510611902.292704"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "addTaskToBank(task:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Priorities/TaskBank.swift"
-            timestampString = "510507981.204802"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "moveTaskToCompleted(task:)"
             landmarkType = "7">
          </BreakpointContent>

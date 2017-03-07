@@ -27,9 +27,6 @@ class TimeSelectorViewController: UIViewController, UIPickerViewDataSource, UIPi
             navigationItem.title = "Select Goal Time"
             self.oldTime = self.task.goalTime
         }
-        
-
-//        self.timePicker.selectRow(5, inComponent: 2, animated: false)
         self.loadPickerArrays()
         self.timePicker.dataSource = self
         self.timePicker.delegate = self
@@ -37,6 +34,10 @@ class TimeSelectorViewController: UIViewController, UIPickerViewDataSource, UIPi
         self.timePicker.selectRow(oldTime.min, inComponent: 2, animated: true)
     }
     
+    @IBAction func saveButtonClicked(_ sender: Any) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -47,10 +48,6 @@ class TimeSelectorViewController: UIViewController, UIPickerViewDataSource, UIPi
         } else {
             self.task.goalTime = self.newTime
         }
-    }
-    
-    @IBAction func saveButtonClicked(_ sender: Any) {
-        _ = self.navigationController?.popViewController(animated: true)
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -82,7 +79,5 @@ class TimeSelectorViewController: UIViewController, UIPickerViewDataSource, UIPi
         timePickerData.append(minPicker)
         minArr.append("min")
         timePickerData.append(minArr)
-        
     }
-    
 }

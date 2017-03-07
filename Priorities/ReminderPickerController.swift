@@ -54,6 +54,7 @@ class ReminderPickerController: UIViewController, UIPickerViewDataSource, UIPick
         _ = self.navigationController?.popViewController(animated: true)
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TaskBank.sharedInstance.deleteReminder = false
@@ -68,8 +69,6 @@ class ReminderPickerController: UIViewController, UIPickerViewDataSource, UIPick
         }
         self.repetitivePicker.selectRow(7, inComponent: 1, animated: true)
     }
-    
-
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -192,6 +191,7 @@ class ReminderPickerController: UIViewController, UIPickerViewDataSource, UIPick
         pickerData.append(amPmPicker)
     }
 }
+
 extension Date
 {
     

@@ -13,16 +13,12 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var taskName: UITextField!
     @IBOutlet var urgentSwitch: UISwitch!
     @IBOutlet var importantSwitch: UISwitch!
-
-    
     @IBOutlet var frequencySegControl: UISegmentedControl!
     @IBOutlet var goalTypeSegControl: UISegmentedControl!
-    
     @IBOutlet var goalLabel: UILabel!
     @IBOutlet var reminderLabel: UILabel!
     
     var reminderDate: ReminderDate?
-    
     var name: String = ""
     var isUrgent: Bool = false
     var isImportant: Bool = false
@@ -32,6 +28,12 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
     var type:TaskType = .Time
     var goalInt: Int = 0
     var goalTime:HourMinSec = HourMinSec(hour: 0, min: 0, sec: 0)
+    
+    let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter
+    }()
     
     @IBAction func frequencySegAction(_ sender: Any) {
         switch frequencySegControl.selectedSegmentIndex {
@@ -74,6 +76,7 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func importantToggle(_ sender: Any) {
         taskName.resignFirstResponder()
     }
+    
     @IBAction func createTask(_ sender: Any) {
         name = taskName.text ?? ""
         isUrgent = urgentSwitch.isOn
@@ -108,12 +111,6 @@ class AddRepetitiveViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 
-    let timeFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "h:mm a"
-        return formatter
-    }()
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

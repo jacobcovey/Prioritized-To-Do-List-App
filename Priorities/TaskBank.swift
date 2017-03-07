@@ -224,7 +224,6 @@ class TaskBank {
     
     func updateReminders() {
         self.reminders.removeAll()
-//        var count = 0
         for arr in self.taskArrays {
             for task in arr {
                 if task.reminderDate != nil {

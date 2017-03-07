@@ -34,12 +34,4 @@ class TaskCell: UITableViewCell {
         goalLabel.adjustsFontForContentSizeCategory = true
         iconButton.adjustsImageWhenDisabled = true
     }
-    @IBAction func iconClicked(_ sender: Any) {
-//        let task = TaskBank.sharedInstance.allTasks[iconButton.tag]
-//        if task.type == TaskType.Time {
-//            task.switchClocked()
-//        } else {
-//            task.currentInt = task.currentInt! + 1
-//        }
-    }
 }

@@ -13,6 +13,10 @@ class NotesViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var textField: UITextView!
     var notes: String?
     
+    @IBAction func tap(_ sender: Any) {
+        textField.resignFirstResponder()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Notes"
@@ -39,8 +43,5 @@ class NotesViewController: UIViewController, UITextViewDelegate {
     func textFieldShouldReturn(_ textView: UITextView) -> Bool {
         self.view.endEditing(true)
         return false
-    }
-    @IBAction func tap(_ sender: Any) {
-        textField.resignFirstResponder()
     }
 }

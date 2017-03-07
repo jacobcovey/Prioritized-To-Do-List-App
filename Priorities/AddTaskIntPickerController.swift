@@ -10,20 +10,21 @@ import UIKit
 
 class AddTaskIntPickerController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    
-
-    
     @IBOutlet var intPicker: UIPickerView!
+    
     var intPickerData = [[String]]()
     var newGoal: Int = 0
     var frequency: Frequency?
     var componentWidth = [CGFloat]()
     
+    @IBAction func saveButtonClicked(_ sender: Any) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Goal"
-        
-        //        self.timePicker.selectRow(5, inComponent: 2, animated: false)
+
         self.loadPickerArrays()
         self.intPicker.dataSource = self
         self.intPicker.delegate = self
@@ -38,15 +39,7 @@ class AddTaskIntPickerController: UIViewController, UIPickerViewDataSource, UIPi
         TaskBank.sharedInstance.goalIntSet = true
         TaskBank.sharedInstance.goalInt = self.newGoal
     }
-    
-    @IBAction func saveButtonClicked(_ sender: Any) {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
-//    @IBAction func saveButtonClicked(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
-//    }
-    
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }

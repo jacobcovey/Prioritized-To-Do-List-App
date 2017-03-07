@@ -488,9 +488,6 @@
                                                                 <constraint firstAttribute="height" constant="32" id="mIq-og-TX2"/>
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
-                                                            <connections>
-                                                                <action selector="iconClicked:" destination="oJB-lo-NZp" eventType="touchUpInside" id="C9N-X9-EWh"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -536,7 +533,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="jFI-Gg-QM0">
-                        <barButtonItem key="leftBarButtonItem" image="Info white" style="plain" id="YvI-QM-dSQ">
+                        <barButtonItem key="leftBarButtonItem" image="Info white" style="done" id="YvI-QM-dSQ">
                             <color key="tintColor" red="0.96078431369999995" green="0.95686274510000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="bGg-5M-olc" kind="show" id="feX-jV-JSH"/>
@@ -672,6 +669,10 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Frequency: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPS-K4-5lg">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="320" id="Fzo-ci-js3"/>
+                                                    <constraint firstAttribute="height" constant="20.5" id="bZ0-f2-iPH"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -736,6 +737,11 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gab-Co-5Vo" secondAttribute="trailing" id="2QX-Fh-ZSK"/>
+                                    <constraint firstItem="gab-Co-5Vo" firstAttribute="leading" secondItem="zRB-h2-w5Y" secondAttribute="leading" id="F0R-gC-Vy1"/>
+                                    <constraint firstItem="gab-Co-5Vo" firstAttribute="top" secondItem="zRB-h2-w5Y" secondAttribute="top" id="Jmj-2W-tU3"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

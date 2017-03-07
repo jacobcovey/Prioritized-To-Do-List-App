@@ -18,14 +18,20 @@ class OneTimeDetailController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var completedSwitch: UISwitch!
     
     var delete = false
+    var name: String = ""
+    var isUrgent: Bool = false
+    var isImportant: Bool = false
     var task: Task! {
         didSet {
             name = task.title
         }
     }
-    var name: String = ""
-    var isUrgent: Bool = false
-    var isImportant: Bool = false
+    
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM, d h:mm a"
+        return formatter
+    }()
     
     @IBAction func deleteTask(_ sender: Any) {
         self.view.endEditing(true)
@@ -44,6 +50,7 @@ class OneTimeDetailController: UITableViewController, UITextFieldDelegate {
         
         present(alertController, animated: true, completion: nil)
     }
+    
     @IBAction func saveAndClose(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
     }
@@ -56,16 +63,9 @@ class OneTimeDetailController: UITableViewController, UITextFieldDelegate {
     @IBAction func completedToggle(_ sender: Any) {
         self.view.endEditing(true)
     }
-
-    let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM, d h:mm a"
-        return formatter
-    }()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.tableView.contentInset = UIEdgeInsetsMake(-24, 0, 0, 0)
         TaskBank.sharedInstance.updateReminders()
         self.taskName.delegate = self
         navigationItem.title = "Task Details"
@@ -106,6 +106,7 @@ class OneTimeDetailController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         TaskBank.sharedInstance.removeTaskFromBank(task: self.task)
@@ -123,12 +124,12 @@ class OneTimeDetailController: UITableViewController, UITextFieldDelegate {
             TaskBank.sharedInstance.addTaskToBank(task: self.task)
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "reminder"?:
             let reminderPickerController = segue.destination as! ReminderPickerController
             reminderPickerController.repeate = false
-//            reminderPickerController.frequency = self.task.frequency
             break
         case "addNotes"?:
             let notesViewController = segue.destination as! NotesViewController

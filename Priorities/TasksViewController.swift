@@ -144,8 +144,10 @@ class TasksViewController: UITableViewController {
                 let length = task.title.characters.count
                 let spacesCount = 37 - length
                 var spaces = ""
-                for _ in 1...spacesCount {
-                    spaces += " "
+                if spacesCount > 0 {
+                    for _ in 1...spacesCount {
+                        spaces += " "
+                    }
                 }
                 cell.nameLabel.text = task.title + spaces
             } else {

@@ -13,14 +13,12 @@ class ReminderDate: NSObject, NSCoding {
     var frequency: Frequency
     var weekday: Int?
     var date: Date
-//    var reminderSet: Bool
     
     init(date: Date, frequency: Frequency, type: TaskType, weekday: Int?){
         self.date = date
         self.type = type
         self.frequency = frequency
         self.weekday = weekday
-//        self.reminderSet = reminderSet
     }
     
     required init?(coder aDecoder: NSCoder) {

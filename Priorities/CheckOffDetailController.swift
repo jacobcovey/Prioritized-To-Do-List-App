@@ -14,7 +14,6 @@ class CheckOffDetailController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var urgentSwitch: UISwitch!
     @IBOutlet var importantSwitch: UISwitch!
     @IBOutlet var frequencySegControl: UISegmentedControl!
-    
     @IBOutlet var currentIntLabel: UILabel!
     @IBOutlet var goalIntLabel: UILabel!
     @IBOutlet var currentIntStepper: UIStepper!
@@ -22,14 +21,20 @@ class CheckOffDetailController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var reminderLabel: UILabel!
     
     var delete = false
+    var name: String = ""
+    var isUrgent: Bool = false
+    var isImportant: Bool = false
     var task: Task! {
         didSet {
             name = task.title
         }
     }
-    var name: String = ""
-    var isUrgent: Bool = false
-    var isImportant: Bool = false
+    
+    let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter
+    }()
     
     @IBAction func urgentToggle(_ sender: Any) {
         self.view.endEditing(true)
@@ -40,6 +45,7 @@ class CheckOffDetailController: UITableViewController, UITextFieldDelegate {
     @IBAction func changeSegControl(_ sender: Any) {
         self.view.endEditing(true)
     }
+    
     @IBAction func deleteTask(_ sender: Any) {
         self.view.endEditing(true)
         let title = "Delete \(self.task.title)?"
@@ -57,14 +63,17 @@ class CheckOffDetailController: UITableViewController, UITextFieldDelegate {
         
         present(alertController, animated: true, completion: nil)
     }
+    
     @IBAction func saveAndClose(_ sender: Any) {
         self.view.endEditing(true)
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func currentAdjust(_ sender: UIStepper) {
         self.view.endEditing(true)
         currentIntLabel.text = Int(sender.value).description
     }
+    
     @IBAction func gaolAdjust(_ sender: UIStepper) {
         self.view.endEditing(true)
         goalIntLabel.text = Int(sender.value).description
@@ -104,6 +113,7 @@ class CheckOffDetailController: UITableViewController, UITextFieldDelegate {
             task.reminderDate = nil
         }
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         TaskBank.sharedInstance.removeTaskFromBank(task: self.task)
@@ -123,6 +133,7 @@ class CheckOffDetailController: UITableViewController, UITextFieldDelegate {
             TaskBank.sharedInstance.addTaskToBank(task: self.task)
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "reminder"?:
@@ -156,17 +167,11 @@ class CheckOffDetailController: UITableViewController, UITextFieldDelegate {
                 return "Monthly, " + day1 + " " + hourMin
             }
         }
-        return "n/a"
+        return "none"
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-    
-    let timeFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "h:mm a"
-        return formatter
-    }()
-    
 }

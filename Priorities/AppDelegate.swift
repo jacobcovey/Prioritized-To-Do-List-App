@@ -13,15 +13,11 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-//    let taskBank = TaskBank()
     let taskBank = TaskBank.sharedInstance
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-//        let taskBank = TaskBank()
-        
         let navController = window!.rootViewController as! UINavigationController
         let taskController = navController.topViewController as! TasksViewController
         taskController.taskBank = taskBank
@@ -31,9 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Notification access denied.")
             }
         }
-        
-//        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
-        
         return true
     }
     
@@ -44,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var trigger: UNCalendarNotificationTrigger
             if reminder.reminderDate.frequency == .Once {
                 let components = calendar.dateComponents(in: .current, from: reminder.reminderDate.date)
-                let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
+                let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
                 
                trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
             } else if reminder.reminderDate.frequency == .Daily {
@@ -58,16 +51,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let newComponents = DateComponents(calendar: calendar, timeZone: .current, hour: components.hour, minute: components.minute, weekday: components.weekday)
                 
                 trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
-//                let nextTrigger = trigger.nextTriggerDate()
-//                var trash = 0
             } else {
                 var components = calendar.dateComponents(in: .current, from: reminder.reminderDate.date)
                 components.day = reminder.reminderDate.weekday
                 let newComponents = DateComponents(calendar: calendar, timeZone: .current, day: components.day, hour: components.hour, minute: components.minute)
                 
                 trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
-//                let nextTrigger = trigger.nextTriggerDate()
-//                var trash = 0
             }
             let content = UNMutableNotificationContent()
             content.title = reminder.title

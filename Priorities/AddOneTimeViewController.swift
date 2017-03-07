@@ -24,7 +24,11 @@ class AddOneTimeViewController: UITableViewController, UITextFieldDelegate {
     var isImportant: Bool = false
     var notes: String?
     
-    
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, h:mm a"
+        return formatter
+    }()
     
     @IBAction func saveAndQuit(_ sender: Any) {
         name = taskName.text ?? ""
@@ -42,12 +46,7 @@ class AddOneTimeViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func importantToggled(_ sender: Any) {
         taskName.resignFirstResponder()
     }
-    let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, h:mm a"
-        return formatter
-    }()
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.contentInset = UIEdgeInsetsMake(-24, 0, 0, 0)

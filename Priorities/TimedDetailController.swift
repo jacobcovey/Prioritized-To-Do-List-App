@@ -19,14 +19,20 @@ class TimedDetailController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var goalTimedLabel: UILabel!
     @IBOutlet var reminderLabel: UILabel!
     var delete = false
+    var name: String = ""
+    var isUrgent: Bool = false
+    var isImportant: Bool = false
     var task: Task! {
         didSet {
             name = task.title
         }
     }
-    var name: String = ""
-    var isUrgent: Bool = false
-    var isImportant: Bool = false
+    
+    let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter
+    }()
     
     @IBAction func urgentToggle(_ sender: Any) {
         self.view.endEditing(true)
@@ -37,6 +43,7 @@ class TimedDetailController: UITableViewController, UITextFieldDelegate {
     @IBAction func changeSegControl(_ sender: Any) {
         self.view.endEditing(true)
     }
+    
     @IBAction func deleteTask(_ sender: Any) {
         self.view.endEditing(true)
         let title = "Delete \(self.task.title)?"
@@ -54,6 +61,7 @@ class TimedDetailController: UITableViewController, UITextFieldDelegate {
         
         present(alertController, animated: true, completion: nil)
     }
+    
     @IBAction func saveAndClose(_ sender: Any) {
         self.view.endEditing(true)
         _ = self.navigationController?.popViewController(animated: true)
@@ -87,10 +95,11 @@ class TimedDetailController: UITableViewController, UITextFieldDelegate {
         } else if task.reminderDate != nil && TaskBank.sharedInstance.deleteReminder == false {
             self.reminderLabel.text = reptitiveReminderString()
         } else {
-            self.reminderLabel.text = "n/a"
+            self.reminderLabel.text = "none"
             task.reminderDate = nil
         }
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         TaskBank.sharedInstance.removeTaskFromBank(task: self.task)
@@ -108,6 +117,7 @@ class TimedDetailController: UITableViewController, UITextFieldDelegate {
             TaskBank.sharedInstance.addTaskToBank(task: self.task)
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "showCurrentTime"?:
@@ -127,12 +137,6 @@ class TimedDetailController: UITableViewController, UITextFieldDelegate {
             break
         }
     }
-    
-    let timeFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "h:mm a"
-        return formatter
-    }()
     
     func reptitiveReminderString() -> String {
         let hourMin = timeFormatter.string(from: (self.task.reminderDate?.date)!)
@@ -157,6 +161,7 @@ class TimedDetailController: UITableViewController, UITextFieldDelegate {
         }
         return "n/a"
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
