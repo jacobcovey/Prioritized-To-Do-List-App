@@ -216,7 +216,9 @@ class TaskBank {
             let title = "Task Reminder"
 
             let reminder = Reminder(reminderDate: task.reminderDate!, title: title, message: message, id: String(task.taskId))
-            TaskBank.sharedInstance.reminders.append(reminder)
+//            TaskBank.sharedInstance.reminders.append(reminder)
+            self.reminders.append(reminder)
+            
             let delegate = UIApplication.shared.delegate as? AppDelegate
             delegate?.updateScheduledNotification()
         }

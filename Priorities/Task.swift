@@ -226,7 +226,3 @@ class Task: NSObject, NSCoding {
         return DayMonthYear(day: Int(day)!, month: month, year: Int(year)!)
     }
 }
-
-func ==(lhs: Task, rhs: Task) -> Bool {
-    return lhs.taskId == rhs.taskId
-}

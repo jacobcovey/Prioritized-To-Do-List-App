@@ -261,7 +261,10 @@ class TasksViewController: UITableViewController {
         }
         TaskBank.sharedInstance.setTasksLastUpdated()
         
-        let elapsed = Date().timeIntervalSince(self.timeMovedToBackground!)
+        var elapsed: Double = 0.0;
+        if (self.timeMovedToBackground != nil) {
+        elapsed = Date().timeIntervalSince(self.timeMovedToBackground!)
+        }
         let duration = Int(elapsed)
         self.addSecToAllTimedTasks(seconds: duration)
     }
